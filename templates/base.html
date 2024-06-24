@@ -58,6 +58,11 @@
                         <a class="nav-link" href="#">snacks <span class="sr-only">(current)</span></a>
                       </li>
                       {% if request.user.is_authenticated%}
+                        {% if request.user.is_superuser %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
+                            </li>
+                        {% endif %}
                       <li class="nav-item active">
                         <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
                       </li>
@@ -79,8 +84,18 @@
                 </div>
               </nav>
           </nav>
-        
     </header>
+    <main>
+        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+            <div class="text-center">
+                <div><i class="fa-solid fa-basket-shopping"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                        ${{ grand_total | floatformat:2 }}
+                    {% else %}
+                        0.00 $
+                    {% endif %}
+    </main>
 
     {% if messages %}
 
