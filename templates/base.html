@@ -57,9 +57,20 @@
                       <li class="nav-item active">
                         <a class="nav-link" href="#">snacks <span class="sr-only">(current)</span></a>
                       </li>
+                      {% if request.user.is_authenticated%}
                       <li class="nav-item active">
-                        <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
                       </li>
+                      {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                              Register/Login
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
+                          </li>
+                      {% endif %}
                   </ul>
                   <form class="form-inline my-2 my-lg-0" method="GET" action="">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
