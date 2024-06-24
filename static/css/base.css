@@ -3,7 +3,10 @@ html{
 }
 
 body {
-    background: url('/media/pexels-premsinghtanwar.jpg')
+    background: url('/media/pexels-bluerhinomedia-2789328.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
