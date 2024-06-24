@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     {% endblock %}
 
     {% block extra_mate %}
@@ -31,12 +32,43 @@
     {% block extra_js %}
     {% endblock %}
 
+    <!--The Icon page-->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+    <!-- Font Awesome CSS -->
+    <script src="https://kit.fontawesome.com/5ed6547b6c.js" crossorigin="anonymous"></script>
+
     <title>Getränke</title>
   </head>
 
   <body>
     <header>
-
+        <!-- Navbar content -->
+            <nav class='navbar navbar-expand-lg navbar-light' style='background-color: #8ec3e9;'>
+              <h3 class="my-2"> Getränke </h3>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Drinks <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#">snacks <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
+                      </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0" method="GET" action="">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                    <button class="btn btn-outline-info my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+          </nav>
+        
     </header>
 
     {% if messages %}
