@@ -15,3 +15,10 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+/* base page*/
+.order_you_drink{
+    background-color: rgba(3, 3, 3, 0.5);
+    max-width: 100%;
+    text-align: center;
+}

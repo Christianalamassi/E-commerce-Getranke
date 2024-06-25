@@ -1,7 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     {% block mate %}
     <!-- Required meta tags -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -41,65 +41,65 @@
     <script src="https://kit.fontawesome.com/5ed6547b6c.js" crossorigin="anonymous"></script>
 
     <title>Getränke</title>
-  </head>
+</head>
 
-  <body>
-    <header>
-        <!-- Navbar content -->
-            <nav class='navbar navbar-expand-lg navbar-light' style='background-color: #8ec3e9;'>
-              <h3 class="my-2"> Getränke </h3>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Order Here
-                      </a>
+<body>
+  <header>
+    <!-- Navbar content -->
+    <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #8ec3e9;'>
+      <h3 class="my-2"> Getränke </h3>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Order Here <span class="sr-only">(current)</span></a>
+        </li>
+              {% if request.user.is_authenticated%}
+                {% if request.user.is_superuser %}
+                  <li class="nav-item active">
+                    <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
+                  </li>
+                {% endif %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
+                </li>
+              {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Register/Login</a>
                       <div class="dropdown-menu">
-                        <a class="nav-link" href="#">Drinks <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="#">snacks <span class="sr-only">(current)</span></a>
-                    </li>
-                      {% if request.user.is_authenticated%}
-                        {% if request.user.is_superuser %}
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
-                            </li>
-                        {% endif %}
-                      <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
-                      </li>
-                      {% else %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                              Register/Login
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
-                                <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
-                          </li>
-                      {% endif %}
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0" method="GET" action="">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-          </nav>
-    </header>
-    <main>
-        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-            <div class="text-center">
-                <div><i class="fa-solid fa-basket-shopping"></i></div>
-                <p class="my-0">
-                    {% if grand_total %}
-                        ${{ grand_total | floatformat:2 }}
-                    {% else %}
-                        0.00 $
-                    {% endif %}
-    </main>
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
+                  </li>
+              {% endif %}
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="GET" action="">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+              <button class="btn btn-outline-warning my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
+            </form>
+          </div>
+      </nav>
+  </header>
+  <main>
+    <div class="text-white order_you_drink">
+      <h3>Order Your Drink Now</h3>                        
+    </div>  
+    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+      <div class="text-center">
+      <div><i class="fa-solid fa-basket-shopping"></i></div>
+      <p class="my-0">
+      {% if grand_total %}
+        ${{ grand_total | floatformat:2 }}
+      {% else %}
+        0.00 $
+      {% endif %}
+    </a>
+  </main>
 
     {% if messages %}
 
@@ -114,8 +114,37 @@
     {% block postloadjs %}
     {% endblock %}
 
-    <footer>
+  <footer style='background-color: #8ec3e9;'>
+      <p>Phone of the office A : 000 000 000</p>
+      <p>Phone of the office B : 999 999 999</p>
+      <p>Phone of the office C : 888 888 888</p>
 
-    </footer>
+        <!--social-media section-->
+        <ul class="list-inline social-links">
+          <li class="list-inline-item">
+              <a class="social_media" target="_blank" href="https://www.facebook.com/">
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="list-inline-item">
+              <a class="social_media" target="_blank" href="https://x.com/?lang=en">
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="list-inline-item">
+              <a class="social_media" target="_blank" href="https://www.youtube.com/">
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+          </li>
+
+          <li class="list-inline-item">
+              <a class="social_media" target="_blank" href="https://www.instagram.com/">
+                  <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
+              </a>
+          </li>
+      </ul>
+  </div>
+</div>
+  </footer>
   </body>
 </html>
