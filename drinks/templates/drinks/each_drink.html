@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="lay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <strong class="logo-font">{{ drink.name }}</strong>
+                <hr>
+                {% if drink.rating %}
+                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }}</small>
+                {% else %}
+                    <small class="text-muted">None</small>
+                {% endif %}
+                <hr>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <div class="card-body pb-0">
+                <a href="{{drink.image.url}}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
+                </a>
+            </div>
+            <div class="card-footer bg-white pt-0 border-0 text-left">
+                <div class="row">
+                    <div class="col" style="text-align: center;">
+                        <p class="lead mb-0 font-weight-bold">${{ drink.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+{% endblock %}

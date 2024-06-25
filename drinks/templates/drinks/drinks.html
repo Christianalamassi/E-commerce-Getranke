@@ -26,7 +26,7 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 <div class="card-body pb-0">
-                                <a href="">
+                                <a href="{% url 'each_drink' drink.id %}">
                                     <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
                                 </a>
                                 </div>
@@ -38,9 +38,9 @@
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">${{ drink.price }}</p>
                                             {% if drink.rating %}
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }} / 5</small>
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }}</small>
                                             {% else %}
-                                                <small class="text-muted">No Rating</small>
+                                                <small class="text-muted">None</small>
                                             {% endif %}
                                         </div>
                                     </div>
