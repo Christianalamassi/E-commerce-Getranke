@@ -13,10 +13,23 @@
     <div class="lay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">Drinks</h2>
-                <hr class="w-50 mb-1">
+            <div class="col text-left mt-2">
+                <h2 class="logo-font"><strong>Drinks<strong></strong></h2>
+                <!-- Default dropleft button -->
             </div>
+            <div class="col text-right mt-2">
+                <button class="logo-font nav-link text-black mr-5 dropdown-toggle" href="" id="all-drinks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sorting
+                </button>
+                <div class="dropdown-menu border-0"" aria-labelledby="all-products-link">
+                    <!-- Dropdown menu links -->
+                    <a href="{% url 'drinks' %}?sort=price&direction=ascending" class="dropdown-item">Low price</a>
+                    <a href="{% url 'drinks' %}?sort=price&direction=descending" class="dropdown-item">High Price</a>
+                    <a href ="{% url 'drinks' %}?sort=rating&direction=descending" class="dropdown-item">By Rating</a>
+                    <a href="{% url 'drinks' %}" class="dropdown-item">All Drinks</a>
+                </div>
+            </div>
+            <hr class="w-50 mb-1">
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
