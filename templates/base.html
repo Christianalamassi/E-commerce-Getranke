@@ -78,7 +78,7 @@
                   </li>
               {% endif %}
             </ul>
-            <form class="form-inline my-2 my-lg-0" method="GET" action="">
+            <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
               <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-outline-warning my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
             </form>
@@ -86,19 +86,19 @@
       </nav>
   </header>
   <main>
-    <div class="text-white order_you_drink">
-      <h3>Order Your Drink Now</h3>                        
-    </div>  
-    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-      <div class="text-center">
-      <div><i class="fa-solid fa-basket-shopping"></i></div>
-      <p class="my-0">
-      {% if grand_total %}
-        ${{ grand_total | floatformat:2 }}
-      {% else %}
-        0.00 $
-      {% endif %}
-    </a>
+    {% if request.user.is_authenticated %}
+      <div id="order_you_drink" class="text-white text-center">
+        <strong>Your Order </strong>
+        {% if grand_total %}
+          ${{ grand_total | floatformat:2 }}
+        {% else %}
+          0.00 $
+        {% endif %}
+        <a href="">
+          <i class="fa-solid fa-basket-shopping"> </i>
+        </a>
+      </div>
+    {% endif %}
   </main>
 
     {% if messages %}
@@ -144,8 +144,6 @@
               </a>
           </li>
       </ul>
-  </div>
-</div>
   </footer>
   </body>
 </html>
