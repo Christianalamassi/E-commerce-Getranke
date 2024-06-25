@@ -35,12 +35,12 @@ def drinks(request):
                     sortkey = f'-{sortkey}'
             drinks = drinks.order_by(sortkey)
 
-    storing_by = f'{sort}_{way}'
+    sorting_by = f'{sort}_{way}'
 
     context = {
         'drinks': drinks,
         'query':query,
-        'storing_by':storing_by,
+        'sorting_by':sorting_by,
     }
     return render(request, "drinks/drinks.html", context)
 

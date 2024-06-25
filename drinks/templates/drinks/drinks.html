@@ -18,16 +18,15 @@
                 <!-- Default dropleft button -->
             </div>
             <div class="col text-right mt-2">
-                <button class="logo-font nav-link text-black mr-5 dropdown-toggle" href="" id="all-drinks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sorting
-                </button>
-                <div class="dropdown-menu border-0"" aria-labelledby="all-products-link">
-                    <!-- Dropdown menu links -->
-                    <a href="{% url 'drinks' %}?sort=price&direction=ascending" class="dropdown-item">Low price</a>
-                    <a href="{% url 'drinks' %}?sort=price&direction=descending" class="dropdown-item">High Price</a>
-                    <a href ="{% url 'drinks' %}?sort=rating&direction=descending" class="dropdown-item">By Rating</a>
-                    <a href="{% url 'drinks' %}" class="dropdown-item">All Drinks</a>
-                </div>
+                <select class="logo-font nav-link text-black mr-5 dropdown-toggle" href="" id="all_drinks" >
+                    <div class="dropdown-menu border-0"" aria-labelledby="all-products-link">
+                        <!-- Dropdown menu links -->
+                        <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort by</option>
+                        <option value="price_ascending" {% if sorting_by == 'price_ascending' %}selected{% endif %}>Price Low-High</option>
+                        <option value="price_descending" {% if sorting_by == 'price_descending' %}selected{% endif %}>Price High-Low</a>
+                        <option value="rating_descending" {% if sorting_by == 'rating_descending' %}selected{% endif %}>By Rating</a></option>
+                    </div>
+            </select>
             </div>
             <hr class="w-50 mb-1">
         </div>
@@ -85,4 +84,36 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#all_drinks').change(function() {
+            var selector = $(this);
+            var path = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                path.searchParams.set("sort", sort);
+                path.searchParams.set("direction", direction);
+
+                window.location.replace(path);
+            } else {
+                path.searchParams.delete("sort");
+                path.searchParams.delete("direction");
+
+                window.location.replace(path);
+            }
+        })
+    </script>
 {% endblock %}
