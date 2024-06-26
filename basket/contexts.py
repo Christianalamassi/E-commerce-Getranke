@@ -16,7 +16,7 @@ def your_order(request):
         number_of_drinks += quantity
         basket_order.append({
             'basket_id': basket_id,
-            'quantity': quantity,
+            'quantity': int(quantity),
             'drink': drink
             })
 

@@ -67,6 +67,20 @@ footer{
 	z-index: -1;
 }
 
+/* basket page */
+
+#bag_full_view{
+    margin-top:10vh;
+    margin-bottom: 10vh;
+}
+.bag_view{
+    text-align: center;
+    margin-top:30px;
+}
+
+ul > li { 
+    list-style-type: none;
+}
 
 @media (max-width: 1550px) {
 }
