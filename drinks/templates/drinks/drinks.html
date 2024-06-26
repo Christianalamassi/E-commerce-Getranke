@@ -19,7 +19,7 @@
             </div>
             <div class="col text-right mt-2">
                 <select class="logo-font nav-link text-black mr-5 dropdown-toggle" href="" id="all_drinks" >
-                    <div class="dropdown-menu border-0"" aria-labelledby="all-products-link">
+                    <div class="dropdown-menu border-0"" aria-labelledby="all-drinks-link">
                         <!-- Dropdown menu links -->
                         <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort by</option>
                         <option value="price_ascending" {% if sorting_by == 'price_ascending' %}selected{% endif %}>Price Low-High</option>
@@ -31,7 +31,7 @@
             <hr class="w-50 mb-1">
         </div>
         <div class="row">
-            <div class="product-container col-10 offset-1">
+            <div class="drinks-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                     {% for drink in drinks %}
@@ -43,7 +43,7 @@
                                 </a>
                                 </div>
                                 <div class="card-body pb-0">
-                                    <p class="mb-0">{{ drink.name }}</p>
+                                    <p class="mb-0">{{ drink.name }} ({{ drink.alcohol }})</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">

@@ -1,14 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
 from django.contrib import messages
 from django.db.models import Q
+from .models import Drink, Alcohol
 
 # Create your views here.
 
 def drinks(request):
     """ A view to show all kind of drinks, including sorting and search queries """
     
-    drinks = Product.objects.all()
+    drinks = Drink.objects.all()
     query = None
     sort = None
     way = None
@@ -48,7 +48,7 @@ def drinks(request):
 def each_drink(request, drink_id):
     """ A view to show each drink's details individual """
 
-    drink = get_object_or_404(Product, pk=drink_id)
+    drink = get_object_or_404(Drink, pk=drink_id)
     context = {
         'drink': drink
     }

@@ -10,15 +10,68 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="lay"></div>
-
-<div>
-    {% if basket_full%}
-
-    {% else %}
-    <p>Your Basket is empty</p>
+    <div class="lay"></div>
+        <div class="row">
+            <div class="col">
+                {% if basket_order %}
+                    <div class="table-responsive rounded">
+                        <table>
+                            <tr>
+                                <th scope="col">Name of drinks:</th>
+                                <th scope="col">Price: </th>
+                                <th scope="col">Quantity:</th>
+                                <th scope="col">Rate: </th>
+                            </tr>
+                            {% for order in basket_order %}
+                                <tr>
+                                    <td class="p-3 w-50">
+                                        <img class="img-fluid rounded" src="{{ order.drink.image.url }}">
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>${{ order.drink.name }}</strong></p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">${{ order.drink.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <form class="form update-form" method="POST" action="">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                                                            data-item_id="{{ order.basket_id }}" id="decrement-qty_{{ item.basket_id }}">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input class="form-control form-control-sm qty_input" type="number"
+                                                        name="quantity" value="{{ order.quantity }}" min="1" max="99"
+                                                        data-item_id="{{ order.baset_id }}"
+                                                        id="id_qty_{{ order.baset_id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
+                                                            data-item_id="{{ order.baset_id}}" id="increment-qty_{{ order.baset_id }}">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a class="update-link text-info"><small>Update</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">${{ oorder.drink.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+        </div>
     {% endif %}
-</div>
 
+                                
 {% endblock %}

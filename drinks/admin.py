@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import Product
+from .models import Drink, Alcohol
 
-# Register your models here.
 
-class ProductAdmin(admin.ModelAdmin):
+class DrinkAdmin(admin.ModelAdmin):
     lsit_display = (
         'name',
         'price',
@@ -12,4 +11,12 @@ class ProductAdmin(admin.ModelAdmin):
     )
     ordering = ('price', )
 
-admin.site.register(Product)
+
+class AlcoholAdmin(admin.ModelAdmin):
+    lsit_display = (
+        'name'
+    )
+
+
+admin.site.register(Drink)
+admin.site.register(Alcohol)

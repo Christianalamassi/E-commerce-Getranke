@@ -21,5 +21,5 @@ def add_basket(request, basket_id):
         in_basket[basket_id] = numbers
 
     request.session['in_basket'] = in_basket
-
+    print(in_basket)
     return redirect(redirect_url)

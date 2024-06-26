@@ -1,0 +1,362 @@
+[
+    {
+        "model": "drinks.alcohol",
+        "pk": 1,
+        "fields": {
+            "name": "Whiskey"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 2,
+        "fields": {
+            "name": "Vodka"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 3,
+        "fields": {
+            "name": "Rum"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 4,
+        "fields": {
+            "name": "Tequila"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 5,
+        "fields": {
+            "name": "Gin"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 6,
+        "fields": {
+            "name": "Brandy"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 7,
+        "fields": {
+            "name": "Scotch"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 8,
+        "fields": {
+            "name": "Beer"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 9,
+        "fields": {
+            "name": "Wine"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 10,
+        "fields": {
+            "name": "Cider"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 11,
+        "fields": {
+            "name": "Absinthe"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 12,
+        "fields": {
+            "name": "Bourbon"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 13,
+        "fields": {
+            "name": "Champagne"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 14,
+        "fields": {
+            "name": "Cognac"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 15,
+        "fields": {
+            "name": "Liqueur"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 16,
+        "fields": {
+            "name": "Mead"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 17,
+        "fields": {
+            "name": "Port"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 18,
+        "fields": {
+            "name": "Sake"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 19,
+        "fields": {
+            "name": "Schnapps"
+        }
+    },
+    {
+        "model": "drinks.alcohol",
+        "pk": 20,
+        "fields": {
+            "name": "Vermouth"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "NdcH",
+            "alcohol": 1,
+            "price": 13.20,
+            "rating": 4.5,
+            "image": "aleksandra-dementeva-NdcH-WxzWgo-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Anoolood",
+            "alcohol": 2,
+            "price": 2.50,
+            "rating": 4.9,
+            "image": "anomaly-krf2UjxxTfs-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Armandkon",
+            "alcohol": 3,
+            "price": 8.00,
+            "rating": 3.9,
+            "image": "armands-brants-tDfILN5dfx4-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Beetru",
+            "alcohol": 8,
+            "price": 4.99,
+            "rating": 4.4,
+            "image": "brett-jordan-sUhMjrynw5k-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Nuts",
+            "alcohol": 6,
+            "price": 9.99,
+            "rating": 4.7,
+            "image": "dean-ricciardi-tjbH25wwJwA-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Modelo",
+            "alcohol": 8,
+            "price": 3.99,
+            "rating": 4.5,
+            "image": "devon-janse-van-rensburg-iHJNaOVrLMM-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Giancars",
+            "alcohol": 7,
+            "price": 4.99,
+            "rating": 4,
+            "image": "giancarlo-revolledo-d4nrRZp0tus-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Albnozies",
+            "alcohol": 9,
+            "price": 5.49,
+            "rating": 4.5,
+            "image": "albornoz-3o-rcD2dBxU-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Corona Xtra",
+            "alcohol": 8,
+            "price": 4.99,
+            "rating": 3.5,
+            "image": "jeff-vanderspank-Gla6keSyoU0-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Jinn krrp",
+            "alcohol": 5,
+            "price": 4.00,
+            "rating": 4.8,
+            "image": "jon-koop-Vncm6vFfbaA-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Conv",
+            "alcohol": 13,
+            "price": 14.99,
+            "rating": 4.8,
+            "image": "pexels-pixabay-33265.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "HPERJW",
+            "alcohol": 12,
+            "price": 5.99,
+            "rating": 4.5,
+            "image": "josh-olalde-hH12vPERjwE-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Mschto-Mu",
+            "alcohol": 18,
+            "price": 5.00,
+            "rating": 4.1,
+            "image": "mae-mu-kbch-i63YTg-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Natwine",
+            "alcohol": 9,
+            "price": 8.99,
+            "rating": 4.7,
+            "image": "nataliya-melnychuk-IZ-fmyk8rhs-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Cocktailadi",
+            "alcohol": 15,
+            "price": 13.99,
+            "rating": 4.5,
+            "image": "no-revisions-gA81ZTsql68-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Wieeno",
+            "alcohol": 9,
+            "price": 9.99,
+            "rating": 4.5,
+            "image": "no-revisions-Y1UkHcx9VpM-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Guinness",
+            "alcohol": 8,
+            "price": 10.00,
+            "rating": 4.5,
+            "image": "phillip-glickman-4wnZbnW9Bv0-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "AXL",
+            "alcohol": 4,
+            "price": 2.99,
+            "rating": 4.5,
+            "image": "rivage-tRkulGn0pGY-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Cxstirs",
+            "alcohol": 19,
+            "price": 7.49,
+            "rating": 4.5,
+            "image": "yonatan-huaman-castro-RQ1D4LgtIFk-unsplash.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "drinks.drink",
+        "fields": {
+            "name": "Hanikanx",
+            "alcohol": 10,
+            "price": 2.99,
+            "rating": 4.5,
+            "image": "soliman-cifuentes-mhad_4H6S14-unsplash.jpg"
+        }
+    }
+]
