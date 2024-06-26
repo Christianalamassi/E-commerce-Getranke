@@ -14,25 +14,20 @@
         <div class="row">
             <div class="col">
                 {% if basket_order %}
-                    <div class="table-responsive rounded">
-                        <table>
-                            <tr>
-                                <th scope="col">Name of drinks:</th>
-                                <th scope="col">Price: </th>
-                                <th scope="col">Quantity:</th>
-                                <th scope="col">Rate: </th>
-                            </tr>
-                            {% for order in basket_order %}
-                                <tr>
-                                    <td class="p-3 w-50">
-                                        <img class="img-fluid rounded" src="{{ order.drink.image.url }}">
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0"><strong>${{ order.drink.name }}</strong></p>
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ order.drink.price }}</p>
-                                    </td>
+                    {% for order in basket_order %}
+                        <div class="container table-responsive rounded">
+
+                                <div class="p-3 w-25 col-5 col-sm-12">
+                                    <img class="img-fluid rounded" src="{{ order.drink.image.url }}">
+                                </div>
+                                <lu class="col-5 col-sm-12">
+                                    <li scope="col">Name of drinks: <p><strong>{{ order.drink.name }}</strong></p></li>
+                                    <li scope="col">Price: <p class="my-0">${{ order.drink.price }}</p> </li>
+                                    <li scope="col">Quantity: ${{ order.price }}</p> </li>
+                                    <li scope="col">Rate: ${{ order.rating.price }}</p> </li>
+                                </lu>
+
+                                
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="">
                                             {% csrf_token %}
