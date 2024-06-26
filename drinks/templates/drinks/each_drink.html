@@ -25,20 +25,38 @@
             </div>
         </div>
     </div>
-    <center>
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card-body pb-0">
-                <a href="{{drink.image.url}}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
-                </a>
-            </div>
-            <div class="card-footer bg-white pt-0 border-0 text-left">
-                <div class="row">
+
+    <div clas="container">
+        <div class="row">
+            <div class="col-12 col-md-5 col-lg-4 offset-lg-2">
+                <div class="card-body pb-0">
+                    <a href="{{drink.image.url}}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
+                    </a>
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
                     <div class="col" style="text-align: center;">
                         <p class="lead mb-0 font-weight-bold">${{ drink.price }}</p>
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 col-md-5 col-lg-4 text-center order">
+                <form action="{% url 'add_basket' drink.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" type="button" class="btn btn-success">Order <i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <input class="id_qty_{{ drink.id }}" type="number"name="numbers" value="1" min="1" max="1000"data-item_id="{{ drink.id }}" id="numbers">
+                <hr>
+                <hr>
+                <a href="{% url 'drinks' %}" class="btn-outline-dark btn btn-warning order">
+                    <span>Continue shopping</span>
+                </a>
+                </form>
+            </div>
         </div>
-    </center>
+    </div>
+    </div>
+    </div>
+    
 {% endblock %}

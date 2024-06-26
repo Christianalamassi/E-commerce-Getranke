@@ -28,6 +28,8 @@ main {
 #order_you_drink{
     background-color: rgba(3, 3, 3, 0.5);
     font-size: large;
+    padding-right:3px;
+    color: rgb(248, 196, 8);
 }
 
 footer{
@@ -43,7 +45,20 @@ footer{
     padding:7px;
 }
 
-/* drinks page*/
+/* each_drink page */
+
+.order{
+    align-items:flex-end;
+    margin-top: 10vh;
+    padding: 25px;
+    
+}
+
+#numbers{
+    border: 1px solid black;
+}
+
+/* to empty the background*/
 .lay {
 	height: 100%;
 	width: 100%;
@@ -52,4 +67,8 @@ footer{
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+
+@media (max-width: 1550px) {
 }
