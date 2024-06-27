@@ -9,6 +9,8 @@ from drinks.models import Drink
 
 class ToPay(models.Model):
 
+    """Data of the user """
+
     states = (
             ("London","London"),("Bradford","Bradford"),
             ("Wakefield","Wakefield"),("Nottingham","Nottingham"),
@@ -20,14 +22,12 @@ class ToPay(models.Model):
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=75, null=False, blank=False)
-    email = models.EmailField(max_length=300, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    states =  models.CharField(choices=states, max_length=40, blank=True)
+    states =  models.CharField(choices=states, max_length=40, blank=False, null=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
-    town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     
