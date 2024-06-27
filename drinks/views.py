@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Drink, Alcohol
@@ -17,8 +17,8 @@ def drinks(request):
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
-                messages.error('Enter keyword')
-                return redirect(reverse, ('drinks'))
+                messages.error(request, 'Error entered search term')
+                return redirect(reverse('drinks'))
             queries = Q(name__icontains = query)
             drinks = drinks.filter(queries)
 
