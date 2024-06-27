@@ -72,7 +72,27 @@ footer{
 #bag_full_view{
     margin-top:10vh;
     margin-bottom: 10vh;
+    padding: 10px;
 }
+
+#drink_img{
+    padding:25px;
+}
+.rounded{
+    width: 70%;
+
+}
+
+#drink_info{
+    margin-top: 10vh;
+    font-weight: 500;
+    font-size:x-large;
+    line-height: 6vh;
+}
+.form-control {
+    width: 15%;
+}
+
 .bag_view{
     text-align: center;
     margin-top:30px;
@@ -104,5 +124,8 @@ ul > li {
     height: 2px;
 }
 
-@media (max-width: 1550px) {
+@media (max-width: 1200px) {
+    #drink_info{
+        line-height: 8vh;
+    }
 }

@@ -11,11 +11,18 @@
 
 {% block content %}
     <div class="lay"></div>
-        <div id="bag_full_view">
+    <div class="container-fluid">
+        <div class="row" id="bag_full_view">
             {% if basket_order %}
                 {% for order in basket_order %}
-                    <div class="container table-responsive bag_view">
-                        <img class="w-25 img-fluid rounded" src="{{ order.drink.image.url }}">
+                    <!--image-->
+                    <div class="col-sm-8 col-md-6" id="drink_img">
+                        <img class="img-fluid rounded" src="{{ order.drink.image.url }}">
+                        <p class="my-0">${{ order.drink.price }}</p>
+                    </div>
+
+                    <!--details-->
+                    <div class="col" id="drink_info">
                         <ul>
                             <li scope="col">Name of drinks: <strong>{{ order.drink.name }}</strong></li>
                             <li scope="col">Price: <b>${{ order.drink.price }}</b></li>
@@ -41,7 +48,6 @@
                                 <div>
                                     <a class="update-link text-info"><small>Add</small></a>
                                     <a class="remove-link text-danger float-right" id="remove_{{ order.basket_id }}" data-size="{{ order.size }}"><small>Remove</small></a>
-                                    <p class="my-0">${{ order.drink.price }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -49,7 +55,7 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <hr>                       
+    </div>                         
 {% endblock %}
 
 {% block postloadjs %}
