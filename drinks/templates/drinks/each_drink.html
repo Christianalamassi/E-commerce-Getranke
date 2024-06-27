@@ -44,7 +44,9 @@
             <div class="col-12 col-md-5 col-lg-4 text-center order">
                 <form action="{% url 'add_basket' drink.id %}" method="POST">
                 {% csrf_token %}
+
                 <button type="submit" type="button" class="btn btn-success">Order <i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+                
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <input class="id_qty_{{ drink.id }}" type="number"
                     name="numbers" value="1" min="1" max="1000"

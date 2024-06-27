@@ -18,11 +18,11 @@
                         <img class="w-25 img-fluid rounded" src="{{ order.drink.image.url }}">
                         <ul>
                             <li scope="col">Name of drinks: <strong>{{ order.drink.name }}</strong></li>
-                            <li scope="col">Price: <strong>${{ order.drink.price }}</strong></li>
-                            <li scope="col">Quantity: <strong>{{ order.quantity }}</strong></li>
+                            <li scope="col">Price: <b>${{ order.drink.price }}</b></li>
+                            <li scope="col">Quantity: <b>{{ order.quantity }}</b></li>
                             
                             <li scope="col">
-                                <form class="form update-form" method="POST" action="">
+                                <form class="form update-quantity" method="POST" action="{% url 'fix_basket' order.basket_id %}">
                                     {% csrf_token %}
                                         <button" data-item_id="{{ order.basket_id }}" id="decrement-qty_{{ order.basket_id }}">
                                         </button>
@@ -32,15 +32,15 @@
                                             id="id_qty_{{ order.basket_id }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                data-item_id="{{ order.basket_id}}" id="increment-qty_{{ order.baset_id }}">
+                                                data-item_id="{{ order.basket_id}}" id="increment-qty_{{ order.basket_id }}">
                                             </button>
                                         </div>  
                                 </form>
                             </li>
-                            <li scope="col>
+                            <li scope="col">
                                 <div>
-                                    <a class="update-link text-info"><small>Update</small></a>
-                                    <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                                    <a class="update-link text-info"><small>Add</small></a>
+                                    <a class="remove-link text-danger float-right" id="remove_{{ order.basket_id }}" data-size="{{ order.size }}"><small>Remove</small></a>
                                     <p class="my-0">${{ order.drink.price }}</p>
                                 </div>
                             </li>
@@ -50,4 +50,27 @@
             {% endif %}
         </div>
         <hr>                       
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/Javascript">
+        // Update the quantity of the drinks
+        $('.update-link').click(function(e){
+            var form = $(this).prev('.update-quantity');
+            form.submit();
+        })
+        // Remove the quantity of the drinks
+        $('.romove-link').click(function(e){
+            var csrfToken = '{{csrf_token}}';
+            var basketId = $(this).attr('id').split('remove_')[1];
+            var size = $(this).data('size');
+            var url = `/basket/remove/${basketId}`;
+            var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+
+            $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+        })
+    </script>
 {% endblock %}

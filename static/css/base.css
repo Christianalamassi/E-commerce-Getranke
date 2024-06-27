@@ -82,5 +82,10 @@ ul > li {
     list-style-type: none;
 }
 
+.update-link,
+.remove-link{
+    cursor: pointer;
+}
+
 @media (max-width: 1550px) {
 }
