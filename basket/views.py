@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect, reverse
+from django.contrib import messages
+from drinks.models import Drink
 
 
 def basket(request):
@@ -10,6 +12,7 @@ def basket(request):
 def add_basket(request, basket_id):
     """ Add a more to the basket """
 
+    drink = Drink.objects.get(pk = basket_id)
     numbers = float(request.POST.get('numbers'))
     redirect_url = request.POST.get('redirect_url')
     in_basket = request.session.get('in_basket', {})
@@ -18,7 +21,7 @@ def add_basket(request, basket_id):
         in_basket[basket_id] += numbers
     else:
         in_basket[basket_id] = numbers
-
+        messages.success(request, 'The order has been added')
     request.session['in_basket'] = in_basket
 
     return redirect(redirect_url)

@@ -87,5 +87,22 @@ ul > li {
     cursor: pointer;
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.messages {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 @media (max-width: 1550px) {
 }
