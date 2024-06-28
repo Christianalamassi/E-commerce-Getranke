@@ -30,20 +30,21 @@ def add_basket(request, basket_id):
 
 def fix_basket(request, basket_id):
     """ Edit the basket """
+    if request.method == 'POST':
 
-    drink = get_object_or_404(Drink, pk=basket_id)
-    numbers = float(request.POST.get('numbers'))
-    in_basket = request.session.get('in_basket', {})
+        drink = get_object_or_404(Drink, pk=basket_id)
+        numbers = float(request.POST.get('numbers'))
+        in_basket = request.session.get('in_basket', {})
 
-    if quantity > 0:
-        bag[basket_id] = numbers
-        messages.success(request, 'The order has been updated')
-    else:
-        in_basket.pop(basket_id)
-        messages.success(request, 'Your order has be deleted')
+        if quantity > 0:
+            bag[basket_id] = numbers
+            messages.success(request, 'The order has been updated')
+        else:
+            in_basket.pop(basket_id)
+            messages.success(request, 'Your order has be deleted')
 
-    request.session['in_basket'] = in_basket
-    return redirect(reverse('basket'))
+        request.session['in_basket'] = in_basket
+        return redirect(reverse('basket'))
 
 
 def delete_order(request, basket_id):

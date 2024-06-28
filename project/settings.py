@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEVELOPMENT" in os.environ
 
-ALLOWED_HOSTS = ['8000-christianalam-ecommerce-7stq077os51.ws.codeinstitute-ide.net'
+ALLOWED_HOSTS = ['8000-christianalam-ecommerce-7stq077os51.ws.codeinstitute-ide.net',
     '.herokuapp.com', 'ecommercepp5-a121ad0ae944.herokuapp.com', 'localhost']
 
 
@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary',
     'mainapp',
     'drinks',
     'basket',
@@ -178,8 +180,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(os.path.dirname(__file__),'/static/')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

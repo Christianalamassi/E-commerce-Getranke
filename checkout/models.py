@@ -59,7 +59,7 @@ class ToPay(models.Model):
         return self.order_number
 
 
-class OrderLineItem(models.Model):
+class ToPayLineItem(models.Model):
     order = models.ForeignKey(ToPay, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     drink = models.ForeignKey(Drink, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
