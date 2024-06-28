@@ -1,0 +1,131 @@
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body {
+    background: url('https://res.cloudinary.com/dsbcqaevp/image/upload/v1719518526/pexels-bluerhinomedia-2789328_a0qx7a.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 115vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* base page*/
+#order_you_drink{
+    background-color: rgba(3, 3, 3, 0.5);
+    font-size: large;
+    padding-right:3px;
+    color: rgb(248, 196, 8);
+}
+
+footer{
+    text-align : center;
+    align-items: center;
+}
+
+.social_media{
+    font-size: x-large;
+}
+
+.phone{
+    padding:7px;
+}
+
+/* each_drink page */
+
+.order{
+    align-items:flex-end;
+    margin-top: 10vh;
+}
+
+#numbers{
+    border: 1px solid black;
+}
+
+/* to empty the background*/
+.lay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+/* basket page */
+
+#bag_full_view{
+    margin-top:10vh;
+    margin-bottom: 10vh;
+    padding: 10px;
+}
+
+#drink_img{
+    padding:25px;
+}
+.rounded{
+    width: 70%;
+
+}
+
+#drink_info{
+    margin-top: 10vh;
+    font-weight: 500;
+    font-size:x-large;
+    line-height: 6vh;
+}
+.form-control {
+    width: 15%;
+}
+
+.bag_view{
+    text-align: center;
+    margin-top:30px;
+}
+
+ul > li { 
+    list-style-type: none;
+}
+
+.update-link,
+.remove-link{
+    cursor: pointer;
+}
+
+/* ------------------------------- bootstrap toasts */
+
+.messages {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+@media (max-width: 1200px) {
+    #drink_info{
+        line-height: 8vh;
+    }
+}

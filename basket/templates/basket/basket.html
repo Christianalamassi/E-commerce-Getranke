@@ -53,6 +53,33 @@
                         </ul>
                     </div>    
                 {% endfor %}
+                <table>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'drinks' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Continue Shopping</span>
+                            </a>
+                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            {% else %}
+                <p class="lead mb-5">Your basket is empty.</p>
+                <a href="{% url 'drinks' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Continue Shopping</span>
+                </a>
+
             {% endif %}
         </div>
     </div>                         

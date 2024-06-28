@@ -1,20 +1,21 @@
 from django import forms
-from .models import Drink
+from .models import ToPay
 
 
-class DrinkForm(forms.ModelForm):
+class CheckOutForm(forms.ModelForm):
     class Meta:
         """
         which model the form reffers to and which fields
         from the model will be render
         """
-        model = Drink
+        model = ToPay
         fields = (
            'full_name',
             'email',
             'phone_number',
             'street_address1',
             'street_address2',
+            'state',
             'postcode',
             )
 
@@ -32,6 +33,7 @@ class DrinkForm(forms.ModelForm):
             'phone_number': 'Phone Number',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
+            'state':'State',
             'postcode': 'Postal Code',
         }
 

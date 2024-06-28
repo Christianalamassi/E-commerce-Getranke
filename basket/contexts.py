@@ -10,6 +10,7 @@ def your_order(request):
     total = 0
     number_of_drinks= 0
     in_basket = request.session.get('in_basket', {})
+
     for basket_id, quantity in in_basket.items():
         drink = get_object_or_404(Drink, pk=basket_id)
         total += quantity * float(drink.price)

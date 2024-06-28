@@ -24,7 +24,7 @@ class ToPay(models.Model):
     full_name = models.CharField(max_length=75, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    states =  models.CharField(choices=states, max_length=40, blank=False, null=False)
+    state =  models.CharField(choices=states, max_length=40, blank=False, null=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
