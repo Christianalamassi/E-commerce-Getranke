@@ -1,20 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
+    <div class="lay"></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -23,7 +17,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order Details ({{ number_of_drinks }})</p>
@@ -48,7 +41,7 @@
                     </div>
                     <div class="col-7">
                         <p class="my-0"><strong>{{ order.drink.name }}</strong></p>
-                        <p class="my-0 small text-muted">Qty: {{ order.quantity }}</p>
+                        <p class="my-0 small text-muted">quantity: {{ order.quantity }}</p>
                     </div>
                     <div class="col-3 text-right">
                         <p class="my-0 small text-muted">€{{ order.drink.price | calc_subtotal:order.quantity }}</p>
@@ -64,8 +57,6 @@
                     </div>
                     <div class="col-3">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
-                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
@@ -76,18 +67,16 @@
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Information</legend>
-                        {{ checkout_form.full_name | as_crispy_field }}
-                        {{ checkout_form.email | as_crispy_field }}
-                    </fieldset>
+                        {{  checkout_form.full_name | as_crispy_field }}
+                        {{  checkout_form.email | as_crispy_field  }}
+                    </fieldset
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                        {{ checkout_form.phone_number | as_crispy_field }}
-                        {{ checkout_form.street_address1 | as_crispy_field }}
-                        {{ checkout_form.street_address2 | as_crispy_field }}
-                        {{ checkout_form.town_or_city | as_crispy_field }}
-                        {{ checkout_form.county | as_crispy_field }}
-                        {{ checkout_form.postcode | as_crispy_field }}
-                        {{ checkout_form.country | as_crispy_field }}
+                        {{  checkout_form.phone_number | as_crispy_field  }}
+                        {{  checkout_form.street_address1 | as_crispy_field }}
+                        {{  checkout_form.street_address2 | as_crispy_field }}
+                        {{  checkout_form.state | as_crispy_field }}
+                        {{  checkout_form.postcode | as_crispy_field  }}
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this delivery information to my
@@ -116,7 +105,7 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">
-                        <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
+                        <a href="{% url 'basket' %}" class="btn btn-outline-black rounded-0">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
@@ -139,6 +128,7 @@
             </div>
         </div>
     </div>
+
     <div id="loading-overlay">
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">

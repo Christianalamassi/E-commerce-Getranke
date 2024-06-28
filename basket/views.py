@@ -13,15 +13,15 @@ def add_basket(request, basket_id):
     """ Add a more to the basket """
 
     drink = Drink.objects.get(pk = basket_id)
-    numbers = float(request.POST.get('numbers'))
+    quantity = float(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     in_basket = request.session.get('in_basket', {})
 
     if basket_id in list(in_basket.keys()):
-        in_basket[basket_id] += numbers
+        in_basket[basket_id] += quantity
         messages.success(request, 'The order has been updated')
     else:
-        in_basket[basket_id] = numbers
+        in_basket[basket_id] = quantity
         messages.success(request, 'The order has been added')
     request.session['in_basket'] = in_basket
 
@@ -33,11 +33,11 @@ def fix_basket(request, basket_id):
     if request.method == 'POST':
 
         drink = get_object_or_404(Drink, pk=basket_id)
-        numbers = float(request.POST.get('numbers'))
+        quantity = float(request.POST.get('quantity'))
         in_basket = request.session.get('in_basket', {})
 
         if quantity > 0:
-            bag[basket_id] = numbers
+            bag[basket_id] = quantity
             messages.success(request, 'The order has been updated')
         else:
             in_basket.pop(basket_id)
