@@ -39,13 +39,13 @@
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                        <img class="img-fluid rounded" src="{{ item.drink.image.url }}">
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0"><strong>{{ item.drink.name }}</strong></p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price }}</p>
+                                        <p class="my-0">${{ item.drink.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="">
@@ -76,23 +76,17 @@
                                             </div>
                                         </form>
                                         <a class="update-link text-info"><small>Add</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.basket_id }}""><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0">${{ item.drink.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_delivery_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
+                                    <h6><strong>Total price: ${{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Delivery: $0.0</h6>
                                 </td>
                             </tr>
                             <tr>
@@ -101,7 +95,7 @@
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
+                                        <span class="text-uppercase">To Shopping</span>
                                     </a>
                                     <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
@@ -114,12 +108,12 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
+                    <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'drinks' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Keep Shopping</span>
+                        <span class="text-uppercase">To Shopping</span>
                     </a>
                 {% endif %}
             </div>
@@ -141,9 +135,9 @@
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
+        var basketId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('product_size');
-        var url = `/bag/remove/${itemId}/`;
+        var url = `/bag/remove/${basketId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
         $.post(url, data)

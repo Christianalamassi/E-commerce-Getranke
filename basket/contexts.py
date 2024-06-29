@@ -13,23 +13,23 @@ def your_order(request):
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
-            product = get_object_or_404(Drink, pk=item_id)
-            total += item_data * product.price
+            drink = get_object_or_404(Drink, pk=item_id)
+            total += item_data * drink.price
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
-                'product': product,
+                'drink': drink,
             })
         else:
-            product = get_object_or_404(Drink, pk=item_id)
+            drink = get_object_or_404(Drink, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
+                total += quantity * drink.price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
-                    'product': product,
+                    'drink': drink,
                     'size': size,
                 })
 
