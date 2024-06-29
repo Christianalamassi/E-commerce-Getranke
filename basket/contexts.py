@@ -6,26 +6,46 @@ from drinks.models import Drink
 
 def your_order(request):
 
-    basket_order = []
+    bag_items = []
     total = 0
-    number_of_drinks= 0
-    in_basket = request.session.get('in_basket', {})
+    product_count = 0
+    bag = request.session.get('bag', {})
 
-    for basket_id, item_data in in_basket.items():
+    for item_id, item_data in bag.items():
         if isinstance(item_data, int):
-            drink = get_object_or_404(Drink, pk=basket_id)
-            total += item_data * drink.price
-            number_of_drinks += item_data
-            basket_order.append({
-                'basket_id': basket_id,
+            product = get_object_or_404(Drink, pk=item_id)
+            total += item_data * product.price
+            product_count += item_data
+            bag_items.append({
+                'item_id': item_id,
                 'quantity': item_data,
-                'drink': drink,
+                'product': product,
             })
+        else:
+            product = get_object_or_404(Drink, pk=item_id)
+            for size, quantity in item_data['items_by_size'].items():
+                total += quantity * product.price
+                product_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'size': size,
+                })
 
-
-    context  ={
-        'basket_order': basket_order,
+    # if total < settings.FREE_DELIVERY_THRESHOLD:
+    #     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+    #     free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+    # else:
+    #     delivery = 0
+    #     free_delivery_delta = 0
+    
+    # grand_total = delivery + total
+    
+    context = {
+        'bag_items': bag_items,
         'total': total,
-        'number_of_drinks': number_of_drinks,
+        'product_count': product_count,
     }
+
     return context

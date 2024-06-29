@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect, reverse, get_object_or_404
+from django.shortcuts import render,redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from drinks.models import Drink
+
 
 
 def basket(request):
@@ -12,57 +13,90 @@ def basket(request):
 def add_basket(request, basket_id):
     """ Add a more to the basket """
 
-    drink = Drink.objects.get(pk = basket_id)
+    product = get_object_or_404(Drink, pk=basket_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    in_basket = request.session.get('in_basket', {})
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+    bag = request.session.get('bag', {})
 
-    
-    if basket_id in list(in_basket.keys()):
-        in_basket[basket_id] += quantity
-        messages.success(request, 'The order has been updated')
+    if size:
+        if basket_id in list(bag.keys()):
+            if size in bag[basket_id]['items_by_size'].keys():
+                bag[basket_id]['items_by_size'][size] += quantity
+                messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
+            else:
+                bag[basket_id]['items_by_size'][size] = quantity
+                messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
+        else:
+            bag[basket_id] = {'items_by_size': {size: quantity}}
+            messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
     else:
-        in_basket[basket_id] = quantity
-        messages.success(request, 'The order has been added')
-    
-    request.session['in_basket'] = in_basket
+        if basket_id in list(bag.keys()):
+            bag[basket_id] += quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[basket_id]}')
+        else:
+            bag[basket_id] = quantity
+            messages.success(request, f'Added {product.name} to your bag')
 
+    request.session['bag'] = bag
     return redirect(redirect_url)
-
+    
 
 def fix_basket(request, basket_id):
-    """ Edit the basket """
-    if request.method == 'POST':
+    """Adjust the quantity of the specified product to the specified amount"""
 
-        drink = get_object_or_404(Drink, pk=basket_id)
-        quantity = int(request.POST.get('quantity'))
-        in_basket = request.session.get('in_basket', {})
+    product = get_object_or_404(Drink, pk=basket_id)
+    quantity = int(request.POST.get('quantity'))
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+    bag = request.session.get('bag', {})
 
+    if size:
+        if quantity > 0:
+            bag[basket_id]['items_by_size'][size] = quantity
+            messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
+        else:
+            del bag[basket_id]['items_by_size'][size]
+            if not bag[basket_id]['items_by_size']:
+                bag.pop(basket_id)
+            messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
+    else:
         if quantity > 0:
             bag[basket_id] = quantity
-            messages.success(request, 'The order has been updated')
+            messages.success(request, f'Updated {product.name} quantity to {bag[basket_id]}')
         else:
-            in_basket.pop(basket_id)
-            messages.success(request, 'Your order has be deleted')
+            bag.pop(basket_id)
+            messages.success(request, f'Removed {product.name} from your bag')
 
-        request.session['in_basket'] = in_basket
-        return redirect(reverse('basket'))
+    request.session['bag'] = bag
+    return redirect(reverse('view_bag'))
 
 
-def delete_order(request, basket_id):
-    """Delete the order from the basket"""
+def remove(request, basket_id):
+    """Remove the item from the shopping bag"""
 
     try:
-        drink = get_object_or_404(Drink, pk=basket_id)
+        product = get_object_or_404(Drink, pk=basket_id)
+        size = None
+        if 'product_size' in request.POST:
+            size = request.POST['product_size']
+        bag = request.session.get('bag', {})
 
-        in_basket = request.session.get('in_basket', {})
+        if size:
+            del bag[basket_id]['items_by_size'][size]
+            if not bag[basket_id]['items_by_size']:
+                bag.pop(basket_id)
+            messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
+        else:
+            bag.pop(basket_id)
+            messages.success(request, f'Removed {product.name} from your bag')
 
-        in_basket.pop(basket_id)
-        messages.success(request, f'Your order has be deleted')
-
-        request.session['in_basket'] = in_basket
+        request.session['bag'] = bag
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error deleting your order: {e}')
+        messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
