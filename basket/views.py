@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.contrib import messages
-# from drinks.models import Drink
+from drinks.models import Drink
 
 
 def basket(request):
@@ -12,7 +12,7 @@ def basket(request):
 def add_basket(request, basket_id):
     """ Add a more to the basket """
 
-    # drink = Drink.objects.get(pk = basket_id)
+    drink = Drink.objects.get(pk = basket_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     in_basket = request.session.get('in_basket', {})
@@ -39,7 +39,7 @@ def fix_basket(request, basket_id):
     if request.method == 'POST':
 
         drink = get_object_or_404(Drink, pk=basket_id)
-        quantity = float(request.POST.get('quantity'))
+        quantity = int(request.POST.get('quantity'))
         in_basket = request.session.get('in_basket', {})
 
         if quantity > 0:
