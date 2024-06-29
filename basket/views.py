@@ -34,39 +34,39 @@ def add_basket(request, basket_id):
     return redirect(redirect_url)
 
 
-# def fix_basket(request, basket_id):
-#     """ Edit the basket """
-#     if request.method == 'POST':
+def fix_basket(request, basket_id):
+    """ Edit the basket """
+    if request.method == 'POST':
 
-#         drink = get_object_or_404(Drink, pk=basket_id)
-#         quantity = float(request.POST.get('quantity'))
-#         in_basket = request.session.get('in_basket', {})
+        drink = get_object_or_404(Drink, pk=basket_id)
+        quantity = float(request.POST.get('quantity'))
+        in_basket = request.session.get('in_basket', {})
 
-#         if quantity > 0:
-#             bag[basket_id] = quantity
-#             messages.success(request, 'The order has been updated')
-#         else:
-#             in_basket.pop(basket_id)
-#             messages.success(request, 'Your order has be deleted')
+        if quantity > 0:
+            bag[basket_id] = quantity
+            messages.success(request, 'The order has been updated')
+        else:
+            in_basket.pop(basket_id)
+            messages.success(request, 'Your order has be deleted')
 
-#         request.session['in_basket'] = in_basket
-#         return redirect(reverse('basket'))
+        request.session['in_basket'] = in_basket
+        return redirect(reverse('basket'))
 
 
-# def delete_order(request, basket_id):
-#     """Delete the order from the basket"""
+def delete_order(request, basket_id):
+    """Delete the order from the basket"""
 
-#     try:
-#         drink = get_object_or_404(Drink, pk=basket_id)
+    try:
+        drink = get_object_or_404(Drink, pk=basket_id)
 
-#         in_basket = request.session.get('in_basket', {})
+        in_basket = request.session.get('in_basket', {})
 
-#         in_basket.pop(basket_id)
-#         messages.success(request, f'Your order has be deleted')
+        in_basket.pop(basket_id)
+        messages.success(request, f'Your order has be deleted')
 
-#         request.session['in_basket'] = in_basket
-#         return HttpResponse(status=200)
+        request.session['in_basket'] = in_basket
+        return HttpResponse(status=200)
 
-#     except Exception as e:
-#         messages.error(request, f'Error deleting your order: {e}')
-#         return HttpResponse(status=500)
+    except Exception as e:
+        messages.error(request, f'Error deleting your order: {e}')
+        return HttpResponse(status=500)

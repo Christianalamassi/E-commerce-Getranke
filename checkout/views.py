@@ -14,13 +14,13 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     basket = request.session.get('basket', {})
-    # if not basket:
-    #     messages.error(request, 'Your basket is empty')
-    #     return redirect(reverse('drinks'))
+    if not basket:
+        messages.error(request, 'Your basket is empty')
+        return redirect(reverse('drinks'))
 
-    # your_orders = your_order(request)
-    # totals = your_order['total']
-    #stripe_total = round(total * 100)
+    your_orders = your_order(request)
+    totals = your_order['total']
+    stripe_total = round(total * 100)
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
