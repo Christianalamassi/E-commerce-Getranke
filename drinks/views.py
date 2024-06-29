@@ -5,7 +5,7 @@ from .models import Drink, Alcohol
 
 # Create your views here.
 
-def drinks(request):
+def all_drink(request):
     """ A view to show all kind of drinks, including sorting and search queries """
     
     drinks = Drink.objects.all()
@@ -39,7 +39,7 @@ def drinks(request):
 
     context = {
         'drinks': drinks,
-        'query':query,
+        'search_term':query,
         'sorting_by':sorting_by,
     }
     return render(request, "drinks/drinks.html", context)

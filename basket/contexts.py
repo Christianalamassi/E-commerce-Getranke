@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 from drinks.models import Drink
 
 
@@ -12,13 +12,14 @@ def your_order(request):
     in_basket = request.session.get('in_basket', {})
 
     for basket_id, quantity in in_basket.items():
-        drink = get_object_or_404(Drink, pk=basket_id)
-        total += quantity * float(drink.price)
-        number_of_drinks += quantity
-        basket_order.append({
-            'basket_id': basket_id,
-            'quantity': int(quantity),
-            'drink': drink
+        if isinstance(quantity, int):
+            drink = get_object_or_404(Drink, pk=basket_id)
+            total += quantity * drink.price
+            number_of_drinks += quantity
+            basket_order.append({
+                'basket_id': basket_id,
+                'quantity': quantity,
+                'drink': drink,
             })
 
     context  ={

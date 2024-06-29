@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block page_header %}
@@ -13,53 +13,55 @@
     <div class="lay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <strong class="logo-font">{{ drink.name }}</strong>
-                <hr>
-                {% if drink.rating %}
-                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }}</small>
-                {% else %}
-                    <small class="text-muted">None</small>
-                {% endif %}
-                <hr>
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
+                    {% if drink.image %}
+                        <a href="{{ drink.image.url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ drink.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="product-details-container mb-5 mt-md-5">
+                    <p class="mb-0">{{ drink.name }}</p>drink
+                    <p class="lead mb-0 text-left font-weight-bold">${{ drink.price }}</p>
+                    
+                    {% if drink.rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }} / 5</small>
+                    {% else %}
+                        <small class="text-muted">No Rating</small>
+                    {% endif %}
+                    <form class="form" action="{% url 'add_basket' drink.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ drink_id}}" id="id_qty_{{ drink_id }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col{% if s %}-12 mt-2{% endif %}">
+                                <a href="{% url 'drinks' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">continue Shopping</span>
+                                </a>
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to basket">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-    <div clas="container">
-        <div class="row">
-            <div class="col-12 col-md-5 col-lg-4 offset-lg-2">
-                <div class="card-body pb-0">
-                    <a href="{{drink.image.url}}" target="_blank">
-                        <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
-                    </a>
-                </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <div class="col" style="text-align: center;">
-                        <p class="lead mb-0 font-weight-bold">${{ drink.price }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-5 col-lg-4 text-center order">
-                <form action="{% url 'add_basket' drink.id %}" method="POST">
-                {% csrf_token %}
-
-                <button type="submit" type="button" class="btn btn-success">Order <i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
-                
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                <input class="id_qty_{{ drink.id }}" type="number"
-                    name="numbers" value="1" min="1" max="1000"
-                    data-item_id="{{ drink.id }}" id="numbers">
-                <br>
-                <a href="{% url 'drinks' %}" class="btn-outline-dark btn btn-warning order">
-                    <span>Continue shopping</span>
-                </a>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    
 {% endblock %}
