@@ -76,7 +76,7 @@ def fix_basket(request, basket_id):
 
 
 def remove(request, basket_id):
-    """Remove the item from the shopping bag"""
+    """Remove the drink from the basket"""
 
     try:
         drink = get_object_or_404(Drink, pk=basket_id)
