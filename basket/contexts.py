@@ -11,16 +11,17 @@ def your_order(request):
     number_of_drinks= 0
     in_basket = request.session.get('in_basket', {})
 
-    for basket_id, quantity in in_basket.items():
-        if isinstance(quantity, int):
+    for basket_id, item_data in in_basket.items():
+        if isinstance(item_data, int):
             drink = get_object_or_404(Drink, pk=basket_id)
-            total += quantity * drink.price
-            number_of_drinks += quantity
+            total += item_data * drink.price
+            number_of_drinks += item_data
             basket_order.append({
                 'basket_id': basket_id,
-                'quantity': quantity,
+                'quantity': item_data,
                 'drink': drink,
             })
+
 
     context  ={
         'basket_order': basket_order,

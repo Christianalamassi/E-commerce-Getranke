@@ -17,11 +17,7 @@ def add_basket(request, basket_id):
     redirect_url = request.POST.get('redirect_url')
     in_basket = request.session.get('in_basket', {})
 
-    if basket_id in list(in_basket.keys()):
-        in_basket[basket_id] += quantity
-    else:
-        in_basket[basket_id] = quantity
-
+    
     if basket_id in list(in_basket.keys()):
         in_basket[basket_id] += quantity
         messages.success(request, 'The order has been updated')
