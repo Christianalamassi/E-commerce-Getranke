@@ -32,6 +32,11 @@ main {
     color: rgb(248, 196, 8);
 }
 
+.Getränke{
+    font-family: sans-serif;
+    color: rgb(12, 159, 159);
+}
+
 footer{
     text-align : center;
     align-items: center;
