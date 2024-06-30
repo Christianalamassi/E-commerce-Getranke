@@ -92,7 +92,7 @@
   <main>
     <a href="{% url 'basket' %}">
       {% if request.user.is_authenticated %}
-      <div id="order_you_drink" class="text-right">
+      <div class="text-right" id="order_you_drink">
         <i class="fa-solid fa-basket-shopping"> </i>
         {% if total %}
           ${{ total | floatformat:2 }}
@@ -102,7 +102,7 @@
       </div>
     </a>
       {% endif %}
-    <stron><h1 class="my-2"> Getränke </h1></stron>
+    <stron><h1 class="text-left my-2"> Getränke </h1></stron>
   </main>
 
   {% if messages %}

@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import CheckOutForm
+from .models import ToPay, ToPayLineItem
+from drinks.models import Drink
 from basket.contexts import your_order
 
 import stripe
@@ -53,13 +55,13 @@ def checkout(request):
         return redirect(reverse('drinks'))
 
     your_orders = your_order(request)
-    # totals = your_orders['total']
-    # stripe_total = round(total * 100)
-    # stripe.api_key = stripe_secret_key
-    # intent = stripe.PaymentIntent.create(
-    #     amount=stripe_total,
-    #     currency=settings.STRIPE_CURRENCY,
-    # )
+    total = your_orders['total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+         amount=stripe_total,
+         currency=settings.STRIPE_CURRENCY,
+     )
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
