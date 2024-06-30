@@ -75,8 +75,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Add</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.basket_id }}""><small>Remove</small></a>
+                                        <a class="update-link text-info"><small>Submit the change</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.drink.price | calc_subtotal:item.quantity }}</p>
@@ -136,9 +135,8 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var basketId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product_size');
         var url = `/bag/remove/${basketId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
          .done(function() {

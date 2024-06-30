@@ -72,7 +72,7 @@ def fix_basket(request, basket_id):
             messages.success(request, f'Removed {drink.name} from your bag')
 
     request.session['bag'] = bag
-    return redirect(reverse('view_bag'))
+    return redirect(reverse('basket'))
 
 
 def remove(request, basket_id):

@@ -48,127 +48,122 @@
 </head>
 
 <body>
-  <header>
-    <!-- Navbar content -->
-    <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #8ec3e9;'>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'drinks' %}">Order Here <span class="sr-only">(current)</span></a>
-        </li>
-              {% if request.user.is_authenticated%}
-                {% if request.user.is_superuser %}
+    <header>
+      <!-- Navbar content -->
+      <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #8ec3e9;'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'drinks' %}">Order Here <span class="sr-only">(current)</span></a>
+          </li>
+                {% if request.user.is_authenticated%}
+                  {% if request.user.is_superuser %}
+                    <li class="nav-item active">
+                      <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
+                    </li>
+                  {% endif %}
                   <li class="nav-item active">
-                    <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
                   </li>
+                {% else %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                      Register/Login</a>
+                        <div class="dropdown-menu">
+                          <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
+                    </li>
                 {% endif %}
-                <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
-                </li>
-              {% else %}
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Register/Login</a>
-                      <div class="dropdown-menu">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
-                  </li>
-              {% endif %}
-            </ul>
-            <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
-              <button class="btn btn-outline-warning my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
-            </form>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-warning my-2 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
+              </form>
+            </div>
+        </nav>      
+    </header>
+    <main>
+      <a href="{% url 'basket' %}">
+        {% if request.user.is_authenticated %}
+          <div class="text-right" id="order_you_drink">
+            <i class="fa-solid fa-basket-shopping"> </i>
+            {% if total %}
+              ${{ total | floatformat:2 }}
+            {% else %}
+              0.00 $
+            {% endif %}
           </div>
-      </nav>
-      
-  </header>
-  <main>
-    <a href="{% url 'basket' %}">
-      {% if request.user.is_authenticated %}
-      <div class="text-right" id="order_you_drink">
-        <i class="fa-solid fa-basket-shopping"> </i>
-        {% if total %}
-          ${{ total | floatformat:2 }}
-        {% else %}
-          0.00 $
-        {% endif %}
-      </div>
-    </a>
+          {% endif %}
+      </a>
+      <h1 class="text-left my-2 Getränke"><stron>Getränke</stron></h1>
+    </main>
+
+    {% if messages %}
+      <div class="messages">
+          {% for message in messages %}
+              {% with message.level as level %}
+                  {% if level == 40 %}
+                      {% include 'includes/toasts/toast_error.html' %}
+                  {% elif level == 30 %}
+                      {% include 'includes/toasts/toast_warning.html' %}
+                  {% elif level == 25 %}
+                      {% include 'includes/toasts/toast_success.html' %}
+                  {% else %}
+                      {% include 'includes/toasts/toast_info.html' %}
+                  {% endif %}
+              {% endwith %}
+          {% endfor %}
+        </div>
       {% endif %}
-    <stron><h1 class="text-left my-2 Getränke"> Getränke </h1></stron>
-  </main>
 
-  {% if messages %}
-  <div class="messages">
-      {% for message in messages %}
-          {% with message.level as level %}
-              {% if level == 40 %}
-                  {% include 'includes/toasts/toast_error.html' %}
-              {% elif level == 30 %}
-                  {% include 'includes/toasts/toast_warning.html' %}
-              {% elif level == 25 %}
-                  {% include 'includes/toasts/toast_success.html' %}
-              {% else %}
-                  {% include 'includes/toasts/toast_info.html' %}
-              {% endif %}
-          {% endwith %}
-      {% endfor %}
-  </div>
-{% endif %}
+    {% block page_header %}
+    {% endblock %}
 
-{% block page_header %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-{% block content %}
-{% endblock %}
+    {% block postloadjs %}
+      <script type="text/javascript">
+        $('.toast').toast('show');
+      </script>
+    {% endblock %}
 
-{% block postloadjs %}
-  <script type="text/javascript">
-    $('.toast').toast('show');
-  </script>
-{% endblock %}
+    <footer style='background-color: #8ec3e9;'>
+      <div class="phone">
+        <p><strong>Phone of the office AAA </strong>: 000 000 000</p>
+        <p><strong>Phone of the office CDC </strong>: 999 999 999</p>
+        <p><strong>Phone of the office BAC </strong>: 888 888 888</p>
+      </div>  
+          <!--social-media section-->
+          <ul class="list-inline social-links">
+            <li class="list-inline-item">
+                <a class="social_media" target="_blank" href="https://www.facebook.com/">
+                    <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social_media" target="_blank" href="https://x.com/?lang=en">
+                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="social_media" target="_blank" href="https://www.youtube.com/">
+                    <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+            </li>
 
-  <footer style='background-color: #8ec3e9;'>
-    <div class="phone">
-      <p><strong>Phone of the office AAA </strong>: 000 000 000</p>
-      <p><strong>Phone of the office CDC </strong>: 999 999 999</p>
-      <p><strong>Phone of the office BAC </strong>: 888 888 888</p>
-    </div>  
-        <!--social-media section-->
-        <ul class="list-inline social-links">
-          <li class="list-inline-item">
-              <a class="social_media" target="_blank" href="https://www.facebook.com/">
-                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-              </a>
-          </li>
-          <li class="list-inline-item">
-              <a class="social_media" target="_blank" href="https://x.com/?lang=en">
-                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-              </a>
-          </li>
-          <li class="list-inline-item">
-              <a class="social_media" target="_blank" href="https://www.youtube.com/">
-                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-              </a>
-          </li>
-
-          <li class="list-inline-item">
-              <a class="social_media" target="_blank" href="https://www.instagram.com/">
-                  <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
-              </a>
-          </li>
-      </ul>
-  </footer>
-
-
-
-
+            <li class="list-inline-item">
+                <a class="social_media" target="_blank" href="https://www.instagram.com/">
+                    <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
   </body>
 </html>
