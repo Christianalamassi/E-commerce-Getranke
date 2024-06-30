@@ -15,7 +15,7 @@
 {% if total %}
     <p class="logo-font bg-white text-black py-1">Your Basket ({{ number_of_drinks }})</p>
         <div class="bag-notification-wrapper">
-            {% for order in basket_order %}
+            {% for order in bag_items %}
                     <div class="row">
                         <div class="col-3 my-1">
                             <img class="w-100" src="{{ order.drink.image.url }}">
