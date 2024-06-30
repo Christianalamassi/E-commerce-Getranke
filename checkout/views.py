@@ -71,8 +71,8 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'check_out':check_out,
-        'strip_public_key': 'stripe_public_key',
-        'client_secret': 'intent.client_secret'
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret
     }
 
     return render(request, template, context)
