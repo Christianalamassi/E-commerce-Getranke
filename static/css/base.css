@@ -103,7 +103,7 @@ ul > li {
 }
 
 .update-link,
-.remove-link{
+.remove-item{
     cursor: pointer;
 }
 

@@ -14,7 +14,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        in_basket = request.session.get('in_basket', {})
+        bag = request.session.get('bag', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -28,18 +28,18 @@ def checkout(request):
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
             order = check_out.save()
-            for basket_id, item_data in in_basket.items():
+            for basket_id, item_data in bag.items():
                 try:
                     drink = Drink.objects.get(id=basket_id)
                     if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                        order_line_item = ToPayLineItem(
                             order=order,
-                            product=product,
+                            drink=drink,
                             quantity=item_data,
                         )
                         order_line_item.save()
 
-                except Product.DoesNotExist:
+                except Drink.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
                         "Please call us for assistance!")
@@ -47,28 +47,28 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('basket'))
 
-    basket = request.session.get('basket', {})
-    if not basket:
+    bag = request.session.get('bag', {})
+    if not bag:
         messages.error(request, 'Your basket is empty')
         return redirect(reverse('drinks'))
 
     your_orders = your_order(request)
-    totals = your_order['total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+    # totals = your_orders['total']
+    # stripe_total = round(total * 100)
+    # stripe.api_key = stripe_secret_key
+    # intent = stripe.PaymentIntent.create(
+    #     amount=stripe_total,
+    #     currency=settings.STRIPE_CURRENCY,
+    # )
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-    checkout_form = CheckOutForm()
+    check_out = CheckOutForm()
     template = 'checkout/checkout.html'
     context = {
-        'checkout_form':checkout_form,
+        'check_out':check_out,
         'strip_public_key': 'stripe_public_key',
         'client_secret': 'intent.client_secret'
     }
