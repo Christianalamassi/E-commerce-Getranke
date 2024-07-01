@@ -16,31 +16,16 @@ def add_basket(request, basket_id):
     drink = get_object_or_404(Drink, pk=basket_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
-    bag = request.session.get('bag', {})
+    basket = request.session.get('basket', {})
 
-    if size:
-        if basket_id in list(bag.keys()):
-            if size in bag[basket_id]['items_by_size'].keys():
-                bag[basket_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {drink.name} quantity to {bag[item_id]["items_by_size"][size]}')
-            else:
-                bag[basket_id]['items_by_size'][size] = quantity
-                messages.success(request, f'Added size {size.upper()} {drink.name} to your bag')
-        else:
-            bag[basket_id] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {drink.name} to your bag')
+    if basket_id in list(basket.keys()):
+        basket[basket_id] += quantity
+        messages.success(request, f'Updated {drink.name} quantity to {basket[basket_id]}')
     else:
-        if basket_id in list(bag.keys()):
-            bag[basket_id] += quantity
-            messages.success(request, f'Updated {drink.name} quantity to {bag[basket_id]}')
-        else:
-            bag[basket_id] = quantity
-            messages.success(request, f'Added {drink.name} to your bag')
+        basket[basket_id] = quantity
+        messages.success(request, f'Added {drink.name} to your basket')
 
-    request.session['bag'] = bag
+    request.session['basket'] = basket
     return redirect(redirect_url)
     
 
@@ -49,29 +34,17 @@ def fix_basket(request, basket_id):
 
     drink = get_object_or_404(Drink, pk=basket_id)
     quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
-    bag = request.session.get('bag', {})
+    basket = request.session.get('basket', {})
 
-    if size:
-        if quantity > 0:
-            bag[basket_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated size {size.upper()} {drink.name} quantity to {bag[item_id]["items_by_size"][size]}')
-        else:
-            del bag[basket_id]['items_by_size'][size]
-            if not bag[basket_id]['items_by_size']:
-                bag.pop(basket_id)
-            messages.success(request, f'Removed size {size.upper()} {drink.name} from your bag')
+   
+    if quantity > 0:
+        basket[basket_id] = quantity
+        messages.success(request, f'Updated {drink.name} quantity to {basket[basket_id]}')
     else:
-        if quantity > 0:
-            bag[basket_id] = quantity
-            messages.success(request, f'Updated {drink.name} quantity to {bag[basket_id]}')
-        else:
-            bag.pop(basket_id)
-            messages.success(request, f'Removed {drink.name} from your bag')
+        basket.pop(basket_id)
+        messages.success(request, f'Removed {drink.name} from your basket')
 
-    request.session['bag'] = bag
+    request.session['basket'] = basket
     return redirect(reverse('basket'))
 
 
@@ -80,23 +53,14 @@ def remove(request, basket_id):
 
     try:
         drink = get_object_or_404(Drink, pk=basket_id)
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
-        bag = request.session.get('bag', {})
+        basket = request.session.get('basket', {})
 
-        if size:
-            del bag[basket_id]['items_by_size'][size]
-            if not bag[basket_id]['items_by_size']:
-                bag.pop(basket_id)
-            messages.success(request, f'Removed size {size.upper()} {drink.name} from your bag')
-        else:
-            bag.pop(basket_id)
-            messages.success(request, f'Removed {drink.name} from your bag')
+        basket.pop(basket_id)
+        messages.success(request, f'Removed {drink.name} from your bag')
 
-        request.session['bag'] = bag
+        request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
+        messages.error(request, f'Error removing the drink: {e}')
         return HttpResponse(status=500)

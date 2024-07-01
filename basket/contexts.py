@@ -9,9 +9,9 @@ def your_order(request):
     bag_items = []
     total = 0
     product_count = 0
-    bag = request.session.get('bag', {})
+    basket = request.session.get('basket', {})
 
-    for basket_id, item_data in bag.items():
+    for basket_id, item_data in basket.items():
         if isinstance(item_data, int):
             drink = get_object_or_404(Drink, pk=basket_id)
             total += item_data * drink.price

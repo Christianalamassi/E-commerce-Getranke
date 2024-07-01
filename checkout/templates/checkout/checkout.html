@@ -60,12 +60,11 @@
             <div class="row text-black text-right">
                 <div class="col-7 offset-2">
                     <p class="my-0">Total price:</p>
-                    <p class="my-0">Delivery:</p>
+                    <p class="my-0">Free Delivery:</p>
                 </div>
                 <div class="col-3">
                     <p class="my-0">${{ total | floatformat:2 }}</p>
-                    <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                    <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
+                    <p class="my-0">0.00$</p>
                 </div>
             </div>
         </div>
@@ -130,6 +129,16 @@
         </div>
     </div>
 </div>
+
+<div id="loading-overlay">
+    <h1 class="text-light logo-font loading-spinner">
+        <span class="icon">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+    </h1>
+</div>
+
+
 {% endblock %}
 
 {% block postloadjs %}

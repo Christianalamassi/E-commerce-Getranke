@@ -32,7 +32,7 @@
                     <p class="lead mb-0 text-left font-weight-bold">${{ drink.price }}</p>
                     
                     {% if drink.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }} / 5</small>
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ drink.rating }}</small>
                     {% else %}
                         <small class="text-muted">No Rating</small>
                     {% endif %}
@@ -53,7 +53,7 @@
                                 <a href="{% url 'drinks'%}"
                                     <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
-                                    <span class="text-uppercase">continue Shopping</span>
+                                    <span class="text-uppercase">Continue Shopping</span>
                                 </a>
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to basket">
                             </div>
