@@ -129,6 +129,34 @@ ul > li {
     height: 2px;
 }
 
+/* Allauth form formatting */
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+    width: 70%;
+}
+
+.allauth-form-inner-content a {
+	color: #b85217; /* text-info */
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    margin: 22px;
+}
+
 @media (max-width: 1200px) {
     #drink_info{
         line-height: 8vh;
