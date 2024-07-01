@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import ToPay, ToPayLineItem 
+from .models import CheckOut, CheckOutLineItem 
 
 
-class ToPayLineItemAdminInline(admin.TabularInline):
-    model = ToPayLineItem
+class CheckOutLineItemAdminInline(admin.TabularInline):
+    model = CheckOutLineItem
     readonly_fields = ('lineitem_total',)
 
 
-class ToPayAdmin(admin.ModelAdmin):
+class CheckOutAdmin(admin.ModelAdmin):
 
-    inlines = (ToPayLineItemAdminInline,)
+    inlines = (CheckOutLineItemAdminInline,)
 
     readonly_fields= (
         'order_number',
@@ -25,8 +25,7 @@ class ToPayAdmin(admin.ModelAdmin):
     'phone_number', 
     'states',
     'postcode',
-    'street_address1',
-    'street_address2',
+    'street_address',
     'date',
     'order_total',
     'total',
@@ -43,4 +42,4 @@ class ToPayAdmin(admin.ModelAdmin):
 
     ordring =('-data',)
 
-admin.site.register(ToPay,ToPayAdmin)
+admin.site.register(CheckOut,CheckOutAdmin)

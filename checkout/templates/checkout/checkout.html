@@ -82,8 +82,7 @@
                     {{ check_out.phone_number | as_crispy_field }}
                     {{ check_out.postcode | as_crispy_field }}
                     {{ check_out.state| as_crispy_field }}
-                    {{ check_out.street_address1 | as_crispy_field }}
-                    {{ check_out.street_address2 | as_crispy_field }}
+                    {{ check_out.street_address | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                             <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>

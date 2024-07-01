@@ -1,5 +1,5 @@
 from django import forms
-from .models import ToPay
+from .models import CheckOut
 
 
 class CheckOutForm(forms.ModelForm):
@@ -8,13 +8,12 @@ class CheckOutForm(forms.ModelForm):
         which model the form reffers to and which fields
         from the model will be render
         """
-        model = ToPay
+        model = CheckOut
         fields = (
            'full_name',
             'email',
             'phone_number',
-            'street_address1',
-            'street_address2',
+            'street_address',
             'state',
             'postcode',
             )
@@ -31,8 +30,7 @@ class CheckOutForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
-            'street_address1': 'Street Address 1',
-            'street_address2': 'Street Address 2',
+            'street_address': 'Street Address',
             'state':'City',
             'postcode': 'Postal Code',
         }

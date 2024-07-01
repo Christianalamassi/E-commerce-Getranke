@@ -1,9 +1,9 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from .models import ToPayLineItem
+from .models import CheckOutLineItem
 
-@receiver(post_save, sender=ToPayLineItem)
+@receiver(post_save, sender=CheckOutLineItem)
 def update_on_save(sender, instance, created, **kwargs):
     """
     handles signals from post save event
@@ -12,7 +12,7 @@ def update_on_save(sender, instance, created, **kwargs):
     instance.order.update_total()
 
 
-@receiver(post_delete, sender=ToPayLineItem)
+@receiver(post_delete, sender=CheckOutLineItem)
 def update_on_delete(sender, instance, **kwargs):
     """
     Update order total on lineitem delete

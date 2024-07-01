@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import CheckOutForm
-from .models import ToPay, ToPayLineItem
+from .models import CheckOut, CheckOutLineItem
 from drinks.models import Drink
 from basket.contexts import your_order
 
@@ -61,14 +61,13 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                order = ToPay.objects.get(
+                order = CheckOut.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     postcode__iexact=shipping_details.address.postal_code,
                     state__iexact=shipping_details.address.state,
-                    street_address1__iexact=shipping_details.address.line1,
-                    street_address2__iexact=shipping_details.address.line2,
+                    street_address__iexact=shipping_details.address.line1,
                     total=total,
                     original_basket=basket,
                     stripe_pid=pid
@@ -76,7 +75,7 @@ class StripeWH_Handler:
 
                 order_exists = True
                 break
-            except ToPay.DoesNotExist:
+            except CheckOut.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
@@ -86,14 +85,13 @@ class StripeWH_Handler:
         else:
             order = None
             try:
-                order = ToPay.objects.create(
+                order = CheckOut.objects.create(
                     full_name=shipping_details.name,
                     email=billing_details.email,
                     phone_numbet=shipping_details.phone,
                     postcode=shipping_details.address.postal_code,
                     state=shipping_details.address.state,
-                    street_address1=shipping_details.address.line1,
-                    street_address2=shipping_details.address.line2,
+                    street_address1=shipping_details.address.line,
                     total=total,
                     original_basket=basket,
                     stripe_pid=pid
@@ -101,7 +99,7 @@ class StripeWH_Handler:
                 for basket_id, item_data in json.loads(basket).items():
                     drink = Drink.objects.get(id=basket_id)
                     if isinstance(item_data, int):
-                        order_line_item = ToPayLineItem(
+                        order_line_item = CheckOutLineItem(
                             order=order,
                             drink=drink,
                             quantity=item_data,

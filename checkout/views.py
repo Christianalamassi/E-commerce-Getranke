@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import CheckOutForm
-from .models import ToPay, ToPayLineItem
+from .models import CheckOut, CheckOutLineItem
 from drinks.models import Drink
 from basket.contexts import your_order
 
@@ -47,8 +47,7 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
             'postcode': request.POST['postcode'],
             'state': request.POST['state'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
+            'street_address': request.POST['street_address'],
             }
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
@@ -62,7 +61,7 @@ def checkout(request):
                 try:
                     drink = Drink.objects.get(id=basket_id)
                     if isinstance(item_data, int):
-                        order_line_item = ToPayLineItem(
+                        order_line_item = CheckOutLineItem(
                             order=order,
                             drink=drink,
                             quantity=item_data,
@@ -112,7 +111,7 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-    order = get_object_or_404(ToPay, order_number=order_number)
+    order = get_object_or_404(CheckOut, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
