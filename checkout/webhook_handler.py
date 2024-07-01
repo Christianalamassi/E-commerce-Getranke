@@ -1,4 +1,15 @@
-from django.http import HttpResponse
+from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
+from django.views.decorators.http import require_POST
+from django.contrib import messages
+from django.conf import settings
+
+from .forms import CheckOutForm
+from .models import ToPay, ToPayLineItem
+from drinks.models import Drink
+from basket.contexts import your_order
+
+import stripe
+import json
 
 
 class StripeWH_Handler:
@@ -28,7 +39,6 @@ class StripeWH_Handler:
         Handle the payment_intent.payment_failed webhook from Stripe
         """
 
-        intent = event.data.objects
         intent = event.data.object
         pid = intent.id
         basket = intent.metadata.basket
@@ -61,7 +71,7 @@ class StripeWH_Handler:
                     street_address2__iexact=shipping_details.address.line2,
                     total=total,
                     original_basket=basket,
-                    stripe_pid=pid,
+                    stripe_pid=pid
                 )
 
                 order_exists = True
@@ -86,7 +96,7 @@ class StripeWH_Handler:
                     street_address2=shipping_details.address.line2,
                     total=total,
                     original_basket=basket,
-                    stripe_pid=pid,
+                    stripe_pid=pid
                 )
                 for basket_id, item_data in json.loads(basket).items():
                     drink = Drink.objects.get(id=basket_id)

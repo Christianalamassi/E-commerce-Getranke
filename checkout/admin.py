@@ -11,14 +11,14 @@ class ToPayAdmin(admin.ModelAdmin):
 
     inlines = (ToPayLineItemAdminInline,)
 
-    readonly_field= (
+    readonly_fields= (
         'order_number',
         'states',
         'date' ,
         'order_total',
     )
 
-    field = (
+    fields = (
     'order_number',
     'full_name',
     'email',
@@ -28,7 +28,11 @@ class ToPayAdmin(admin.ModelAdmin):
     'street_address1',
     'street_address2',
     'date',
-    'order_total',)
+    'order_total',
+    'total',
+    'original_basket',
+    'stripe_pid',
+)
 
     display = (
         'order_number',
