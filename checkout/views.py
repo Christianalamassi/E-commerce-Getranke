@@ -9,6 +9,7 @@ from drinks.models import Drink
 from basket.contexts import your_order
 
 import stripe
+import json
 
 
 @require_POST
@@ -40,7 +41,7 @@ def checkout(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
 
-        form_data = {
+        form_data  = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
@@ -70,7 +71,7 @@ def checkout(request):
 
                 except Drink.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your basket wasn't found in our database. "
+                        "One of the drink in your basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
