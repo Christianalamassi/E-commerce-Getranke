@@ -21,7 +21,7 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-            'bag': json.dumps(request.session.get('bag', {})),
+            'basket': json.dumps(request.session.get('basket', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
@@ -38,7 +38,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
-        bag = request.session.get('bag', {})
+        basket = request.session.get('basket', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -52,7 +52,7 @@ def checkout(request):
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
             order = check_out.save()
-            for basket_id, item_data in bag.items():
+            for basket_id, item_data in basket.items():
                 try:
                     drink = Drink.objects.get(id=basket_id)
                     if isinstance(item_data, int):
@@ -65,14 +65,14 @@ def checkout(request):
 
                 except Drink.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('basket'))
 
-    bag = request.session.get('bag', {})
-    if not bag:
+    basket = request.session.get('basket', {})
+    if not basket:
         messages.error(request, 'Your basket is empty')
         return redirect(reverse('drinks'))
 

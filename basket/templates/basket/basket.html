@@ -135,7 +135,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var basketId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${basketId}/`;
+        var url = `/basket/remove/${basketId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
