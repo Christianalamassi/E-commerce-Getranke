@@ -48,15 +48,25 @@
                                     </div>
                                 </div>
                             </div>
-
+                            {% if request.user.is_authenticated %}
+                            <div class="mt-2">
+                                <input type="submit" style="margin-bottom: 15px;"
+                                 class="btn btn-primary text-uppercase" value="Add to basket"><br>
+                                <a href="{% url 'drinks'%}" <span class="icon">
+                                    <i class="fas fa-chevron-left text-uppercase"></i>
+                                    <span class=" text-uppercase">Continue Shopping</span>
+                                </a>
+                            </div>
+                            {% else %}
                             <div class="mt-2">
                                 <a href="{% url 'drinks'%}"
                                     <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                    <span class="text-uppercase">Continue Shopping</span>
+                                    <i class="fas fa-chevron-left"></i></span>
+                                    <span class="text-uppercase">View the Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to basket">
+                                <p><a href="{% url 'account_login' %}">Log in</a> if you want to order</p>
                             </div>
+                            {% endif %}
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
