@@ -123,9 +123,9 @@ class StripeWH_Handler:
                     user_profile=profile,
                     email=billing_details.email,
                     phone_numbet=shipping_details.phone,
+                    street_address=shipping_details.address.line,
                     postcode=shipping_details.address.postal_code,
                     state=shipping_details.address.state,
-                    street_address1=shipping_details.address.line,
                     total=total,
                     original_basket=basket,
                     stripe_pid=pid
