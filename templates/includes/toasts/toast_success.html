@@ -8,12 +8,11 @@
         </button>
     </div>
     <div class="toast-body bg-white">
-        {{ message }}        
-    </div>
-</div>
-
-{% if total and not on_profile %}
-    <p class="logo-font bg-white text-black py-1">Your Basket ({{product_count }})</p>
+        {{ message }}  
+        <hr>
+        {% if total and not on_profile %}
+    <p class="logo-font bg-white text-black py-1">Your have ({{product_count }})
+        order in the basket</p>
         <div class="bag-notification-wrapper">
             {% for order in bag_items %}
                     <div class="row">
@@ -21,17 +20,17 @@
                             <p class="my-0">Name: <strong>{{ order.drink.name }}</strong></p>
                             <p class="my-0 small text-muted">Quantity: {{ order.quantity }}</p>
                         </div>
+                        <br>
+                        <hr>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary btn-black btn-block rounded-0">
+                            <span class="text-uppercase">Go To Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>    
                     </div>
                 {% endfor %}
             </div>
-            <div class="row">
-                <div class="col">
-                    <a href="{% url 'checkout' %}" class="btn btn-black btn-block rounded-0">
-                        <span class="text-uppercase">Complete Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
         {% endif %}
+    </div>
+</div>
