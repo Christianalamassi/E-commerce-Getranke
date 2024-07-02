@@ -47,9 +47,9 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
+            'street_address': request.POST['street_address'],
             'postcode': request.POST['postcode'],
             'state': request.POST['state'],
-            'street_address': request.POST['street_address'],
             }
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
@@ -78,19 +78,27 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('basket'))
 
-    basket = request.session.get('basket', {})
-    if not basket:
-        messages.error(request, 'Your basket is empty')
-        return redirect(reverse('drinks'))
+            # Save the info to the user's profile if all is well
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please check your information again.')
+            
+    else:
+        basket = request.session.get('basket', {})
+        if not basket:
+            messages.error(request, 'Your basket is empty')
+            return redirect(reverse('drinks'))
 
-    your_orders = your_order(request)
-    total = your_orders['total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-         amount=stripe_total,
-         currency=settings.STRIPE_CURRENCY,
-     )
+        your_orders = your_order(request)
+        total = your_orders['total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -133,12 +141,12 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
+    messages.success(request, f'Your order has been successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    if 'in_basket' in request.session:
-        del request.session['in_basket']
+    if 'basket' in request.session:
+        del request.session['basket']
 
     template = 'checkout/checkout_success.html'
     context = {

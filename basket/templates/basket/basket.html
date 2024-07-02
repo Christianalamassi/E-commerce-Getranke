@@ -45,7 +45,7 @@
                                         <p class="my-0"><strong>{{ item.drink.name }}</strong></p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.drink.price }}</p>
+                                        <p class="my-0">£{{ item.drink.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'fix_basket' item.basket_id%}">
@@ -78,14 +78,14 @@
                                         <a class="update-link text-info"><small>Submit the change</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.drink.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0">£{{ item.drink.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Total price: ${{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Free Delivery: $0.00</h6>
+                                    <h6><strong>Total price: £{{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Free Delivery: £0.00</h6>
                                 </td>
                             </tr>
                             <tr>

@@ -13,7 +13,7 @@ class CheckOutAdmin(admin.ModelAdmin):
 
     readonly_fields= (
         'order_number',
-        'states',
+        'state',
         'date' ,
         'total',
     )
@@ -37,7 +37,7 @@ class CheckOutAdmin(admin.ModelAdmin):
         'order_number',
         'full_name',
         'email',
-        'states',
+        'state',
     )
 
     ordring =('-data',)
