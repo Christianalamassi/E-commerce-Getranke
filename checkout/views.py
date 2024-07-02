@@ -54,11 +54,11 @@ def checkout(request):
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
             order=check_out.save(commit=False)
-            pid=request.POST.get('client_secret').split('_secret')[0]
-            order_stripe_pid = pid
-            order_original_basket=json.dumps(basket)
-            order.save
-            order = check_out.save()
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_basket=json.dumps(basket)
+            order.save()
+
             for basket_id, item_data in basket.items():
                 try:
                     drink = Drink.objects.get(id=basket_id)
@@ -100,6 +100,23 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        # Attempt to prefill the form with any info the user maintains in their profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                check_out = CheckOutForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'street_address': profile.default_street_address,
+                    'postcode': profile.default_postcode,
+                    'state': profile.default_state,
+                })
+            except UserProfile.DoesNotExist:
+                check_out = CheckOutForm()
+        else:
+            check_out = CheckOutForm()
+
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
@@ -113,7 +130,6 @@ def checkout(request):
     }
 
     return render(request, template, context)
-
 
 
 def checkout_success(request, order_number):

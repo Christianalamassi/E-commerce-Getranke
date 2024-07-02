@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
+from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -13,6 +14,7 @@ from basket.contexts import your_order
 
 import stripe
 import json
+import time
 
 
 class StripeWH_Handler:
@@ -21,7 +23,7 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
-    def __send_confirmation_email(self, order):
+    def _send_confirmation_email(self, order):
 
         """Send the user a confirmation email"""
         cust_email = order.email
@@ -55,30 +57,21 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]}',
             status=200)
 
-    def handle_payment_intent_payment_failed(self, event):
-        """
-        Handle the payment_intent.payment_failed webhook from Stripe
-        """
-
         intent = event.data.object
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
 
-        # Get the Charge object
-        stripe_charge = stripe.Charge.retrieve(
-            intent.latest_charge
-        )
-
-        billing_details = stripe_charge.billing_details # updated
+        billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        total = round(stripe_charge.amount / 100, 2) # updated
+        total = round(intent.charges.data[0].amount / 100, 2)
 
+        # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[Faild] = None
 
-          # Update profile information if save_info was checked
+        # Update profile information if save_info was checked
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
@@ -160,3 +153,4 @@ def handle_payment_intent_payment_failed(self, event):
         return HttpResponse(
             content=f'Faild Webhook received: {event["type"]}',
             status=200)
+
