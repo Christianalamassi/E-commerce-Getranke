@@ -68,8 +68,12 @@
                       <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
                     </li>
                   {% endif %}
-                  <li class="nav-item active">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                      Logout/Profile</a>
+                        <div class="dropdown-menu">
                     <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'profile' %}">Profile <span class="sr-only">(current)</span></a>
                   </li>
                 {% else %}
                   <li class="nav-item dropdown">

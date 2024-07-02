@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="lay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Checkout</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="my-heading-font">My profile</h2>
+        <p class="lead">Check and update your address information. Look back on your order info.
+        </p>
+    </div>
+    <!-- order summary info   -->
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-success my-heading-font">Order info
+            </span>
+            <span class="badge bg-success rounded-pill">{{ orders|length }}
+            </span>
+        </h4>
+        <ul class="list-group mb-3 order-history">
+            {% for order in orders %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <a class="text-decoration-none text-dark" href="{% url 'order_info' order.order_number %}" title="{{ order.order_number }}">
+                <div>
+                <h6 class="my-0">{{ order.date }}
+                </h6>
+                <small class="text-muted">Order Number: {{ order.order_number|truncatechars:6 }}
+                </small>
+                </div>
+                <span class="text-muted">£ {{ order.total }}
+                </span>
+            </a>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3 my-heading-font">Default Address
+        </h4>
+        <form action="{% url 'profile' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <div class="row g-3">
+            <div class="col-12">
+                {{ form.default_phone_number | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.default_street_address | as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.default_postcode | as_crispy_field }}
+            </div>
+            <div class="col-12">
+                {{ form.default_state | as_crispy_field }}
+            </div>
+            </div>
+            <hr class="my-4">
+            <button id="submit-button" class="btn btn-primary mb-4">
+            <span class="font-weight-bold">Update Now
+            </span>
+            <i class="bi bi-person-plus-fill">
+            </i>
+            </button>
+        </form>
+        <!-- form ends here -->
+        </div>
+    </div>
+    </div>
+{% endblock %}

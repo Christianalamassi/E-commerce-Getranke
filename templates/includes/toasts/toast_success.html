@@ -12,7 +12,7 @@
     </div>
 </div>
 
-{% if total %}
+{% if total not on_profile %}
     <p class="logo-font bg-white text-black py-1">Your Basket ({{product_count }})</p>
         <div class="bag-notification-wrapper">
             {% for order in bag_items %}
