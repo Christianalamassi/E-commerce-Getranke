@@ -16,29 +16,34 @@
     </div>
     <div class="container">
         <h2 class="my-heading-font">My profile</h2>
-        <p class="lead">Check and update your address information. Look back on your order info.
+        <p class="lead">Check and update your information. Look back on your order details.
         </p>
     </div>
-    <!-- order summary info   -->
+    <!-- order summary details   -->
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-success my-heading-font">Order info
-            </span>
-            <span class="badge bg-success rounded-pill">{{ orders|length }}
-            </span>
+            <span class="text-primary my-heading-font">Order details</span>
+            <span class="badge bg-primary rounded-pill">{{ orders|length }}</span>
         </h4>
-        <ul class="list-group mb-3 order-history">
+        <ul class="list-group mb-3 order details">
             {% for order in orders %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
-                <a class="text-decoration-none text-dark" href="{% url 'order_info' order.order_number %}" title="{{ order.order_number }}">
+                <a class="text-decoration-none text-dark" href="{% url 'order_details' order.order_number %}" title="{{ order.order_number }}">
                 <div>
                 <h6 class="my-0">{{ order.date }}
                 </h6>
                 <small class="text-muted">Order Number: {{ order.order_number|truncatechars:6 }}
                 </small>
                 </div>
-                <span class="text-muted">£ {{ order.total }}
+                <ul class="list-unstyled">
+                    {% for item in order.lineitems.all %}
+                        <li class="small">
+                           {{ item.product.name }} x{{ item.quantity }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <span class="text-muted">$ {{ order.total }}
                 </span>
             </a>
             </li>
@@ -72,7 +77,6 @@
             </i>
             </button>
         </form>
-        <!-- form ends here -->
         </div>
     </div>
     </div>

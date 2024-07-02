@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
+from checkout.models import CheckOut
 
 
 def profile(request):
@@ -25,6 +26,23 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile':True,
+        }
+
+    return render(request, template, context)
+
+def order_details(requesdt, order_number):
+    order = get_object_or_404(CheckOut, oreder_number=order_number)
+
+    messages.info(request, (
+        f'This is an old confirmation for order number {order_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+   
+    template = 'checkout/scheckout_success.html'
+    context = {
+        'orders': orders,
+        'from_profile':True,
         }
 
     return render(request, template, context)

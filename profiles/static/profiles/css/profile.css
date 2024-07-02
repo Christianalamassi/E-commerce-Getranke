@@ -18,3 +18,8 @@
 .profile-form-input{
     width:70%;
 }
+
+.order details {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}

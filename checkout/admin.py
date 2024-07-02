@@ -20,6 +20,7 @@ class CheckOutAdmin(admin.ModelAdmin):
 
     fields = (
     'order_number',
+    'user_profile'
     'full_name',
     'email',
     'phone_number', 
