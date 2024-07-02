@@ -15,7 +15,7 @@ class CheckOutAdmin(admin.ModelAdmin):
         'order_number',
         'states',
         'date' ,
-        'order_total',
+        'total',
     )
 
     fields = (
@@ -24,11 +24,10 @@ class CheckOutAdmin(admin.ModelAdmin):
     'full_name',
     'email',
     'phone_number', 
-    'states',
-    'postcode',
     'street_address',
+    'postcode',
+    'state',
     'date',
-    'order_total',
     'total',
     'original_basket',
     'stripe_pid',

@@ -27,16 +27,16 @@
 
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <p class="text-muted">Order Details ({{ product_count }})</p>
+            <p class="text-muted">Quantity ({{ product_count }})</p>
             <div class="row">
                 <div class="col-7 offset-2">
-                    <p class="mb-1 mt-0 small text-muted">Drinks</p>
+                    <p class="mb-1 mt-0 small text-muted">Name</p>
                 </div>
                 <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small text-muted">Total price</p>
+                    <p class="mb-1 mt-0 small text-muted">Price</p>
                 </div>
             </div>
-            {% for item in bag_items %}
+            {% for item in basket_drink %}
                 <div class="row">
                     <div class="col-2 mb-1">
                         <a href="{% url 'each_drink' item.drink.id %}">
@@ -69,29 +69,24 @@
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <p class="text-muted">Please fill out the form in order complete your order</p>
+            <p class="text-muted">Please fill out the form in order to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Info</legend>
+                    <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                     {{ check_out.full_name | as_crispy_field }}
                     {{ check_out.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
                     {{ check_out.phone_number | as_crispy_field }}
+                    {{ check_out.street_address | as_crispy_field }}
                     {{ check_out.postcode | as_crispy_field }}
                     {{ check_out.state| as_crispy_field }}
-                    {{ check_out.street_address | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                            <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                        {% else %}
-                            <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                            </label>
+                        <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
                         {% endif %}
                     </div>
                 </fieldset>

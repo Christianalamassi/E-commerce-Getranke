@@ -56,7 +56,7 @@ def remove(request, basket_id):
         basket = request.session.get('basket', {})
 
         basket.pop(basket_id)
-        messages.success(request, f'Removed {drink.name} from your bag')
+        messages.success(request, f'Removed {drink.name} from your basket')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)

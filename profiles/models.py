@@ -21,7 +21,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_state = models.CharField(choices=states, max_length=40, blank=False, null=False)
+    default_state = models.CharField(choices=states, max_length=40, blank=True, null=True)
     default_street_address = models.CharField(max_length=80, null=True, blank=True)
 
     def __str__(self):

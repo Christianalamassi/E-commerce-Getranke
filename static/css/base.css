@@ -16,7 +16,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    min-height: 115vh;
+    min-height: 118vh;
     flex-direction: column;
 }
 
@@ -34,20 +34,19 @@ main {
 
 .Getränke{
     font-family: sans-serif;
-    color: rgb(12, 159, 159);
+    color: rgb(7, 182, 182);
 }
 
 footer{
     text-align : center;
-    align-items: center;
 }
 
 .social_media{
-    font-size: x-large;
+    font-size: large;
 }
 
 .phone{
-    padding:7px;
+    padding:3px;
 }
 
 /* each_drink page */
@@ -143,7 +142,14 @@ ul > li {
     margin-bottom: 22px;
 }
 
+@media (max-width: 1350px) {
+    body {
+        min-height: 135vh;
+    }
+}
+
 @media (max-width: 1200px) {
+
     #drink_info{
         line-height: 8vh;
     }
