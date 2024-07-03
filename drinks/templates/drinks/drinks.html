@@ -65,7 +65,7 @@
                                             {% if request.user.is_superuser%}
                                             <small class="ml-3">
                                                 <a href="{% url 'edit_drink' drink.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_drink' drink.id %}">Remove</a>
+                                                <a class="text-danger"  onclick="return confirm('Are you sure you want to remove this drink from the list?');" href="{% url 'delete_drink' drink.id %}">Remove</a>
                                             </small>
                                             {% endif %}
 
