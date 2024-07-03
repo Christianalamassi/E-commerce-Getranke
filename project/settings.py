@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = ['8000-christianalam-ecommerce-7stq077os51.ws.codeinstitute-ide.net',
-    '.herokuapp.com', 'ecommercepp5-a121ad0ae944.herokuapp.com', 'localhost']
+    '.herokuapp.com', 'localhost']
 
 
 # Application definition
