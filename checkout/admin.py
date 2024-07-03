@@ -20,7 +20,7 @@ class CheckOutAdmin(admin.ModelAdmin):
 
     fields = (
     'order_number',
-    'user_profile'
+    'user_profile',
     'full_name',
     'email',
     'phone_number', 
@@ -38,6 +38,7 @@ class CheckOutAdmin(admin.ModelAdmin):
         'full_name',
         'email',
         'state',
+        'data',
     )
 
     ordring =('-data',)
