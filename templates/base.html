@@ -65,7 +65,7 @@
                 {% if request.user.is_authenticated%}
                   {% if request.user.is_superuser %}
                     <li class="nav-item active">
-                      <a class="nav-link" href="">Management <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{% url 'add_drink'%}">Management <span class="sr-only">(current)</span></a>
                     </li>
                   {% endif %}
                   <li class="nav-item dropdown">

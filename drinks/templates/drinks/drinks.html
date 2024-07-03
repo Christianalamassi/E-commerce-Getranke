@@ -39,7 +39,11 @@
                             <div class="card h-100 border-0">
                                 <div class="card-body pb-0">
                                 <a href="{% url 'each_drink' drink.id %}">
+                                    {% if drink.image%}
                                     <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
+                                    {% else %}
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ drink.name }}">
+                                    {% endif %}
                                 </a>
                                 </div>
                                 <div class="card-body pb-0">

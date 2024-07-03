@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Drink, Alcohol
+from .forms import DrinkForm
 
 # Create your views here.
 
@@ -53,3 +54,23 @@ def each_drink(request, drink_id):
         'drink': drink
     }
     return render(request, "drinks/each_drink.html", context)
+
+
+def add_drink(request):
+    """Add a drink to the project"""
+    if request.method=='POST':
+        form = DrinkForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"You add it successfully")
+            return redirect(reverse('add_drink'))
+        else:
+            messages.error(request, "Somthing went wrong, try again")
+    else:
+        form = DrinkForm()
+    template = 'drinks/add_drink.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
