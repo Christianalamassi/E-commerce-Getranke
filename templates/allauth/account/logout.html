@@ -5,6 +5,7 @@
 {% block head_title %}{% trans "Log Out" %}{% endblock %}
 
 {% block inner_content %}
+<div class="allauth-log">
 <hr>
 <h2 class="logo-font mb-4">{% trans "Log Out" %}</h2>
 <hr>
@@ -18,5 +19,5 @@
   <a class="btn btn-primary btn-lg mb-4" href="{% url 'home' %}">Cancel</a>
   <button class="btn btn-primary btn-lg mb-4" type="submit">{% trans 'Log Out' %}</button>
 </form>
-
+</div>
 {% endblock %}
