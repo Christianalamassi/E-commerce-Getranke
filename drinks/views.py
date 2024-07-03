@@ -61,9 +61,9 @@ def add_drink(request):
     if request.method=='POST':
         form = DrinkForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            drink = form.save()
             messages.success(request,"You added it successfully")
-            return redirect(reverse('add_drink'))
+            return redirect(reverse('each_drink', args=[drink.id]))
         else:
             messages.error(request, "Somthing went wrong, try again")
     else:
@@ -84,7 +84,7 @@ def edit_drink(request, drink_id):
         if form.is_valid():
             form.save()
             messages.success(request,"You edited it successfully")
-            return redirect(reverse('edit_drink', args=[drink.id]))
+            return redirect(reverse('each_drink', args=[drink.id]))
         else:
             messages.error(request, "Somthing went wrong, try again")
     else:
@@ -97,3 +97,9 @@ def edit_drink(request, drink_id):
         'drink':drink,
     }
     return render(request, template, context)
+
+def delete_drink(request, drink_id):
+    drink = get_object_or_404(Drink, pk=drink_id)
+    drink.delete()
+    messages.success(request, f"You removed {drink.name} from the offer")
+    return redirect(reverse('drinks'))
