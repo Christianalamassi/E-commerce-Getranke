@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import Drink, Alcohol
 
 
@@ -7,11 +8,13 @@ class DrinkForm(forms.ModelForm):
         model = Drink
         fields = '__all__'
 
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            drinks = Drink.objects.all()
-            names = [(c.id, c.get_name()) for c in drinks]
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
-            self.fields['drink'].choices = names
-            for field_name, field in self.fields.items():
-                field.widget.attrs['class'] = 'border-black'
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        drinks = Alcohol.objects.all()
+    
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black'
+
+    

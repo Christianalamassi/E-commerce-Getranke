@@ -29,7 +29,13 @@
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'edit_drink' drink.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form | crispy }}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
                     <div class="text-right">
                         <a class="btn btn-primary btn-lg" href="{% url 'drinks' %}">Cancel</a>
                         <button class="btn btn-primary btn-lg type="submit">Update</button>
@@ -38,4 +44,14 @@
             </div>            
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
 {% endblock %}
