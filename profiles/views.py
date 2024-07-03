@@ -13,7 +13,7 @@ def profile(request):
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
-    if request =='POST':
+    if request.method =='POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
@@ -33,8 +33,8 @@ def profile(request):
 
     return render(request, template, context)
 
-def order_details(requesdt, order_number):
-    order = get_object_or_404(CheckOut, oreder_number=order_number)
+def order_details(request, order_number):
+    order = get_object_or_404(CheckOut, order_number=order_number)
 
     messages.info(request, (
         f'This is an old confirmation for order number {order_number}. '
@@ -42,9 +42,9 @@ def order_details(requesdt, order_number):
     ))
 
    
-    template = 'checkout/scheckout_success.html'
+    template = 'checkout/checkout_success.html'
     context = {
-        'orders': orders,
+        'order': order,
         'from_profile':True,
         }
 

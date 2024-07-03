@@ -35,6 +35,7 @@ body {
 .Getränke{
     font-family: sans-serif;
     color: rgb(7, 182, 182);
+    margin-left: 4px;
 }
 
 footer{
@@ -175,7 +176,7 @@ bottom:140px;
 
 @media (max-width: 1350px) {
     body {
-        min-height: 135vh;
+        min-height: 120vh;
     }
 }
 
