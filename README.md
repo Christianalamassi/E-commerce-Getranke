@@ -1,131 +1,346 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# E-commerce (Getränke)
 
-Welcome Ahmed Alamassi,
+## Overview
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This project was designed, developed, and based on the idea of online shop to create a simple and easy method for the customers to buy drinks online. The users are given the possibility to add the order to thier basket, update it and delete it at any time before the payment. All these functionalities can be accessed by any user with an account. The admins have special permissions for controlling the data (CRUD). The website was made for real life simulation, although the shop and drinks don't exist in real life. The web site was developed using HTML, CSS, JS, Python "Django" and data are stored in an Elephant SQL database. The project can be accessed through this link [Getränke]().
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+### Features
+Some elements appear on all of the pages of the website, like navbar and the footer.
 
-## Gitpod Reminders
+- Navbar
+  - The navigation is fixed at the top of the page and esay to use. It includs three buttons "Home","Order Here" and either or "log out" and "Profile" when the user logged in "log in" and " register" when the user logged out and "Management" if the user is superuser.
+  - Also, the navbar is responsive to different screen sizes.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- Footer
+    The footer includes the contact of the shop, email and social media links.
 
-`python3 -m http.server`
+### Home
+This is the main page, and just includes background and if the user is authenticated can see the basket in right top of the page.
 
-A blue button should appear to click: _Make Public_,
+### Order Here
+- This page is available to everyone.
+On this page where customers can find products and see the details of each product.
+- When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is less than 1000
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
 
-A blue button should appear to click: _Make Public_,
+appointment panel
 
-Another blue button should appear to click: _Open Browser_.
+Four inputs "The pet name", "The date", "The time", "Textarea". notace The imee is available for booking an appointment (different options)".
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Two buttons to submit or reset.
 
-To log into the Heroku toolbelt CLI:
+Three validation errors that appear:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+when the user enters an invalid time
+when the user books an already booked appointment
+when the user tries to book more than one appointments
+A link to the information on the appointment
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+This link gives the user the possibility to access the booked appointment including the information.
+Also, it shows them a message, if they don't have an appointment, to inform them that they don't have one yet.
+It provides buttons to edit and delete if the user has booked an appointment or an appointment button if the user does not have one.
+The user receives a confirmation message before the deletion.
+ - Additionally it includes a Home button, which takes the user to the homepage. 
 
-### Connecting your Mongo database
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+Sign Up
+On the main page, the user can click on "Sign Up" if the user wants to create an account. It has a link to the log-in page if the user already has an account. The user has to choose a username and a password that has to be filled-in twice, email is optional. The form has instructions that the user has to follow to be able to create an account. 
 
-------
+Login
+On this page, the user only has to enter their username and password to log in to the page. It has a link to the Sign Up page if the user has no account. The user will automatically be to the booking panel when it logged in. 
 
-## Release History
+Logout
+When the user is logged in and clicks on "Logout" up on the navigation bar, the user will automatically be redirected to this page first. The user receives the question if they are sure they want to log out. To log out they click on the button "confirm" 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+UX
+Strategy
+Project Goal
+This Project was created for a vet clinic that is useful for clients and staff members.
 
-**June 18, 2024,** Add Mongo back into template
+User story
+The purpose of the project is to give the possibility for the clients to book an appointment to see the vet for their pets. They just need to create an account and then log in to access the appointment panel where they can book their appointment.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+In addition, the users have the ability to change (edit) and delete their appointments at any time, as long as they are logged in. The webiste is easy for the user to navigate through.
 
-**May 28 2024:** Fix Mongo and Links installs
+Also, any visitor to the website can read about the vets to know who they are before they decide whether to be a client or not.
 
-**April 26 2024:** Update node version to 16
+- As a user, I can get to know the doctors&#39; history in order to decide whether to be their client or not.
+- As a user, I can click on the booked appointment link so that I can see my appointment at any time.
+- As a user, I can book an available appointment so that nobody interferes with the appointment.
+- As an admin, I can style the base.HTML page so that I can inherit style to the rest of the HTML pages.
+- As a user, I can find the appointment bottom in the navbar so that I can access the appointment page without turning back to the main page
+- As a user, I can book, edit, or delete an appointment so that I have flexibility.
+- As a user, I can ignore the deletion so that I have the chance to keep my appointment.
+- As a user I can sign up so that I have an account to be able to book an appointment.
+- As a user, I can go to profile so that I can make an appointment.
+- As a user I can easily navigate from the home page so that I can access whatever I want without confusion.
+- As an Admin I can create, read, update, and delete the bookings so that I can manage the booking system.
+- As an admin I can create, read, update, and delete the bookings so that I can manage the booking system.
+- As a user I can sign up so that I can have my own profile.
+Here is the link to User stories 
 
-**September 20 2023:** Update Python version to 3.9.17.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Structure
+The user can access the home page and the About Us page without having a profile, but to access the booking system, the user must create an account. Then the user will have their own profile so that they can access the booking and booking panel. To schedule an appointment, the user will receive a text message confirming the appointment with the ability to modify or delete the appointment. Also, if the user returns to the home page, they can still come back at any time to edit or delete the appointment. 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Scope
+Simple and intuitive User Experience.
+Create a responsive design for desktop, tablet, and mobile devices.
+Add information about location contact and social media.
+Allow access to the Profile page only for client type of users
+Make a clear and easy design for the users
+Create a booking system feature that allows the users to display, edit, and delete the appointment as well as the staff members..
+Create a Profile page for the user, so the user can book an appointment.
+Skeleton
+The project uses the ElephentSQL relational database for storing the data. There was just one diagram created for this project.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+Surface
+Visual Effects
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Flex-box
+Animation
+Hover effects
+Box shadows
+Color palette
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+rgba(255, 255, 255, 0.4)
+rgb(224, 205, 205)
+Black
+rgb(138, 119, 15)
+rgb(224, 205, 205)
+Fonts imported from fonts.googleapis google.font
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+Verdana, Geneva, Tahoma, sans-serif
+Arial, Helvetica
+Technologies Used
+Languages
+HTML was used as the foundation of the site.
+CSS was used to add the style and layout of the site.
+JavaScript was used for interaction
+Python Used for back end and front end
+Frameworks:
+Django Used as a framework
+Bootstrap5 For adding predefined styled elements and creating
+Other tools:
+Cloudinary For storing static data
+Gitpod Hosted the workspace.
+Heroku Used for deploying the project
+GitHub Used for hosting the source code of the program
+Favicon.io Used for generating the website favicon
+Chrome-Del-Tools For debugging the project
+W3C HTML Validator Used for validating the HTML
+CI Python Linter Used to validating Python
+Font-Awesome For creating attractive UX with icons responsiveness
+Google-Fonts for typography
+JsHint used for validating the javascript code
+Jigsaw CSS Validator Used for validating the CSS
+elephantsql Where the DB is storing
+django-allauth Used for the authorization
+gunicorn
+app-diagrams Used to design the RED
+amiresponsive Used to check responsive screen
+Deployment
+Install the dependencies:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Open the terminal window and type:
+pip3 install -r requirements.txt.
+Create a .gitignore file in the root directory of the project where you should add env.py.
+Create a .env file. and added the following.
+Added "DEVELOPMENT" in os.environ to DEBUG in setting.py.
+Added '.herokuapp.com' in the setting to ALLOWED_HOSTS.
+import os:
+os.environ['SECRET_KEY'] = 'Add a secret key'.
+os.environ['DATABASE_URL'] = 'will be used to connect to the database'.
+Also add os.environ['DEVELOPMENT'] = "True" in env.py.
+Push to GitHub.
+Migrate by Run the following commands in a terminal:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+python3 manage.py makemigrations.
+python3 manage.py migrate.
+Setting up Heroku
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Go to the Heroku website Heroku.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Log in or create a Heroku account.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Login to Heroku and choose Create App.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Click New and Create a new app.
 
-------
 
-## FAQ about the uptime script
+Choose a name and select your location.
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Go to the Resources tab.
 
-**How will this affect me?**
+From the Resources list select Heroku Postgres.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Navigate to the Deploy tab
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Click on Connect to Github and search for your repository.
 
-**So….?**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+Navigate to the Settings tab.
 
-**Can I opt out?**
+Click on the "Settings" tab and then on "Reveal Config Vars".
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Delete "DISABLE_COLLECTSTATIC = 1" from the list.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Add CLOUDINARY_URL = API, DATABASE_URL = API, SECRET_KEY = API to the list.
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Now click on the tab "Deploy"
 
----
 
-Happy coding!
+and then on the button "Deploy Branch" at the bottom of the page. - 
+
+When it's deployed, Click on "Open App" to access the website.
+
+Here is the website Vet Tiere.
+
+Testing
+I have tested the project by the following points
+
+Validator Testing
+Python
+
+Passed the code to PEP8.
+  
+HTML
+
+No errors were returned when passing through the official W3C validator
+  
+CSS
+
+No errors were found when passing through the official (Jigsaw) validator
+
+JavaScript
+
+Undefined bootstrap was checked and there are no error Jshint validator.
+
+The website has been tested and works on different screen sizes and is responsive.
+
+
+
+
+
+
+
+
+Lighthouse
+
+
+
+
+
+
+
+
+Manually checking
+General Tests
+It has been tested and works in several web browsers such as Firefox and Edge.
+All alerts disappear after four seconds.
+The user can't book an invalid date or multiple appointments.
+It was made sure that each user had their own appointment.
+The user gets alert messages when they log in or log out.
+The navigation stays at the top of the page.
+Booking system
+Back end connected with front end.
+It shows a message for the user when they entered an invalid date or multiple appointments or a taken appointment.
+It takes the user to a confirmation message that includes the information of the appointment.
+Delete and Edit are functioning
+It allows the user to delete, edit, and read the appointment at any time.
+It gives the user a chance to undelete the appointment after clicking on delete bottom.
+Authorization
+Sign-Up
+The Sign-Up page works good.
+The link to the Log-in page works correctly.
+Log-in
+The Log-in page works good.
+The link to the Sign-Up page works correctly.
+The user has to enter the user details correctly to be able to log in.
+Log-out
+The Log-out page works good.
+The button works good.
+Bugs
+Fixed bugs
+The error was solved by deleting the duplicate id. 
+
+The elements were unclear. It was fixed by adding background.  
+
+It wasn't clear to the user that they could book only one appointment. It was fixed by adding a message at the top of the page. 
+
+Unfixed bugs
+The user can't see the available and unavailable appointments before choosing on the date.
+ERD
+
+
+Credits
+inspiration was taken from Code Institute
+Icons are from Font-Awesome.
+This website uses Bootstrap.
+Images on this website are hosted and managed by Cloudinary.
+Fonts are from Google-Fonts.
+This website is powered by Django.
+To check representative screen amiresponsive.
+Used to test JavaScript JsHint.
+Used to stor DB elephantsql.
+Used to test CSS Jigsaw CSS Validator.
+Used to test HTML code W3 W3C HTML Validator.
+Used for Favicon.
+Used to design the RED app-diagrams.
+Used to check resporesponsive screens responsiveviewer
+Media
+An image was taken from depositphotos.
+Images were taken from 123rf.
+An image was taken from pixabay.
+About
+No description, website, or topics provided.
+Resources
+ Readme
+ Activity
+Stars
+ 0 stars
+Watchers
+ 1 watching
+Forks
+ 0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Deployments
+76
+ ppfour last month
++ 75 deployments
+Languages
+JavaScript
+38.9%
+ 
+CSS
+35.6%
+ 
+HTML
+16.8%
+ 
+Python
+8.7%
+Suggested workflows
+Based on your tech stack
+Node.js logo
+Node.js
+Build and test a Node.js project with npm.
+Webpack logo
+Webpack
+Build a NodeJS project with npm and webpack.
+Publish Node.js Package logo
+Publish Node.js Package
+Publishes a Node.js package to npm.
+More workflows
+Footer
