@@ -142,6 +142,7 @@ ul > li {
     margin-bottom: 22px;
 }
 
+
 @media (max-width: 1350px) {
     body {
         min-height: 135vh;

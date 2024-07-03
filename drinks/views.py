@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Drink, Alcohol
 from .forms import DrinkForm
@@ -55,9 +56,13 @@ def each_drink(request, drink_id):
     }
     return render(request, "drinks/each_drink.html", context)
 
-
+@login_required
 def add_drink(request):
     """Add a drink to the shop"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Danger. You are not allowed to do this')
+        return redirect(reverse('home'))
+        
     if request.method=='POST':
         form = DrinkForm(request.POST, request.FILES)
         if form.is_valid():
@@ -75,8 +80,13 @@ def add_drink(request):
 
     return render(request, template, context)
 
+
+@login_required
 def edit_drink(request, drink_id):
     """Update a drink to the shop"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Danger. You are not allowed to do this')
+        return redirect(reverse('home'))
 
     drink = get_object_or_404(Drink, pk=drink_id)
     if request.method == "POST":
@@ -98,7 +108,13 @@ def edit_drink(request, drink_id):
     }
     return render(request, template, context)
 
+
+@login_required
 def delete_drink(request, drink_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Danger. You are not allowed to do this')
+        return redirect(reverse('home'))
+
     drink = get_object_or_404(Drink, pk=drink_id)
     drink.delete()
     messages.success(request, f"You removed {drink.name} from the offer")
