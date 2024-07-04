@@ -84,16 +84,12 @@ The user can access the home page and Order Here page without having a profile, 
 The project uses the ElephentSQL relational database for storing the data. There was just one diagram created for this project.
 
 ### Surface
-
 Flex-box
 Hover effects
-Color palette
-
-rgba(255, 255, 255, 0.4)
-rgb(224, 205, 205)
-Black
-rgb(138, 119, 15)
-rgb(224, 205, 205)
+Color palette:
+  -
+  -
+  -
 Fonts imported from fonts.googleapis google.font
 
 Verdana, Geneva, Tahoma, sans-serif
