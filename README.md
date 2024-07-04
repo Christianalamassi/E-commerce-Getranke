@@ -22,63 +22,47 @@ This is the main page, and just includes background and if the user is authentic
 On this page where customers can find products and see the details of each product.
 - When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is less than 1000
 
+### Authentication
+  - This dropdown button includs the sing up, log in-out and profile buttons.
 
 
-appointment panel
+#### Sign Up
+On this page the user can click on "Sign Up" if the user wants to create an account. 
 
-Four inputs "The pet name", "The date", "The time", "Textarea". notace The imee is available for booking an appointment (different options)".
+#### Login
+On this page, the user only has to enter their username and password to log in to the page. It has a link to the Sign Up page if the user has no account. The user will automatically be able to see the basket.
 
-Two buttons to submit or reset.
-
-Three validation errors that appear:
-
-when the user enters an invalid time
-when the user books an already booked appointment
-when the user tries to book more than one appointments
-A link to the information on the appointment
-
-This link gives the user the possibility to access the booked appointment including the information.
-Also, it shows them a message, if they don't have an appointment, to inform them that they don't have one yet.
-It provides buttons to edit and delete if the user has booked an appointment or an appointment button if the user does not have one.
-The user receives a confirmation message before the deletion.
- - Additionally it includes a Home button, which takes the user to the homepage. 
-
-
-Sign Up
-On the main page, the user can click on "Sign Up" if the user wants to create an account. It has a link to the log-in page if the user already has an account. The user has to choose a username and a password that has to be filled-in twice, email is optional. The form has instructions that the user has to follow to be able to create an account. 
-
-Login
-On this page, the user only has to enter their username and password to log in to the page. It has a link to the Sign Up page if the user has no account. The user will automatically be to the booking panel when it logged in. 
-
-Logout
+#### Logout
 When the user is logged in and clicks on "Logout" up on the navigation bar, the user will automatically be redirected to this page first. The user receives the question if they are sure they want to log out. To log out they click on the button "confirm" 
 
-UX
-Strategy
-Project Goal
-This Project was created for a vet clinic that is useful for clients and staff members.
+## UX
 
-User story
-The purpose of the project is to give the possibility for the clients to book an appointment to see the vet for their pets. They just need to create an account and then log in to access the appointment panel where they can book their appointment.
+### Strategy
+#### Project Goal
+    This Project was created for an E-shop that is useful for customers and shop staff.
 
-In addition, the users have the ability to change (edit) and delete their appointments at any time, as long as they are logged in. The webiste is easy for the user to navigate through.
+### User story
+-  The purpose of the project is to give the possibility for the cutomers to buy drinks online. In addition, the users have the ability to view, update (edit) and delete thier order before the payment any time they want, as long as they are logged in. The webiste is easy for the user to navigate through.
 
-Also, any visitor to the website can read about the vets to know who they are before they decide whether to be a client or not.
+- Also, any visitor to the website can view what in the shop's list, Although they can't order untill they logged in.
 
-- As a user, I can get to know the doctors&#39; history in order to decide whether to be their client or not.
-- As a user, I can click on the booked appointment link so that I can see my appointment at any time.
-- As a user, I can book an available appointment so that nobody interferes with the appointment.
-- As an admin, I can style the base.HTML page so that I can inherit style to the rest of the HTML pages.
-- As a user, I can find the appointment bottom in the navbar so that I can access the appointment page without turning back to the main page
-- As a user, I can book, edit, or delete an appointment so that I have flexibility.
-- As a user, I can ignore the deletion so that I have the chance to keep my appointment.
-- As a user I can sign up so that I have an account to be able to book an appointment.
-- As a user, I can go to profile so that I can make an appointment.
-- As a user I can easily navigate from the home page so that I can access whatever I want without confusion.
-- As an Admin I can create, read, update, and delete the bookings so that I can manage the booking system.
-- As an admin I can create, read, update, and delete the bookings so that I can manage the booking system.
-- As a user I can sign up so that I can have my own profile.
-Here is the link to User stories 
+    - As a User I can recover my password whenever I forgot it so that I can be able to access my profile again
+    - As anAdmin I can create, edit, read and delete so that manage the E-shop
+    - As a User I can have my personal profile so that I view my order and history data
+    - As a User I can Add or delete the products from the basket so that I have flexibility to fix my order
+    - As a User I can order and pay so that I do complete buying processes
+    - As a user I can search for my product so that I don't have to keep scoring up or down to find it
+    - As a User I can receive confirmation email so that I manage my order or check it out
+    - As a User I can confirm my payment before complete the payment so that I have flexibility of withdrawing my order
+    - As a User I can sort the products so that I find the product that I look for easily and quickly
+    - As a User, I can register an account, so that I can access benefits of the project.
+    - As a User I can see all the items so that I order or buy
+    - As a user I can navigation easily and contact so that I can find the content
+    - As a User I can see the details of each product so that I know what to order
+    - As a User I can see what minimum price of order so that my order can be processed
+    - As a User I can have my data saved so that don't have to to refill it each time I need to process
+
+
 
 
 

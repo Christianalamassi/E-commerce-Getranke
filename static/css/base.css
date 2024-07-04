@@ -32,10 +32,11 @@ body {
     color: rgb(248, 196, 8);
 }
 
+/* Name of the shop in the left top of project*/
 .Getränke{
     font-family: sans-serif;
     color: rgb(7, 182, 182);
-    margin-left: 4px;
+    margin-left: 8px;
 }
 
 footer{
@@ -133,7 +134,7 @@ ul > li {
 
 .allauth-log{
 position: relative;
-bottom:140px;
+bottom:100px;
 }
 
 .allauth-form-inner-content input {
@@ -184,6 +185,8 @@ bottom:140px;
     color: rgb(180, 17, 17)
 }
 
+/*media queries to medium screen size from 900px wide and down*/
+
 @media (max-width: 1350px) {
     body {
         min-height: 120vh;
@@ -194,5 +197,12 @@ bottom:140px;
 
     #drink_info{
         line-height: 8vh;
+    }
+}
+
+@media (max-width: 991px) {
+ 
+    body {
+        height: calc(100vh - 116px);
     }
 }

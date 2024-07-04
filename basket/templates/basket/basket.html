@@ -10,10 +10,9 @@
         </div>
     </div>
 {% endblock %}
-
 {% block content %}
     <div class="lay"></div>
-    <div class="container mb-2">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <hr>
@@ -21,15 +20,56 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 {% if basket_drink %}
-                    <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+                            {% include "basket/total.html" %}
+                        </div>
+                    </div>
+                    {% for item in basket_drink %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "basket/image.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "basket/name.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 order-sm-last">
+                                <p class="my-0">Price Each: ${{ item.drink.price }}</p>
+                                <p><strong>Total price: </strong>${{ item.drink.price | calc_subtotal:item.quantity }}</p>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% include "basket/quantity-form.html" %}
+                            </div>
+                        </div>
+                        <div class="row"><div class="col"><hr></div></div>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'drinks' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">To Shopping</span>
+                            </a>
+                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </div>
+                <div class="table-responsive rounded d-none d-md-block">
+                    <table class="table table-sm table-borderless">
+                        <thead class="text-black">
                                 <tr>
                                     <th scope="col">Product details</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Total</th>
@@ -39,20 +79,23 @@
                             {% for item in basket_drink %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        {% if item.drink.image%}
+                                        <!-- {% if item.drink.image%}
                                         <img class="img-fluid rounded" src="{{ item.drink.image.url }}" alt="{{item.drink.name}}">
                                         {% else %}
                                         <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{item.drink.name}}">
-                                        {%endif%}
+                                        {%endif%} -->
+                                        {% include "basket/image.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.drink.name }}</strong></p>
+                                        <!-- <p class="my-0"><strong>{{ item.drink.name }}</strong></p> -->
+                                        {% include "basket/name.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">£{{ item.drink.price }}</p>
+                                        <!-- <p class="my-0">£{{ item.drink.price }}</p> -->
+                                        {% include "basket/price.html" %}
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'fix_basket' item.basket_id%}">
+                                        <!-- <form class="form update-form" method="POST" action="{% url 'fix_basket' item.basket_id%}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -79,7 +122,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Submit the change</small></a>
+                                        <a class="update-link text-info"><small>Submit the change</small></a> -->
+                                        {% include "basket/quantity-form.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.drink.price | calc_subtotal:item.quantity }}</p>
@@ -88,8 +132,9 @@
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Total price: £{{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Free Delivery: £0.00</h6>
+                                    <!-- <h6><strong>Total price: £{{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Free Delivery: £0.00</h6> -->
+                                    {% include "basket/total.html" %}
                                 </td>
                             </tr>
                             <tr>

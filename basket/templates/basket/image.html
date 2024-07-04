@@ -1,0 +1,5 @@
+{% if item.drink.image%}
+<img class="img-fluid rounded" src="{{ item.drink.image.url }}" alt="{{item.drink.name}}">
+{% else %}
+<img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{item.drink.name}}">
+{%endif%}
