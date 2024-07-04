@@ -38,10 +38,11 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
 ## UX
 
 ### Strategy
+
 #### Project Goal
     This Project was created for an E-shop that is useful for customers and shop staff.
 
-### User story
+#### User story
 -  The purpose of the project is to give the possibility for the cutomers to buy drinks online. In addition, the users have the ability to view, update (edit) and delete thier order before the payment any time they want, as long as they are logged in. The webiste is easy for the user to navigate through.
 
 - Also, any visitor to the website can view what in the shop's list, Although they can't order untill they logged in.
@@ -66,27 +67,26 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
 
 
 
-Structure
-The user can access the home page and the About Us page without having a profile, but to access the booking system, the user must create an account. Then the user will have their own profile so that they can access the booking and booking panel. To schedule an appointment, the user will receive a text message confirming the appointment with the ability to modify or delete the appointment. Also, if the user returns to the home page, they can still come back at any time to edit or delete the appointment. 
+### Structure
+The user can access the home page and Order Here page without having a profile, but to be able to order, the user must create an account. Then the user will have their own profile and basket so that they can add any item to their basket. The user will receive a text message confirming the addition with the ability to modify or delete the items from their basket. Also, if the user returns to the home page, they can still come back at any time to edit or delete from their basket. 
 
-Scope
-Simple and intuitive User Experience.
-Create a responsive design for desktop, tablet, and mobile devices.
-Add information about location contact and social media.
-Allow access to the Profile page only for client type of users
-Make a clear and easy design for the users
-Create a booking system feature that allows the users to display, edit, and delete the appointment as well as the staff members..
-Create a Profile page for the user, so the user can book an appointment.
-Skeleton
+### Scope
+ - Make a clear and easy design for the users
+  - Simple and intuitive User Experience.
+  - Add information of contact and social media.
+  - Create a responsive design for desktop, tablet, and mobile devices.
+  - Allow access to the Profile page only for client type of users
+  - Create E-commerce system feature that allow the admin to display, edit and delete the item from the shop's lits.
+  - Create E-commerce system feature that allows the users to display, edit, and delete the item from the basket.
+  - Create a Profile page for the user, so the user can order.
+
+### Skeleton
 The project uses the ElephentSQL relational database for storing the data. There was just one diagram created for this project.
 
-Surface
-Visual Effects
+### Surface
 
 Flex-box
-Animation
 Hover effects
-Box shadows
 Color palette
 
 rgba(255, 255, 255, 0.4)
