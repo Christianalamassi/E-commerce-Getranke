@@ -84,17 +84,21 @@ The user can access the home page and Order Here page without having a profile, 
 The project uses the ElephentSQL relational database for storing the data. There was just one diagram created for this project.
 
 ### Surface
-Flex-box
-Hover effects
-Color palette:
-  -
-  -
-  -
-Fonts imported from fonts.googleapis google.font
+  - Flex-box
+  - Hover effects
+  - Color palette:
+    - <img src='static/images/red.png'>
+  - Fonts imported from fonts.googleapis google.font
+    - Lucida Grande,DejaVu Sans,
+    - Bitstream Vera Sans
+    - Verdana, Geneva, Tahoma, sans-serif
+    - Arial 
+    - Courier New Courier, monospace
+    - Roboto
+    
 
-Verdana, Geneva, Tahoma, sans-serif
-Arial, Helvetica
-Technologies Used
+
+
 Languages
 HTML was used as the foundation of the site.
 CSS was used to add the style and layout of the site.
