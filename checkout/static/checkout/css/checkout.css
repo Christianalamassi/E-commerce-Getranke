@@ -47,3 +47,13 @@
     background: rgba(23, 162, 184, .85);
     z-index: 9999;
 }
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
