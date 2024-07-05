@@ -52,7 +52,7 @@ form.addEventListener('submit', function(ev) {
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
-    $('#loading-lay').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
 
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
@@ -71,11 +71,11 @@ form.addEventListener('submit', function(ev) {
                 billing_details: {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
-                    // email: $.trim(form.email.value),
+                    email: $.trim(form.email.value),
                     address:{
                         line2: $.trim(form.street_address.value),
                         city: $.trim(form.state.value),
-                    }
+                    },
                 }
             },
             shipping: {
@@ -97,7 +97,7 @@ form.addEventListener('submit', function(ev) {
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
                 $('#payment-form').fadeToggle(100);
-                $('#loading-lay').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {

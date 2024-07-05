@@ -27,6 +27,7 @@ class CheckOutAdmin(admin.ModelAdmin):
     'street_address',
     'postcode',
     'state',
+    'note',
     'date',
     'total',
     'original_basket',

@@ -50,6 +50,7 @@ def checkout(request):
             'street_address': request.POST['street_address'],
             'postcode': request.POST['postcode'],
             'state': request.POST['state'],
+            'note': request.POST['note'],
             }
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():

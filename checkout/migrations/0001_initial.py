@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254)),
                 ('phone_number', models.CharField(max_length=20)),
                 ('state', models.IntegerField(choices=[('London', 'London'), ('Bradford', 'Bradford'), ('Wakefield', 'Wakefield'), ('Nottingham', 'Nottingham'), ('Westminster', 'Westminster'), ('Coventry', 'Coventry'), ('Birmingham', 'Birmingham'), ('Liverpool', 'Liverpool'), ('Leeds', 'Leeds'), ('Bristol', 'Bristol'), ('Manchester', 'Manchester'), ('Leicester', 'Leicester')], max_length=40)),
-                ('postcode', models.CharField(blank=True, max_length=20, null=True)),
+                ('postcode', models.CharField(blank=False, max_length=20, null=False)),
                 ('street_address', models.CharField(max_length=80)),
                 ('date', models.DateTimeField(auto_now_add=True)),
                 ('order_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),

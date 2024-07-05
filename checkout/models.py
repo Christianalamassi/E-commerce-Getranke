@@ -27,8 +27,9 @@ class CheckOut(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     street_address = models.CharField(max_length=80, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=False, blank=False)
     state =  models.CharField(choices=states, max_length=40, blank=False, null=False)
+    note = models.TextField(max_length=1000, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_basket = models.TextField(null=False, blank=False, default='')
@@ -38,7 +39,6 @@ class CheckOut(models.Model):
         """ 
         Generate a random, unique order number using UUID 
         """
-        
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
@@ -62,6 +62,8 @@ class CheckOut(models.Model):
 
 
 class CheckOutLineItem(models.Model):
+    """Data of each oder that the customer make """
+    
     order = models.ForeignKey(CheckOut, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     drink = models.ForeignKey(Drink, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)

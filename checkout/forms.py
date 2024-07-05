@@ -14,8 +14,9 @@ class CheckOutForm(forms.ModelForm):
             'email',
             'phone_number',
             'street_address',
-            'state',
             'postcode',
+            'state',
+            'note',
             )
 
     def __init__(self, *args, **kwargs):
@@ -33,6 +34,7 @@ class CheckOutForm(forms.ModelForm):
             'street_address': 'Street Address',
             'state':'City',
             'postcode': 'Postal Code',
+            'note':'Type here your notification....(Optional)'
         }
 
         # sets autofocus on full name field
@@ -40,7 +42,7 @@ class CheckOutForm(forms.ModelForm):
 
         for field in self.fields:
             if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+                placeholder = f'{placeholders[field]}'
 
             # sets attributes for place holder and class and removes labels
             else:

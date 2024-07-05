@@ -63,10 +63,6 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
     - As a User I can see what minimum price of order so that my order can be processed
     - As a User I can have my data saved so that don't have to to refill it each time I need to process
 
-
-
-
-
 ### Structure
 The user can access the home page and Order Here page without having a profile, but to be able to order, the user must create an account. Then the user will have their own profile and basket so that they can add any item to their basket. The user will receive a text message confirming the addition with the ability to modify or delete the items from their basket. Also, if the user returns to the home page, they can still come back at any time to edit or delete from their basket. 
 
@@ -96,95 +92,108 @@ The project uses the ElephentSQL relational database for storing the data. There
     - Courier New Courier, monospace
     - Roboto
     
+## Technologies Used
+### Languages
+  - HTML was used as the foundation of the site.
+  - CSS was used to add the style and layout of the site.
+  - JavaScript was used for interaction
+  - Python Used for back end and front end
+
+### Frameworks:
+  - Django Used as a framework
+  - Bootstrap5 For adding predefined styled elements and creating
+  - Jquery For adding predefined function between backend anf fronend 
+
+### Other tools:
+  - Cloudinary For storing static data
+  - Gitpod Hosted the workspace.
+  - Favicon.io Used for generating the website favicon
+  - Heroku Used for deploying the project
+  - Chrome-Del-Tools For debugging the project
+  - Stripe for payment
+  - GitHub Used for hosting the source code of the program
+  - W3C HTML Validator Used for validating the HTML
+  - CI Python Linter Used to validating Python
+  - Font-Awesome For creating attractive UX with icons responsiveness
+  - Google-Fonts for typography
+  - JsHint used for validating the javascript code
+  - Jigsaw CSS Validator Used for validating the CSS
+  - elephantsql Where the DB is storing
+  - app-diagrams Used to design the RED
+  - Lighthouse 
+  - gunicorn
+  - django-allauth Used for the authorization
+  - amiresponsive Used to check responsive screen
+
+## Deployment
+### Install the dependencies:
+  - Open the terminal window and type:
+    - pip3 install -r requirements.txt.
+    - Create a .gitignore file in the root directory of the project where you should - add env.py.
+    - Create a .env file. and added the following.
+    - Added "DEVELOPMENT" in os.environ to DEBUG in setting.py.
+    - Added '.herokuapp.com' in the setting to ALLOWED_HOSTS.
+
+  - import os:
+    - os.environ['SECRET_KEY'] = 'Add a secret key'.
+    - os.environ['DATABASE_URL'] = 'will be used to connect to the database'.
+    - Also add os.environ['DEVELOPMENT'] = "True" in env.py.
+    - Push to GitHub.
+
+  - Migrate by Run the following commands in a terminal:
+    - python3 manage.py makemigrations.
+    - python3 manage.py migrate.
+
+  - Setting up Heroku
+    - Go to the Heroku website Heroku.
+
+    - Log in or create a Heroku account.
+
+    - Login to Heroku and choose Create App.
+
+
+    - Click New and Create a new app.
+
+
+    - Choose a name and select your location.
+
+
+    - Go to the Resources tab.
+
+    - From the Resources list select Heroku Postgres.
+
+
+    - Navigate to the Deploy tab
+
+    - Click on Connect to Github and search for your repository.
+
+
+  - Navigate to the Settings tab.
+
+  - Click on the "Settings" tab and then on "Reveal Config Vars".
+
+  - Delete "DISABLE_COLLECTSTATIC = 1" from the list.
+
+  - Add to the list:
+    - CLOUDINARY_URL = API,
+    -  DATABASE_URL = API,
+    -  SECRET_KEY = API,
+    - EMAIL_HOST_PASS = API,
+    - EMAIL_HOST_USER = API,
+    - SECRET_KEY = API,
+    - STRIPE_WH_SECRET = API 
+
+  - Now click on the tab "Deploy"
+  - and then on the button "Deploy Branch" at the bottom of the page. - 
+
+  - When it's deployed, Click on "Open App" to access the website.
+
+  - Here is the website [Getränke](https://ecommercepp5-a121ad0ae944.herokuapp.com/).
 
 
 
-Languages
-HTML was used as the foundation of the site.
-CSS was used to add the style and layout of the site.
-JavaScript was used for interaction
-Python Used for back end and front end
-Frameworks:
-Django Used as a framework
-Bootstrap5 For adding predefined styled elements and creating
-Other tools:
-Cloudinary For storing static data
-Gitpod Hosted the workspace.
-Heroku Used for deploying the project
-GitHub Used for hosting the source code of the program
-Favicon.io Used for generating the website favicon
-Chrome-Del-Tools For debugging the project
-W3C HTML Validator Used for validating the HTML
-CI Python Linter Used to validating Python
-Font-Awesome For creating attractive UX with icons responsiveness
-Google-Fonts for typography
-JsHint used for validating the javascript code
-Jigsaw CSS Validator Used for validating the CSS
-elephantsql Where the DB is storing
-django-allauth Used for the authorization
-gunicorn
-app-diagrams Used to design the RED
-amiresponsive Used to check responsive screen
-Deployment
-Install the dependencies:
-
-Open the terminal window and type:
-pip3 install -r requirements.txt.
-Create a .gitignore file in the root directory of the project where you should add env.py.
-Create a .env file. and added the following.
-Added "DEVELOPMENT" in os.environ to DEBUG in setting.py.
-Added '.herokuapp.com' in the setting to ALLOWED_HOSTS.
-import os:
-os.environ['SECRET_KEY'] = 'Add a secret key'.
-os.environ['DATABASE_URL'] = 'will be used to connect to the database'.
-Also add os.environ['DEVELOPMENT'] = "True" in env.py.
-Push to GitHub.
-Migrate by Run the following commands in a terminal:
-
-python3 manage.py makemigrations.
-python3 manage.py migrate.
-Setting up Heroku
-
-Go to the Heroku website Heroku.
-
-Log in or create a Heroku account.
-
-Login to Heroku and choose Create App.
 
 
-Click New and Create a new app.
-
-
-Choose a name and select your location.
-
-
-Go to the Resources tab.
-
-From the Resources list select Heroku Postgres.
-
-
-Navigate to the Deploy tab
-
-Click on Connect to Github and search for your repository.
-
-
-Navigate to the Settings tab.
-
-Click on the "Settings" tab and then on "Reveal Config Vars".
-
-Delete "DISABLE_COLLECTSTATIC = 1" from the list.
-
-Add CLOUDINARY_URL = API, DATABASE_URL = API, SECRET_KEY = API to the list.
-
-
-Now click on the tab "Deploy"
-
-
-and then on the button "Deploy Branch" at the bottom of the page. - 
-
-When it's deployed, Click on "Open App" to access the website.
-
-Here is the website Vet Tiere.
 
 Testing
 I have tested the project by the following points

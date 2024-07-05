@@ -83,6 +83,7 @@
                     {{ check_out.street_address | as_crispy_field }}
                     {{ check_out.postcode | as_crispy_field }}
                     {{ check_out.state| as_crispy_field }}
+                    {{ check_out.note | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -125,7 +126,7 @@
     </div>
 </div>
 
-<div id="loading-lay">
+<div id="loading-overlay">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
