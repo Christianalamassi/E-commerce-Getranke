@@ -13,6 +13,7 @@ class CheckOut(models.Model):
     """Data of the user """
 
     states = (
+            (None,'City'),
             ("London","London"),("Bradford","Bradford"),
             ("Wakefield","Wakefield"),("Nottingham","Nottingham"),
             ("Westminster","Westminster"),("Coventry","Coventry"),

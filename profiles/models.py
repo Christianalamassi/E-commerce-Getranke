@@ -7,6 +7,7 @@ from django.dispatch import receiver
 class UserProfile(models.Model):
 
     states = (
+        (None,"City"),
         ("London","London"),("Bradford","Bradford"),
         ("Wakefield","Wakefield"),("Nottingham","Nottingham"),
         ("Westminster","Westminster"),("Coventry","Coventry"),
