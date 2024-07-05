@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+
+<!--Import clean background-->
 <div class="lay"></div>
 <div class="container">
     <div class="row">
@@ -19,65 +21,62 @@
         <p class="lead">Check and update your information. Look back on your order details.
         </p>
     </div>
+
     <!-- order summary details   -->
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary my-heading-font">Order details</span>
-            <span class="badge bg-primary rounded-pill">{{ orders|length }}</span>
-        </h4>
-        <ul class="list-group mb-3 order details">
-            {% for order in orders %}
-            <li class="list-group-item d-flex justify-content-between lh-sm">
-                <a class="text-decoration-none text-dark" href="{% url 'order_details' order.order_number %}" title="{{ order.order_number }}">
-                <div>
-                <h6 class="my-0">{{ order.date }}
-                </h6>
-                <small class="text-muted">Order Number: {{ order.order_number|truncatechars:6 }}
-                </small>
-                </div>
-                <ul class="list-unstyled">
-                    {% for item in order.lineitems.all %}
-                        <li class="small">
-                           {{ item.product.name }} x{{ item.quantity }}
-                        </li>
-                    {% endfor %}
-                </ul>
-                <span class="text-muted">$ {{ order.total }}
-                </span>
-            </a>
-            </li>
-            {% endfor %}
-        </ul>
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary my-heading-font">Order details</span>
+                <span class="badge bg-primary rounded-pill">{{ orders|length }}</span>
+            </h4>
+            <ul class="list-group mb-3 order details">
+                {% for order in orders %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <a class="text-decoration-none text-dark" href="{% url 'order_details' order.order_number %}" title="{{ order.order_number }}">
+                            <div>
+                                <h6 class="my-0">{{ order.date }}</h6>
+                                <small class="text-muted">Order Number: {{ order.order_number|truncatechars:6 }}
+                                </small>
+                            </div>
+                            <ul class="list-unstyled">
+                                {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {{ item.product.name }} x{{ item.quantity }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <span class="text-muted">$ {{ order.total }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3 my-heading-font">Default Address
-        </h4>
+        <h4 class="mb-3 my-heading-font">Default Address</h4>
         <form action="{% url 'profile' %}" method="POST" id="payment-form">
             {% csrf_token %}
             <div class="row g-3">
-            <div class="col-12">
-                {{ form.default_phone_number | as_crispy_field }}
-            </div>
-            <div class="col-12">
-                {{ form.default_street_address | as_crispy_field }}
-            </div>
-            <div class="col-md-3">
-                {{ form.default_postcode | as_crispy_field }}
-            </div>
-            <div class="col-12">
-                {{ form.default_state | as_crispy_field }}
-            </div>
+                <div class="col-12">
+                    {{ form.default_phone_number | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.default_street_address | as_crispy_field }}
+                </div>
+                <div class="col-md-3">
+                    {{ form.default_postcode | as_crispy_field }}
+                </div>
+                <div class="col-12">
+                    {{ form.default_state | as_crispy_field }}
+                </div>
             </div>
             <hr class="my-4">
+
             <button id="submit-button" class="btn btn-primary mb-4">
-            <span class="font-weight-bold">Update Now
-            </span>
-            <i class="bi bi-person-plus-fill">
-            </i>
+                <span class="font-weight-bold">Update Now</span>
+                <i class="bi bi-person-plus-fill"></i>
             </button>
         </form>
-        </div>
     </div>
-    </div>
+</div>
+</div>
 {% endblock %}

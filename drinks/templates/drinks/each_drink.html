@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+<!--Import clean background-->
     <div class="lay"></div>
     <div class="container-fluid">
         <div class="row">
@@ -19,7 +20,7 @@
                         <a href="{{ drink.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
                         </a>
-                        {% else %}
+                    {% else %}
                         <a href="">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ drink.name }}">
                         </a>
@@ -28,7 +29,7 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ drink.name }}</p>drink
+                    <p class="mb-0">{{ drink.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold">${{ drink.price }}</p>
                     
                     {% if drink.rating %}
@@ -50,14 +51,13 @@
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="1000" data-item_id="{{ drink_id}}" id="id_qty_{{ drink_id }}">
-                                        
                                     </div>
                                 </div>
                             </div>
                             {% if request.user.is_authenticated %}
                             <div class="mt-2">
                                 <input type="submit" style="margin-bottom: 15px;"
-                                 class="btn btn-primary text-uppercase" value="Add to basket"><br>
+                                class="btn btn-primary text-uppercase" value="Add to basket"><br>
                                 <a href="{% url 'drinks'%}" <span class="icon">
                                     <i class="fas fa-chevron-left text-uppercase"></i>
                                     <span class=" text-uppercase">Continue Shopping</span>

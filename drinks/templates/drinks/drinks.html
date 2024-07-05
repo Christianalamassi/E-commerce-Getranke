@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+    <!--Import clean background-->
     <div class="lay"></div>
     <div class="container-fluid">
         <div class="row">
@@ -30,7 +31,7 @@
                         <option value="price_descending" {% if sorting_by == 'price_descending' %}selected{% endif %}>Price High-Low</a>
                         <option value="rating_descending" {% if sorting_by == 'rating_descending' %}selected{% endif %}>By Rating</a></option>
                     </div>
-            </select>
+                </select>
             </div>
             <hr class="w-50 mb-1">
         </div>
@@ -42,13 +43,13 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 <div class="card-body pb-0">
-                                <a href="{% url 'each_drink' drink.id %}">
-                                    {% if drink.image%}
-                                    <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
-                                    {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ drink.name }}">
-                                    {% endif %}
-                                </a>
+                                    <a href="{% url 'each_drink' drink.id %}">
+                                        {% if drink.image%}
+                                        <img class="card-img-top img-fluid" src="{{ drink.image.url }}" alt="{{ drink.name }}">
+                                        {% else %}
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ drink.name }}">
+                                        {% endif %}
+                                    </a>
                                 </div>
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ drink.name }} ({{ drink.alcohol }})</p>
@@ -68,7 +69,6 @@
                                                 <a class="text-danger"  onclick="return confirm('Are you sure you want to remove this drink from the list?');" href="{% url 'delete_drink' drink.id %}">Remove</a>
                                             </small>
                                             {% endif %}
-
                                         </div>
                                     </div>
                                 </div>

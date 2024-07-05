@@ -41,7 +41,7 @@ def order_details(request, order_number):
         'A confirmation email was sent on the order date.'
     ))
 
-   
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

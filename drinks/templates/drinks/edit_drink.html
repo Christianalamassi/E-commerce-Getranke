@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+<!--Import clean background-->
     <div class="lay"></div>
     <div class="container">
         <div class="row">
@@ -24,7 +25,6 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'edit_drink' drink.id %}" class="form mb-2" enctype="multipart/form-data">
