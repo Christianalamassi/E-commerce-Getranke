@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="online shope">
+    <meta name="keyword" content="shop, online, e-shope, drinks,
+        party, buy, supermarket, market, delivery, alcohol">
+    <meta name="author" content="Christian Alamassi">
 
     {% endblock %}
 
@@ -85,13 +89,15 @@
                     </li>
                 {% endif %}
               </ul>
-               <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
+              <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
                 <input class="mr-sm-2 form-control border border-black rounded-0"" type="text" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-warning my-0 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
               </form> 
             </div>
         </nav>      
     </header>
+
+    <!--Here is the basket-->
     <main>
       <a href="{% url 'basket' %}">
         {% if request.user.is_authenticated %}
@@ -105,9 +111,10 @@
           </div>
           {% endif %}
       </a>
-      <h1 class="text-left my-2 Getränke"><stron>Getränke</stron></h1>
+      <h1 class="text-left my-3 Getränke"><stron>Getränke</stron></h1>
     </main>
 
+    <!--the notification messages-->
     {% if messages %}
       <div class="messages">
           {% for message in messages %}
@@ -138,16 +145,19 @@
       </script>
     {% endblock %}
 
+    <!--The footer includes contact and social media-->
     <footer style='background-color: #8ec3e9;'>
       <div class="phone">
         <p><b>Tel: </b><strong>000-000-000&nbsp;&nbsp; 999-999-999
           &nbsp;&nbsp; 888-888-888</strong></p>       
       </div> 
+
       <!--email section--> 
       <div class="phone">
         <p><b>email: </b><a href="https://mail.google.com/" target="_blank">
           <strong style='color: #0a0ec8ec;'>admin@gmail.com</strong></a></p>       
       </div>  
+      
           <!--social-media section-->
           <ul class="list-inline social-links">
             <li class="list-inline-item">

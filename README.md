@@ -84,7 +84,7 @@ The project uses the ElephentSQL relational database for storing the data. There
   - Hover effects
   - Color palette:
     - <img src='static/images/red.png'>
-  - Fonts imported from fonts.googleapis google.font
+  - Fonts imported from fonts.googleapis [google.font](https://fonts.google.com/)
     - Lucida Grande,DejaVu Sans,
     - Bitstream Vera Sans
     - Verdana, Geneva, Tahoma, sans-serif
@@ -94,39 +94,42 @@ The project uses the ElephentSQL relational database for storing the data. There
     
 ## Technologies Used
 ### Languages
-  - HTML was used as the foundation of the site.
-  - CSS was used to add the style and layout of the site.
-  - JavaScript was used for interaction
-  - Python Used for back end and front end
+  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
+  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) was used to add the style and layout of the site.
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) was used for interaction
+  - [Python](https://www.python.org/) Used for back end and front end
 
 ### Frameworks:
-  - Django Used as a framework
-  - Bootstrap5 For adding predefined styled elements and creating
-  - Jquery For adding predefined function between backend anf fronend 
+  - [Django](https://www.djangoproject.com/) Used as a framework
+  - [Jquery](https://jquery.com/) For adding predefined function between backend anf fronend 
+  - [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) For adding predefined styled elements and creating
 
 ### Other tools:
-  - Cloudinary For storing static data
-  - Gitpod Hosted the workspace.
-  - Favicon.io Used for generating the website favicon
-  - Heroku Used for deploying the project
-  - Chrome-Del-Tools For debugging the project
-  - Stripe for payment
-  - GitHub Used for hosting the source code of the program
-  - W3C HTML Validator Used for validating the HTML
-  - CI Python Linter Used to validating Python
-  - Font-Awesome For creating attractive UX with icons responsiveness
-  - Google-Fonts for typography
-  - JsHint used for validating the javascript code
-  - Jigsaw CSS Validator Used for validating the CSS
-  - elephantsql Where the DB is storing
-  - app-diagrams Used to design the RED
+  - [Gitpod](https://www.gitpod.io/) Hosted the workspace.
+  - [Heroku](https://id.heroku.com/login) Used for deploying the project
+  - [Favicon.io](https://www.favicon.cc/) Used for generating the website favicon
+  - [Cloudinary](https://cloudinary.com/) For storing static data
+  - [Stripe](https://stripe.com/de?utm_campaign=DE_en_Search_Brand_Stripe_EXA-866170064&utm_medium=cpc&utm_source=google&ad_content=301948784636&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0GJZhP880Wbgg5rHfjuen4ObDsZMnwGIQHTWVUhPpRK-xsHiIacLkAaAry3EALw_wcB) for payment
+  - [GitHub](https://github.com/) Used for hosting the source code of the program
+  - [Chrome-Del-Tools](https://developer.chrome.com/docs/devtools/) For debugging the project
+  - [W3C](https://validator.w3.org/#validate_by_input) HTML Validator Used for validating the HTML
+  - [Google-Fonts](https://fonts.google.com/) for typography
+  - [CI Python Linter](https://pep8ci.herokuapp.com/#) Used to validating Python
+  - [Font-Awesome](https://fontawesome.com/) For creating attractive UX with icons responsiveness
+  - [JsHint](https://jshint.com/) used for validating the javascript code
+  - [Jigsaw](https://jigsaw.w3.org/css-validator/) CSS Validator Used for validating the CSS
+  - [app-diagrams](https://app.diagrams.net/) Used to design the RED
   - Lighthouse 
+  - [elephantsql](https://www.elephantsql.com/) Where the DB is storing
   - gunicorn
-  - django-allauth Used for the authorization
-  - amiresponsive Used to check responsive screen
+  - [django-allauth](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) Used for the authorization
+  - [amiresponsive](https://ui.dev/amiresponsive) Used to check responsive screen
 
-## Deployment
-### Install the dependencies:
+## Deployment 
+
+### Deployment to Heroku
+
+#### Install the dependencies:
   - Open the terminal window and type:
     - pip3 install -r requirements.txt.
     - Create a .gitignore file in the root directory of the project where you should - add env.py.
@@ -189,6 +192,14 @@ The project uses the ElephentSQL relational database for storing the data. There
   - When it's deployed, Click on "Open App" to access the website.
 
   - Here is the website [Getränke](https://ecommercepp5-a121ad0ae944.herokuapp.com/).
+
+#### Stripe
+  - Register for a Stripe account.
+  - in the Developers section, click on the API section and copy the publishable and secret keys.
+  - Add STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to settings.py and to Heroku, using the values found in the API section.
+  - Access the webhooks section and create a webhook.
+  - Choose all events to be visualised and add endpoint.
+  - Add the STRIPE_WH_SECRET variable to the environment and to Heroku.
 
 
 
