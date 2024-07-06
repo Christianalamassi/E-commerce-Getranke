@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /basket/
+Sitemap: https://ecommercepp5-a121ad0ae944.herokuapp.com/sitemap.xml

@@ -201,7 +201,8 @@ The project uses the ElephentSQL relational database for storing the data. There
   - Choose all events to be visualised and add endpoint.
   - Add the STRIPE_WH_SECRET variable to the environment and to Heroku.
 
-
+## keywords
+  <img src='static/images/keywords.png'>
 
 
 
