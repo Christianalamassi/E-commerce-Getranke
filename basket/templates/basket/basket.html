@@ -83,11 +83,9 @@
                                         {% include "basket/image.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <!-- <p class="my-0"><strong>{{ item.drink.name }}</strong></p> -->
                                         {% include "basket/name.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <!-- <p class="my-0">£{{ item.drink.price }}</p> -->
                                         {% include "basket/price.html" %}
                                     </td>
                                     <td class="py-3 w-25">
@@ -154,9 +152,9 @@
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+        .done(function() {
+            location.reload();
+        });
     })
 </script>
 {% endblock %}
