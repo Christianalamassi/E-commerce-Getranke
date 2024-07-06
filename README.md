@@ -61,10 +61,12 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
     - As a user I can navigation easily and contact so that I can find the content
     - As a User I can see the details of each product so that I know what to order
     - As a User I can see what minimum price of order so that my order can be processed
+    - As an Admin I can ask the user to subscribe so that I can have their data
     - As a User I can have my data saved so that don't have to to refill it each time I need to process
 
 ### Structure
 The user can access the home page and Order Here page without having a profile, but to be able to order, the user must create an account. Then the user will have their own profile and basket so that they can add any item to their basket. The user will receive a text message confirming the addition with the ability to modify or delete the items from their basket. Also, if the user returns to the home page, they can still come back at any time to edit or delete from their basket. 
+<img src="static/images/untitled iagram.drawioss.png">
 
 ### Scope
  - Make a clear and easy design for the users
