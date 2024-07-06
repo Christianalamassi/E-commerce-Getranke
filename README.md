@@ -121,6 +121,7 @@ The project uses the ElephentSQL relational database for storing the data. There
   - [app-diagrams](https://app.diagrams.net/) Used to design the RED
   - Lighthouse 
   - [elephantsql](https://www.elephantsql.com/) Where the DB is storing
+  - [XML-sitemaps](https://www.xml-sitemaps.com/) to create sitemap
   - gunicorn
   - [django-allauth](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) Used for the authorization
   - [amiresponsive](https://ui.dev/amiresponsive) Used to check responsive screen
