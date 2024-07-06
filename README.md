@@ -112,6 +112,7 @@ The project uses the ElephentSQL relational database for storing the data. There
   - [Stripe](https://stripe.com/de?utm_campaign=DE_en_Search_Brand_Stripe_EXA-866170064&utm_medium=cpc&utm_source=google&ad_content=301948784636&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0GJZhP880Wbgg5rHfjuen4ObDsZMnwGIQHTWVUhPpRK-xsHiIacLkAaAry3EALw_wcB) for payment
   - [GitHub](https://github.com/) Used for hosting the source code of the program
   - [Chrome-Del-Tools](https://developer.chrome.com/docs/devtools/) For debugging the project
+  - [Mailchimp](https://us14.admin.mailchimp.com/audience/contacts/) for subscription
   - [W3C](https://validator.w3.org/#validate_by_input) HTML Validator Used for validating the HTML
   - [Google-Fonts](https://fonts.google.com/) for typography
   - [CI Python Linter](https://pep8ci.herokuapp.com/#) Used to validating Python

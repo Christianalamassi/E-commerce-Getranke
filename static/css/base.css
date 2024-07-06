@@ -51,17 +51,15 @@ footer{
 .phone{
     padding:3px;
 }
-/*indexpage*/
 
+/*indexpage*/
 #callout{
     background-color:rgba(255, 255, 255, 0.7);
     position: relative;
     bottom: 25vh;
 }
 
-
 /* each_drink page */
-
 .order{
     align-items:flex-end;
     margin-top: 10vh;
@@ -191,6 +189,12 @@ bottom:100px;
     margin-left: 10vw;
     margin-right: 10vw;
     color: rgb(255, 64, 0);
+}
+
+/*Mailchimp*/
+#mc_embed_signup{
+    font:14px Helvetica,Arial,sans-serif; 
+    width: 400px;
 }
 
 /*media queries to medium screen size from 900px wide and down*/
