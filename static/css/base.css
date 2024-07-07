@@ -14,17 +14,18 @@ main {
     flex: 1 0 auto;
 }
 
+/* body includs the main page background*/
 body {
     background: url('https://res.cloudinary.com/dsbcqaevp/image/upload/v1719518526/pexels-bluerhinomedia-2789328_a0qx7a.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    min-height: 115vh;
+    min-height: 110vh;
     flex-direction: column;
 }
 
-/* base page*/
+/*------------------------------- base page*/
 #order_you_drink{
     background-color: rgba(3, 3, 3, 0.5);
     font-size: large;
@@ -52,13 +53,17 @@ footer{
     padding:3px;
 }
 
-/*index page*/
+/*------------------------------- index page*/
 #callout{
     background-color:rgba(255, 255, 255, 0.7);
     position: relative;
 }
 
-/* each_drink page */
+#privacy{
+    padding-left:26px;
+}
+
+/*------------------------------- each_drink page */
 .order{
     align-items:flex-end;
     margin-top: 10vh;
@@ -79,7 +84,7 @@ footer{
 	z-index: -1;
 }
 
-/* basket page */
+/*------------------------------- basket page */
 
 #bag_full_view{
     margin-top:10vh;
@@ -136,8 +141,7 @@ ul > li {
     height: 2px;
 }
 
-/* Allauth form formatting */
-
+/*------------------------------- Allauth form formatting */
 .allauth-log{
 position: relative;
 bottom:100px;
@@ -155,8 +159,7 @@ bottom:100px;
     margin-bottom: 22px;
 }
 
-/* Drink Form */
-
+/*------------------------------- Drink Form */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -197,12 +200,6 @@ bottom:100px;
 }
 
 /*media queries to medium screen size from 900px wide and down*/
-
-@media (max-width: 1350px) {
-    body {
-        min-height: 110vh;
-    }
-}
 
 @media (max-width: 1200px) {
 
