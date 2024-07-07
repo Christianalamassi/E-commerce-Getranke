@@ -20,7 +20,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    min-height: 118vh;
+    min-height: 115vh;
     flex-direction: column;
 }
 
@@ -52,11 +52,10 @@ footer{
     padding:3px;
 }
 
-/*indexpage*/
+/*index page*/
 #callout{
     background-color:rgba(255, 255, 255, 0.7);
     position: relative;
-    bottom: 25vh;
 }
 
 /* each_drink page */
@@ -194,14 +193,14 @@ bottom:100px;
 /*Mailchimp*/
 #mc_embed_signup{
     font:14px Helvetica,Arial,sans-serif; 
-    width: 400px;
+    width: 300px;
 }
 
 /*media queries to medium screen size from 900px wide and down*/
 
 @media (max-width: 1350px) {
     body {
-        min-height: 120vh;
+        min-height: 110vh;
     }
 }
 
@@ -219,9 +218,8 @@ bottom:100px;
     }
 }
 
-@media (max-width: 600px) {
-#callout{
-
-    bottom: 18vh;
+@media (max-width: 370px) {
+    body{
+        min-height: 100%;
+        }
     }
-}

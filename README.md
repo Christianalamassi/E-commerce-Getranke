@@ -3,6 +3,7 @@
 ## Overview
 
 This project was designed, developed, and based on the idea of online shop to create a simple and easy method for the customers to buy drinks online. The users are given the possibility to add the order to thier basket, update it and delete it at any time before the payment. All these functionalities can be accessed by any user with an account. The admins have special permissions for controlling the data (CRUD). The website was made for real life simulation, although the shop and drinks don't exist in real life. The web site was developed using HTML, CSS, JS, Python "Django" and data are stored in an Elephant SQL database. The project can be accessed through this link [Getränke](https://ecommercepp5-a121ad0ae944.herokuapp.com/).
+<img src="static/images/repersd.png">
 
 ### Features
 Some elements appear on all of the pages of the website, like navbar and the footer.
@@ -63,6 +64,7 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
     - As a User I can see what minimum price of order so that my order can be processed
     - As an Admin I can ask the user to subscribe so that I can have their data
     - As a User I can have my data saved so that don't have to to refill it each time I need to process
+    <img src="static/images/ussseerre.png">
 
 ### Structure
 The user can access the home page and Order Here page without having a profile, but to be able to order, the user must create an account. Then the user will have their own profile and basket so that they can add any item to their basket. The user will receive a text message confirming the addition with the ability to modify or delete the items from their basket. Also, if the user returns to the home page, they can still come back at any time to edit or delete from their basket. 
@@ -144,6 +146,8 @@ The project uses the ElephentSQL relational database for storing the data. There
   - import os:
     - os.environ['SECRET_KEY'] = 'Add a secret key'.
     - os.environ['DATABASE_URL'] = 'will be used to connect to the database'.
+    - os.environ.setdefault ["CLOUDINARY_URL"] = will be used for static and images upload
+    - os.environ.setdefault ['STRIPE_WH_SECRET'] = To inherit stripe webhook 
     - Also add os.environ['DEVELOPMENT'] = "True" in env.py.
     - Push to GitHub.
 
@@ -152,49 +156,38 @@ The project uses the ElephentSQL relational database for storing the data. There
     - python3 manage.py migrate.
 
   - Setting up Heroku
-    - Go to the Heroku website Heroku.
-
+    - Go to the Heroku website [Heroku](https://www.heroku.com/).
     - Log in or create a Heroku account.
-
     - Login to Heroku and choose Create App.
-
-
     - Click New and Create a new app.
-
-
+      - <img src='static/images/okjk.png'>
     - Choose a name and select your location.
-
-
+      - <img src="static/images/create.png">
     - Go to the Resources tab.
-
     - From the Resources list select Heroku Postgres.
-
-
+      - <img src="static/images/werfg.png">
     - Navigate to the Deploy tab
-
     - Click on Connect to Github and search for your repository.
-
-
+      - <img src="static/images/ccv33edg.png">
   - Navigate to the Settings tab.
-
-  - Click on the "Settings" tab and then on "Reveal Config Vars".
-
-  - Delete "DISABLE_COLLECTSTATIC = 1" from the list.
-
-  - Add to the list:
-    - CLOUDINARY_URL = API,
-    -  DATABASE_URL = API,
-    -  SECRET_KEY = API,
-    - EMAIL_HOST_PASS = API,
-    - EMAIL_HOST_USER = API,
-    - SECRET_KEY = API,
-    - STRIPE_WH_SECRET = API 
-
+    - Click on the "Settings" tab and then on "Reveal Config Vars".
+    - Delete "DISABLE_COLLECTSTATIC = 1" from the list.
+    - Add to the list:
+      - CLOUDINARY_URL = API,
+      - DATABASE_URL = API,
+      - SECRET_KEY = API,
+      - EMAIL_HOST_PASS = API,
+      - EMAIL_HOST_USER = API,
+      - SECRET_KEY = API,
+      - STRIPE_WH_SECRET = API ,
+      - STRIP_SECRET_KEY = API,
+    - <img src="static/images/vars.png">
   - Now click on the tab "Deploy"
-  - and then on the button "Deploy Branch" at the bottom of the page. - 
-
+    - <img src="static/images/capt.jpg">
+  - Then on the button "Deploy Branch" at the bottom of the page. - 
+    - <img src="static/images/sccre.png">
   - When it's deployed, Click on "Open App" to access the website.
-
+    - <img src="static/images/werdfgh.png">
   - Here is the website [Getränke](https://ecommercepp5-a121ad0ae944.herokuapp.com/).
 
 #### Stripe
@@ -275,20 +268,31 @@ The user has to enter the user details correctly to be able to log in.
 Log-out
 The Log-out page works good.
 The button works good.
-Bugs
-Fixed bugs
-The error was solved by deleting the duplicate id. 
-
-The elements were unclear. It was fixed by adding background.  
-
-It wasn't clear to the user that they could book only one appointment. It was fixed by adding a message at the top of the page. 
-
-Unfixed bugs
-The user can't see the available and unavailable appointments before choosing on the date.
-ERD
 
 
-Credits
+## Bugs
+### Fixed bugs
+  This error happend when I was trying to check out.
+  The error was solved by adding STRIPE_WH_SECRET to env.py, and to vars in Heroku
+  <img src="static/images/errors.png"> 
+
+  I coudn't call Webhook during my wrok.
+  The debug was fixed by calling WH from  checkout webhook handler
+  <img src="static/images/wwhhh.png"> 
+
+  Unable to imgrate.
+  the debug was solved when I did cheange note the first imgration manually from False to True.
+  <img src="static/images/null.png"> 
+
+### Unfixed bugs
+  It was plan to add minumim price to order.
+  Due to lack of time, this plan is overlooked
+
+## ERD
+<img src="static/images/erdecommerce.jpg">
+
+
+## Credits
 inspiration was taken from Code Institute
 Icons are from Font-Awesome.
 This website uses Bootstrap.
