@@ -3,6 +3,7 @@
 ## Overview
 
 This project was designed, developed, and based on the idea of online shop to create a simple and easy method for the customers to buy drinks online. The users are given the possibility to add the order to thier basket, update it and delete it at any time before the payment. All these functionalities can be accessed by any user with an account. The admins have special permissions for controlling the data (CRUD). The website was made for real life simulation, although the shop and drinks don't exist in real life. The web site was developed using HTML, CSS, JS, Python "Django" and data are stored in an Elephant SQL database. The project can be accessed through this link [Getränke](https://ecommercepp5-a121ad0ae944.herokuapp.com/).
+
 <img src="static/images/repersd.png">
 
 ### Features
@@ -64,10 +65,12 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
     - As a User I can see what minimum price of order so that my order can be processed
     - As an Admin I can ask the user to subscribe so that I can have their data
     - As a User I can have my data saved so that don't have to to refill it each time I need to process
+
     <img src="static/images/ussseerre.png">
 
 ### Structure
 The user can access the home page and Order Here page without having a profile, but to be able to order, the user must create an account. Then the user will have their own profile and basket so that they can add any item to their basket. The user will receive a text message confirming the addition with the ability to modify or delete the items from their basket. Also, if the user returns to the home page, they can still come back at any time to edit or delete from their basket. 
+
 <img src="static/images/untitled iagram.drawioss.png">
 
 ### Scope
@@ -87,7 +90,9 @@ The project uses the ElephentSQL relational database for storing the data. There
   - Flex-box
   - Hover effects
   - Color palette:
+
     - <img src='static/images/red.png'>
+
   - Fonts imported from fonts.googleapis [google.font](https://fonts.google.com/)
     - Lucida Grande,DejaVu Sans,
     - Bitstream Vera Sans
@@ -160,6 +165,7 @@ The project uses the ElephentSQL relational database for storing the data. There
     - Log in or create a Heroku account.
     - Login to Heroku and choose Create App.
     - Click New and Create a new app.
+
       - <img src='static/images/okjk.png'>
     - Choose a name and select your location.
       - <img src="static/images/create.png">
@@ -282,9 +288,11 @@ The button works good.
 
   Unable to imgrate.
   the debug was solved when I did cheange note the first imgration manually from False to True.
+  
   <img src="static/images/null.png"> 
 
 ### Unfixed bugs
+
   It was plan to add minumim price to order.
   Due to lack of time, this plan is overlooked
 
