@@ -204,51 +204,43 @@ The project uses the ElephentSQL relational database for storing the data. There
   - Choose all events to be visualised and add endpoint.
   - Add the STRIPE_WH_SECRET variable to the environment and to Heroku.
 
-## keywords
+## keywords (SEO)
   <img src='static/images/keywords.png'>
 
 
 
 
-Testing
+## Testing
 I have tested the project by the following points
 
-Validator Testing
-Python
+  ### Validator Testing
+  - Python
+    - Passed the code to PEP8.
+    
+  - HTML
+    - No errors were returned when passing through the official W3C validator
+    
+  - CSS
+    - No errors were found when passing through the official (Jigsaw) validator
 
-Passed the code to PEP8.
-  
-HTML
+  - JavaScript
+    - Undefined bootstrap was checked and there are no error Jshint validator.
 
-No errors were returned when passing through the official W3C validator
-  
-CSS
+  ### The website has been tested and works on different screen sizes and is responsive.
+  <img src='static/images/sdrfcee.png'>
 
-No errors were found when passing through the official (Jigsaw) validator
+  <img src='static/images/checkkoh.png'>
 
-JavaScript
+  <img src='static/images/dffdfdt.png'>
 
-Undefined bootstrap was checked and there are no error Jshint validator.
+  <img src='static/images/abcc1.png'>
 
-The website has been tested and works on different screen sizes and is responsive.
+  <img src='static/images/adcvw2.png'>
 
-
-
-
-
-
-
-
-Lighthouse
+### Lighthouse
 
 
-
-
-
-
-
-
-Manually checking
+### Manually checking
 General Tests
 It has been tested and works in several web browsers such as Firefox and Edge.
 All alerts disappear after four seconds.
@@ -277,19 +269,24 @@ The button works good.
 
 
 ## Bugs
+
 ### Fixed bugs
   This error happend when I was trying to check out.
   The error was solved by adding STRIPE_WH_SECRET to env.py, and to vars in Heroku
   <img src="static/images/errors.png"> 
 
   I coudn't call Webhook during my wrok.
-  The debug was fixed by calling WH from  checkout webhook handler
+  The bug was fixed by calling WH from  checkout webhook handler
   <img src="static/images/wwhhh.png"> 
 
   Unable to imgrate.
-  the debug was solved when I did cheange note the first imgration manually from False to True.
-  
-  <img src="static/images/null.png"> 
+  the bug was solved when I did cheange note the first imgration manually from False to True.
+
+  <img src="static/images/null.png">
+
+  I had a typo error, which I fixed by spelling it correctly
+
+  <img src="static/images/messagessdef.png">  
 
 ### Unfixed bugs
 

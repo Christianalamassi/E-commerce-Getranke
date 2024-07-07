@@ -31,7 +31,7 @@ class UserProfileForm(forms.ModelForm):
 
         for field in self.fields:
             if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+                placeholder = f'{placeholders[field]}'
 
             # sets attributes for place holder and class and removes labels
             else:

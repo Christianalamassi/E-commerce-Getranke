@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='userprofile',
             name='default_state',
-            field=models.CharField(blank=True, choices=[('London', 'London'), ('Bradford', 'Bradford'), ('Wakefield', 'Wakefield'), ('Nottingham', 'Nottingham'), ('Westminster', 'Westminster'), ('Coventry', 'Coventry'), ('Birmingham', 'Birmingham'), ('Liverpool', 'Liverpool'), ('Leeds', 'Leeds'), ('Bristol', 'Bristol'), ('Manchester', 'Manchester'), ('Leicester', 'Leicester')], max_length=40, null=True),
+            field=models.CharField(blank=False, choices=[('London', 'London'), ('Bradford', 'Bradford'), ('Wakefield', 'Wakefield'), ('Nottingham', 'Nottingham'), ('Westminster', 'Westminster'), ('Coventry', 'Coventry'), ('Birmingham', 'Birmingham'), ('Liverpool', 'Liverpool'), ('Leeds', 'Leeds'), ('Bristol', 'Bristol'), ('Manchester', 'Manchester'), ('Leicester', 'Leicester')], max_length=40, null=False),
         ),
     ]
