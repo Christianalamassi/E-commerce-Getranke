@@ -9,7 +9,20 @@ from checkout.models import CheckOut
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """ 
+    Display the user's profile.
+    allows the users to request
+    displays an individual instance model:`.UserProfile`
+    **Context**
+    ``UserProfile``
+    the most recent instence model:`.UserProfile`
+    ``UserProfileForm``
+    an instence of form:`.UserProfileForm`
+    **redirect**
+    an instence of view :`profiles.profile`
+    **Template**
+    templat:`profiles/profile.html`
+    """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -34,6 +47,8 @@ def profile(request):
     return render(request, template, context)
 
 def order_details(request, order_number):
+    """ render checkout_success page"""
+
     order = get_object_or_404(CheckOut, order_number=order_number)
 
     messages.info(request, (

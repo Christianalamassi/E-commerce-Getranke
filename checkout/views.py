@@ -36,6 +36,19 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    allows the users to request
+    displays an individual instance model:`.CheckOut`
+    **Context**
+    ``CheckOut``
+    the most recent instence model:`.CheckOut`
+    ``CheckOutForm``
+    an instence of form:`.CheckOutForm`
+    **redirect**
+    an instence of view :`checkout.checkout`
+    **Template**
+    templat:`checkout/checkout.html`
+    """
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

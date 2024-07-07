@@ -8,7 +8,20 @@ from .forms import DrinkForm
 # Create your views here.
 
 def all_drink(request):
-    """ A view to show all kind of drinks, including sorting and search queries """
+    """ 
+    A view to show all kind of drinks, including sorting and search queries
+    allows the users to receive.
+    displays an individual instance model:`.Alcohol, .Drink`
+    **Context**
+    ``Alcohol``,``Drink``
+    the most recent instence model:`.Alkohol, .Drink`
+    ``DrinkForm``
+    an instence of form:`.DrinkForm`
+    **redirect**
+    an instence of view :`drinks.drinks`
+    **Template**
+    templat:`drinks/drinks.html`
+    """
     
     drinks = Drink.objects.all()
     query = None
@@ -48,7 +61,20 @@ def all_drink(request):
 
 
 def each_drink(request, drink_id):
-    """ A view to show each drink's details individual """
+    """ 
+    A view to show each drink's details individual 
+    allows the users to receive
+    displays an individual instance model:`.Drink, Alcohol`
+    **Context**
+    ``Drink``,``Alcohol``
+    the most recent instence model:`.Drink`
+    ``DrinkForm``
+    an instence of form:`.DrinkForm`
+    **redirect**
+    an instence of view :`drinks.each_drink`
+    **Template**
+    templat:`drinks/each_drink.html`
+    """
 
     drink = get_object_or_404(Drink, pk=drink_id)
     context = {
@@ -59,6 +85,7 @@ def each_drink(request, drink_id):
 @login_required
 def add_drink(request):
     """Add a drink to the shop"""
+
     if not request.user.is_superuser:
         messages.error(request, 'Danger. You are not allowed to do this')
         return redirect(reverse('home'))
@@ -84,6 +111,7 @@ def add_drink(request):
 @login_required
 def edit_drink(request, drink_id):
     """Update a drink to the shop"""
+
     if not request.user.is_superuser:
         messages.error(request, 'Danger. You are not allowed to do this')
         return redirect(reverse('home'))
@@ -111,6 +139,8 @@ def edit_drink(request, drink_id):
 
 @login_required
 def delete_drink(request, drink_id):
+    """ Admin deletion products"""
+
     if not request.user.is_superuser:
         messages.error(request, 'Danger. You are not allowed to do this')
         return redirect(reverse('home'))

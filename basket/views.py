@@ -36,7 +36,7 @@ def fix_basket(request, basket_id):
     quantity = int(request.POST.get('quantity'))
     basket = request.session.get('basket', {})
 
-   
+
     if quantity > 0:
         basket[basket_id] = quantity
         messages.success(request, f'Updated {drink.name} quantity to {basket[basket_id]}')

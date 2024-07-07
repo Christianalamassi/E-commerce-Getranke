@@ -5,7 +5,10 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
-
+    """
+    A user profile model for maintaining default
+    delivery information and order history
+    """
     states = (
         (None,"City"),
         ("London","London"),("Bradford","Bradford"),
@@ -15,10 +18,7 @@ class UserProfile(models.Model):
         ("Leeds","Leeds"),("Bristol","Bristol"),
         ("Manchester","Manchester"),("Leicester","Leicester"),
     )
-    """
-    A user profile model for maintaining default
-    delivery information and order history
-    """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)

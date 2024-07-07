@@ -10,7 +10,7 @@ from profiles.models import UserProfile
 
 class CheckOut(models.Model):
 
-    """Data of the user """
+    """panal of collecting the data of the users """
 
     states = (
             (None,'City'),
