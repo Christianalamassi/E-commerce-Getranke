@@ -186,6 +186,7 @@ bottom:100px;
 
 /*Error 404 and 500*/
 .errors {
+    background-color: rgba(255, 255, 255, 0.5);
     margin-top: 15vh;
     margin-bottom: 35vh;
     margin-left: 10vw;
