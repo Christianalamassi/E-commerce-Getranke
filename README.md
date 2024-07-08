@@ -102,6 +102,7 @@ The project uses the ElephentSQL relational database for storing the data. There
     - Roboto
     
 ## Technologies Used
+
 ### Languages
   - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
   - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) was used to add the style and layout of the site.
@@ -136,6 +137,7 @@ The project uses the ElephentSQL relational database for storing the data. There
   - gunicorn
   - [django-allauth](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) Used for the authorization
   - [amiresponsive](https://ui.dev/amiresponsive) Used to check responsive screen
+  - [kaggle](https://www.kaggle.com/) To collect some data
 
 ## Deployment 
 

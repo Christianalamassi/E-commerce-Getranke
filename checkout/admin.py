@@ -13,7 +13,6 @@ class CheckOutAdmin(admin.ModelAdmin):
 
     readonly_fields= (
         'order_number',
-        'state',
         'date' ,
         'total',
     )
