@@ -10,7 +10,7 @@ class CheckOutForm(forms.ModelForm):
         """
         model = CheckOut
         fields = (
-           'full_name',
+            'full_name',
             'email',
             'phone_number',
             'street_address',

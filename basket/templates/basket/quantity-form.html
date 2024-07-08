@@ -10,10 +10,8 @@
                     </span>
                 </button>
             </div>
-            <input class="form-control form-control-sm qty_input" type="number"
-                name="quantity" value="{{ item.quantity }}" min="1" max="1000"
-                data-item_id="{{ item.basket_id }}"
-                id="id_qty_{{ item.basket_id }}">
+            <input class="form-control qty_input" type="number" name="quantity"
+            min="0" max="1000" value="{{ item.quantity }}"data-item_id="{{ item.basket_id }}" id="id_qty_{{ item.basket_id }}">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm btn-black rounded-0"
                     data-item_id="{{ item.basket_id }}" id="increment-qty_{{ item.basket_id }}">
@@ -24,5 +22,5 @@
             </div>
         </div>
     </div>
+    <input type="submit"  class="text-info btn" value="Submit the change">
 </form>
-<a class="update-link text-info"><small>Submit the change</small></a>

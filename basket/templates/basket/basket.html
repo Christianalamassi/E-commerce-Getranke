@@ -39,8 +39,8 @@
                                     {% include "basket/name.html" %}
                                 </div>
                                 <div class="col-12 col-sm-6 order-sm-last">
-                                    <p class="my-0">Price Each: ${{ item.drink.price }}</p>
-                                    <p><strong>Total price: </strong>${{ item.drink.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="my-0">Price Each: £{{ item.drink.price }}</p>
+                                    <p><strong>Total price: </strong>£{{ item.drink.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     {% include "basket/quantity-form.html" %}
