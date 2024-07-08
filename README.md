@@ -285,20 +285,24 @@ I have tested the project by the following points
 ## Bugs
 
 ### Fixed bugs
-  This error happend when I was trying to check out.
+  - This error happend when I was trying to check out.
   The error was solved by adding STRIPE_WH_SECRET to env.py, and to vars in Heroku
+
   <img src="static/images/errors.png"> 
 
-  I coudn't call Webhook during my wrok.
-  The bug was fixed by calling WH from  checkout webhook handler
+  - I coudn't call Webhook during my wrok. The bug was fixed by calling WH from  checkout webhook handler
+
   <img src="static/images/wwhhh.png"> 
 
-  Unable to imgrate.
-  the bug was solved when I did cheange note the first imgration manually from False to True.
+  - Unsaved authenticated user information and check out. It was solved by adding indentation to checkout after if statement
+
+  <img src="static/images/eeeee.png"> 
+
+  - Unable to imgrate. the bug was solved when I did cheange note the first imgration manually from False to True.
 
   <img src="static/images/null.png">
 
-  I had a typo error, which I fixed by spelling it correctly
+  - I had a typo error, which I fixed by spelling it correctly
 
   <img src="static/images/messagessdef.png">  
 
