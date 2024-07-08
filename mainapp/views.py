@@ -17,7 +17,7 @@ def news(request):
     if request.method == 'POST':
         form = NewsForm(request.POST)
         if form.is_valid():
-            # form.save()
+            form.save()
             messages.success(request,("You have been applied for the newsletter successfully."))
         else:
             messages.error(request, ("Somthing went wrong, try again."))
