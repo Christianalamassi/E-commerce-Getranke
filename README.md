@@ -334,4 +334,4 @@ I have tested the project by the following points
 - Media
   - Images were taken from [pixabay](https://pixabay.com/).
   - Some images were taken from [kaggle](https://www.kaggle.com/).
-  https://static.specsonline.com/wp-content/themes/cheers/assets/images/default_bar-mixers.png
+  - An images was taken from [specsonline](https://static.specsonline.com/wp-content/themes/cheers/assets/images/default_bar-mixers.png)

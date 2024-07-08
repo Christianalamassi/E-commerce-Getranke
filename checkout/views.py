@@ -117,7 +117,7 @@ def checkout(request):
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
-                profile = UserProfile.objects.get(user=request.user)
+                profile = UserProfile.objects.get(user=request.user )
                 check_out = CheckOutForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -135,7 +135,7 @@ def checkout(request):
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-    check_out = CheckOutForm()
+        check_out = CheckOutForm()
     template = 'checkout/checkout.html'
     context = {
         'check_out':check_out,
