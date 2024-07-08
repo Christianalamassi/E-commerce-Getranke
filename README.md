@@ -116,28 +116,29 @@ The project uses the ElephentSQL relational database for storing the data. There
 
 ### Other tools:
   - [Gitpod](https://www.gitpod.io/) Hosted the workspace.
-  - [Heroku](https://id.heroku.com/login) Used for deploying the project
-  - [Favicon.io](https://www.favicon.cc/) Used for generating the website favicon
-  - [Cloudinary](https://cloudinary.com/) For storing static data
-  - [Stripe](https://stripe.com/de?utm_campaign=DE_en_Search_Brand_Stripe_EXA-866170064&utm_medium=cpc&utm_source=google&ad_content=301948784636&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0GJZhP880Wbgg5rHfjuen4ObDsZMnwGIQHTWVUhPpRK-xsHiIacLkAaAry3EALw_wcB) for payment
-  - [privacypolicygenerator](https://www.privacypolicygenerator.info/) for privacy policy
+  - [Heroku](https://id.heroku.com/login) Used for deploying the project.
+  - [Favicon.io](https://www.favicon.cc/) Used for generating the website favicon.
+  - [responsiveviewer](https://responsiveviewer.org/) used to check responsive view.
+  - [Cloudinary](https://cloudinary.com/) For storing static data.
+  - [Stripe](https://stripe.com/de?utm_campaign=DE_en_Search_Brand_Stripe_EXA-866170064&utm_medium=cpc&utm_source=google&ad_content=301948784636&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0GJZhP880Wbgg5rHfjuen4ObDsZMnwGIQHTWVUhPpRK-xsHiIacLkAaAry3EALw_wcB) for payment.
+  - [privacypolicygenerator](https://www.privacypolicygenerator.info/) for privacy policy.
   - [GitHub](https://github.com/) Used for hosting the source code of the program
-  - [Chrome-Del-Tools](https://developer.chrome.com/docs/devtools/) For debugging the project
-  - [Mailchimp](https://us14.admin.mailchimp.com/audience/contacts/) for subscription
-  - [W3C](https://validator.w3.org/#validate_by_input) HTML Validator Used for validating the HTML
-  - [Google-Fonts](https://fonts.google.com/) for typography
-  - [CI Python Linter](https://pep8ci.herokuapp.com/#) Used to validating Python
-  - [Font-Awesome](https://fontawesome.com/) For creating attractive UX with icons responsiveness
-  - [JsHint](https://jshint.com/) used for validating the javascript code
-  - [Jigsaw](https://jigsaw.w3.org/css-validator/) CSS Validator Used for validating the CSS
-  - [app-diagrams](https://app.diagrams.net/) Used to design the RED
-  - Lighthouse 
-  - [elephantsql](https://www.elephantsql.com/) Where the DB is storing
-  - [XML-sitemaps](https://www.xml-sitemaps.com/) to create sitemap
+  - [Chrome-Del-Tools](https://developer.chrome.com/docs/devtools/) For debugging the project.
+  - [Mailchimp](https://us14.admin.mailchimp.com/audience/contacts/) for subscription.
+  - [W3C](https://validator.w3.org/#validate_by_input) HTML Validator Used for validating the HTML.
+  - [Google-Fonts](https://fonts.google.com/) for typography.
+  - [CI Python Linter](https://pep8ci.herokuapp.com/#) Used to validating Python.
+  - [Font-Awesome](https://fontawesome.com/) For creating attractive UX with icons responsiveness.
+  - [JsHint](https://jshint.com/) used for validating the javascript code.
+  - [Jigsaw](https://jigsaw.w3.org/css-validator/) CSS Validator Used for validating the CSS.
+  - [paint](https://www.microsoft.com/en-us/windows/paint) Used to design the RED.
+  - Lighthouse.
+  - [elephantsql](https://www.elephantsql.com/) Where the DB is storing.
+  - [XML-sitemaps](https://www.xml-sitemaps.com/) to create sitemap.
   - gunicorn
-  - [django-allauth](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) Used for the authorization
-  - [amiresponsive](https://ui.dev/amiresponsive) Used to check responsive screen
-  - [kaggle](https://www.kaggle.com/) To collect some data
+  - [django-allauth](https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/gunicorn/) Used for the authorization.
+  - [amiresponsive](https://ui.dev/amiresponsive) Used to check responsive screen.
+  - [kaggle](https://www.kaggle.com/) To collect some data.
 
 ## Deployment 
 
@@ -210,9 +211,6 @@ The project uses the ElephentSQL relational database for storing the data. There
 ## keywords (SEO)
   <img src='static/images/keywords.png'>
 
-
-
-
 ## Testing
 I have tested the project by the following points
 
@@ -258,32 +256,31 @@ I have tested the project by the following points
 
 
 ### Manually checking
-General Tests
-It has been tested and works in several web browsers such as Firefox and Edge.
-All alerts disappear after four seconds.
-The user can't book an invalid date or multiple appointments.
-It was made sure that each user had their own appointment.
-The user gets alert messages when they log in or log out.
-The navigation stays at the top of the page.
-Booking system
-Back end connected with front end.
-It shows a message for the user when they entered an invalid date or multiple appointments or a taken appointment.
-It takes the user to a confirmation message that includes the information of the appointment.
-Delete and Edit are functioning
-It allows the user to delete, edit, and read the appointment at any time.
-It gives the user a chance to undelete the appointment after clicking on delete bottom.
-Authorization
-Sign-Up
-The Sign-Up page works good.
-The link to the Log-in page works correctly.
-Log-in
-The Log-in page works good.
-The link to the Sign-Up page works correctly.
-The user has to enter the user details correctly to be able to log in.
-Log-out
-The Log-out page works good.
-The button works good.
-
+#### General Tests
+- It has been tested and works in several web browsers such as Firefox and Opra.
+- The user gets alert messages when they log in or log out.
+- The users has his own basket that they can fill it and make a checkout.
+- All alerts are closed manually.
+- User can update and remove any article from the basket before checking out.
+- The navigation stays at the top of the page.
+- Back end connected with front end.
+- E-commerce system
+- It shows a message for the user when they add an article to the basket or update it/delete it.
+- After checking out it isdone, Theuser receive a confrmition latter include all the detials.
+- Delete and Edit are functioning for users and admins.
+- It allows the user to delete, edit, and read thier basket.
+- Authorization
+  - Sign-Up
+  - The Sign-Up page works good.
+  - The link to the Log-in page works correctly.
+  - Log-in
+  - The Log-in page works good.
+  - The link to the Sign-Up page works correctly.
+  - The user has to enter the user details correctly to be able to log in.
+  - Log-out
+  - The Log-out page works good.
+  - The button works good.
+  - email verification
 
 ## Bugs
 
@@ -307,75 +304,33 @@ The button works good.
 
 ### Unfixed bugs
 
-  It was plan to add minumim price to order.
-  Due to lack of time, this plan is overlooked
+  - It was plan to add minumim price to order. Due to lack of time, this plan is overlooked.
+  - User don't receive alert before they delete the article from the basket.
 
 ## ERD
 <img src="static/images/erdecommerce.jpg">
 
 
 ## Credits
-inspiration was taken from Code Institute
-Icons are from Font-Awesome.
-This website uses Bootstrap.
-Images on this website are hosted and managed by Cloudinary.
-Fonts are from Google-Fonts.
-This website is powered by Django.
-To check representative screen amiresponsive.
-Used to test JavaScript JsHint.
-Used to stor DB elephantsql.
-Used to test CSS Jigsaw CSS Validator.
-Used to test HTML code W3 W3C HTML Validator.
-Used for Favicon.
-Used to design the RED app-diagrams.
-Used to check resporesponsive screens responsiveviewer
-Media
-An image was taken from depositphotos.
-Images were taken from 123rf.
-An image was taken from pixabay.
-About
-No description, website, or topics provided.
-Resources
- Readme
- Activity
-Stars
- 0 stars
-Watchers
- 1 watching
-Forks
- 0 forks
-Releases
-No releases published
-Create a new release
-Packages
-No packages published
-Publish your first package
-Deployments
-76
- ppfour last month
-+ 75 deployments
-Languages
-JavaScript
-38.9%
- 
-CSS
-35.6%
- 
-HTML
-16.8%
- 
-Python
-8.7%
-Suggested workflows
-Based on your tech stack
-Node.js logo
-Node.js
-Build and test a Node.js project with npm.
-Webpack logo
-Webpack
-Build a NodeJS project with npm and webpack.
-Publish Node.js Package logo
-Publish Node.js Package
-Publishes a Node.js package to npm.
-More workflows
-Footer
+- Icons are from [Font-Awesome](https://fontawesome.com/).
+- This website uses [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/).
+- inspiration was taken from [Code Institute](https://codeinstitute.net/de/bildungsgutschein/?utm_term=code%20institute&utm_campaign=CI+-+UK+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=16493764737&hsa_grp=132915436966&hsa_ad=635790877675&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw-ai0BhDPARIsAB6hmP4gs1dWyA8BsBj7BoJi6X9hqEPvTk0_zxcFmabslJ6LrL0nHB6xoikaAnMjEALw_wcB).
+- Hosting wrokspace [gitpod](https://www.gitpod.io/).
+- This website is powered by [Django](https://www.djangoproject.com/).
+- for update for newslater [Mailchimp](https://login.mailchimp.com/?referrer=%2Faudience%2Fcontacts%2F).
+- To check representative screen [amiresponsive](https://ui.dev/amiresponsive).
+- Images on this website are hosted and managed by [Cloudinary](https://cloudinary.com/).
+- Used to create sitemap[XML](https://www.xml-sitemaps.com/).
+- For the payment is used[Stripe](https://stripe.com/de?utm_campaign=DE_en_Search_Brand_Stripe_EXA-866170064&utm_medium=cpc&utm_source=google&ad_content=301948784636&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0GJZhP880Wbgg5rHfjuen4ObDsZMnwGIQHTWVUhPpRK-xsHiIacLkAaAry3EALw_wcB).
+- Fonts are from [Google-Fonts](https://fonts.google.com/).
+- Used for [Favicon](https://www.favicon.cc/).
+- Used to test JavaScript [JsHint](https://jshint.com/).
+- Used to stor DB [elephantsql](https://www.elephantsql.com/).
+- Used to test HTML code W3 W3C [HTML Validator](https://validator.w3.org/#validate_by_input).
+- Used to design the RED [paint](https://www.microsoft.com/en-us/windows/paint).
+- Used to test CSS Jigsaw [CSS Validator](https://jigsaw.w3.org/css-validator/).
+- Used to check resporesponsive screens [responsiveviewer](https://responsiveviewer.org/).
+- Used to generate the privacy policy[privacypolicygenerator](https://www.privacypolicygenerator.info/).
+- Media
+  - Images were taken from [pixabay](https://pixabay.com/).
+  - Some images were taken from [kaggle](https://www.kaggle.com/).
