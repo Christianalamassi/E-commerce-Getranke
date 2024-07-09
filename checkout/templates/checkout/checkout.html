@@ -43,7 +43,7 @@
                             {% if item.drink.image %}
                                 <img class="w-100" src="{{ item.drink.image.url }}" alt="{{ drink.name }}">
                             {% else %}
-                                <p class="w-100">No photo fo {{ drink.name }}</p>
+                                <img class="w-100" src="https://res.cloudinary.com/dsbcqaevp/image/upload/v1720506677/noimage.png" alt="{{ drink.name }}">
                             {% endif %}
                         </a>
                     </div>
