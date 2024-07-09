@@ -1,0 +1,13 @@
+.form-control{
+    width:100%;
+    margin-left:10px;
+}
+.contacts{
+    margin-left: 10px;
+}
+
+@media (max-width:590px){
+    .form-control{
+        width:80%;
+    }
+}

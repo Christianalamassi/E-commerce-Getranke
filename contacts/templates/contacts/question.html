@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'contacts/css/contact.css' %}" type = "text/css">
+{% endblock %}
+
+{% block content%}
+    <div class="lay"></div>
+    <div class="container">
+        <div class=" contacts">
+            <p>Leave us your question here, and we will get back to you as soon as possible</p>
+            <form method="POST" action="{% url 'question'%}" target="_blank">
+                {% csrf_token %} 
+                {%for q in form%}
+                    {{q | as_crispy_field}}
+                {% endfor%}
+                <input class="btn btn-primary btn-lg my-3" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}
