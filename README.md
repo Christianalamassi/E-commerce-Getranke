@@ -14,7 +14,8 @@ Some elements appear on all of the pages of the website, like navbar and the foo
   - Also, the navbar is responsive to different screen sizes.
 
 - Footer
-    The footer includes the contact of the shop, email and social media links.
+    - The footer includes the contact of the shop, email, question and social media links.
+    - Question link takes the user to leave us message page, where the user can submit their question to receive an answer from the admin.
 
 ### Home
 This is the main page, and just includes background and if the user is authenticated can see the basket in right top of the page.

@@ -10,12 +10,12 @@
     <div class="container">
         <div class=" contacts">
             <p>Leave us your question here, and we will get back to you as soon as possible</p>
-            <form method="POST" action="{% url 'question'%}" target="_blank">
+            <form method="POST" action="{% url 'question'%}">
                 {% csrf_token %} 
                 {%for q in form%}
                     {{q | as_crispy_field}}
                 {% endfor%}
-                <input class="btn btn-primary btn-lg my-3" type="submit" value="Submit">
+                <button class="btn btn-primary btn-lg my-3" type="submit">Submit</button>
             </form>
         </div>
     </div>
