@@ -14,7 +14,7 @@ def index(request):
             form.save()
             messages.success(request,("You have been applied for the newsletter successfully."))
         else:
-            messages.error(request, ("This email is not registered with our website."))
+            messages.error(request, ("This email is invalid."))
     form = NewsForm()
     context = {
         'form': form

@@ -11,6 +11,8 @@ def question(request):
             form.save()
             messages.info(request, "We received your question, \
             We will get back to you as soon as possible")
+        else:
+            messages.error(request, ("This email is invalid."))
     form=QuestionForm()
     context={
         'form':form
