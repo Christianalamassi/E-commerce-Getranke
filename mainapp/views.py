@@ -8,12 +8,6 @@ from .forms import NewsForm
 def index(request):
     """ A view to the main page of the project """
 
-    return render(request, "mainapp/index.html")
-
-
-def news(request):
-    """ Users newslater update"""
-
     if request.method == 'POST':
         form = NewsForm(request.POST)
         if form.is_valid():
