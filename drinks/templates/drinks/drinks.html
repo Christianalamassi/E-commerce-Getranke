@@ -17,23 +17,20 @@
     <!--Import clean background-->
     <div class="lay"></div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row text-black">
             <div class="col text-left mt-2">
-                <h2 class="logo-font"><strong>Drinks<strong></strong></h2>
+                <h2 class="logo-font"><strong>Drinks</strong></h2>
                 <!-- Default dropleft button -->
             </div>
             <div class="col text-right mt-2">
-                <select class="logo-font nav-link text-black mr-5 dropdown-toggle" href="" id="all_drinks" >
-                    <div class="dropdown-menu border-0"" aria-labelledby="all-drinks-link">
-                        <!-- Dropdown menu links -->
-                        <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort by</option>
-                        <option value="price_ascending" {% if sorting_by == 'price_ascending' %}selected{% endif %}>Price Low-High</option>
-                        <option value="price_descending" {% if sorting_by == 'price_descending' %}selected{% endif %}>Price High-Low</a>
-                        <option value="rating_descending" {% if sorting_by == 'rating_descending' %}selected{% endif %}>By Rating</a></option>
-                    </div>
+                <select class="logo-font text-black mr-5 dropdown-toggle"  id="all_drinks">
+                    <!-- Dropdown menu links -->
+                    <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort by</option>
+                    <option value="price_ascending" {% if sorting_by == 'price_ascending' %}selected{% endif %}>Price Low-High</option>
+                    <option value="price_descending" {% if sorting_by == 'price_descending' %}selected{% endif %}>Price High-Low</option>
+                    <option value="rating_descending" {% if sorting_by == 'rating_descending' %}selected{% endif %}>By Rating</option>
                 </select>
             </div>
-            <hr class="w-50 mb-1">
         </div>
         <div class="row">
             <div class="drinks-container col-10 offset-1">
@@ -103,13 +100,13 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
 	</script>
     
-    <script type="text/javascript">
+    <script>
         $('#all_drinks').change(function() {
             var selector = $(this);
             var path = new URL(window.location);

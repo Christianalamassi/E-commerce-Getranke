@@ -25,6 +25,7 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <!--Mailchimp style-->
     <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     {% endblock %}
@@ -33,6 +34,7 @@
     {% endblock %}
 
     {% block corejs %}
+
     <!-- Optional JavaScript; choose one of the two!
     Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -63,42 +65,46 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'drinks' %}">Order Here <span class="sr-only">(current)</span></a>
-          </li>
-                {% if request.user.is_authenticated%}
-                  {% if request.user.is_superuser %}
-                    <li class="nav-item active">
-                      <a class="nav-link" href="{% url 'add_drink'%}">Management <span class="sr-only">(current)</span></a>
-                    </li>
-                  {% endif %}
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                      Logout/Profile</a>
-                        <div class="dropdown-menu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'drinks' %}">Order Here <span class="sr-only">(current)</span></a>
+            </li>
+              {% if request.user.is_authenticated%}
+                {% if request.user.is_superuser %}
+                  <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'add_drink'%}">Management <span class="sr-only">(current)</span></a>
+                  </li>
+                {% endif %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Logout/Profile
+                  </a>
+                  <div class="dropdown-menu">
                     <a class="nav-link" href="{% url 'account_logout' %}">Log out <span class="sr-only">(current)</span></a>
                     <a class="nav-link" href="{% url 'profile' %}">Profile <span class="sr-only">(current)</span></a>
-                  </li>
-                {% else %}
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                      Register/Login</a>
-                        <div class="dropdown-menu">
-                          <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
-                          <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
-                    </li>
-                {% endif %}
-              </ul>
+                  </div>
+                </li>
+              {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Register/Login
+                  </a>
+                    <div class="dropdown-menu">
+                      <a class="nav-link" href="{% url 'account_signup' %}">Register <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{% url 'account_login' %}">Log in <span class="sr-only">(current)</span></a>
+                    </div>
+                </li>
+              {% endif %}
+            </ul>
               <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'drinks' %}">
-                <input class="mr-sm-2 form-control border border-black rounded-0"" type="text" placeholder="Search" aria-label="Search" name="search">
+                <input class="mr-sm-2 form-control border border-black rounded-0" type="text" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-warning my-0 my-sm-0" style='background-color: #365b73;' type="submit">Search</button>
               </form> 
-            </div>
-        </nav>      
+        </div>
+      </nav>      
     </header>
 
     <!--Here is the basket-->
@@ -143,7 +149,7 @@
     {% endblock %}
 
     {% block postloadjs %}
-      <script type="text/javascript">
+      <script>
         $('.toast').toast('show');
       </script>
     {% endblock %}
