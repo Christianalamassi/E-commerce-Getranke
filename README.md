@@ -15,7 +15,6 @@ Some elements appear on all of the pages of the website, like navbar and the foo
   - It also contains a search button where the user can search for all the items in the offer list.
 
     - <img src="static/images/znavzs.png">
-    <img src="static/images/znavzs.png">
 
 - Footer
     - The footer includes the contact of the shop, email, question and social media links.
