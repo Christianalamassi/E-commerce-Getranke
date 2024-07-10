@@ -351,6 +351,7 @@ I have tested the project by the following points
 
   - It was plan to add minumim price to order. Due to lack of time, this plan is overlooked.
   - User don't receive alert before they delete the article from the basket.
+  - <img src="static/images/bug.png">
 
 ## ERD
 <img src="static/images/erdecommerce.jpg">
