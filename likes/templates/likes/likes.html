@@ -12,10 +12,11 @@
     <div class="container">
         <div class="">
             <p><b>Please help us to improve ourselves by sharing your
-                opinion and giving us a rating from one to ten</b></p>
+                opinion and giving us a rating from one to ten.</b>
+                <div class="font-weight-light">one is bad, 10 is the best</div></p>
             <form action=""  method="POST">
                 {% csrf_token%}
-                <p>Rating</p>
+                <p>Rating <i class="fa-solid fa-star"></i></p>
                     {{ form.like | as_crispy_field }}
                     <p>Type what do you think about us, and how we can improve ourselves (Optional)</p>
                     {{ form.feedback | as_crispy_field }}
