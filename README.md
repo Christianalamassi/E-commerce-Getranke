@@ -11,32 +11,65 @@ Some elements appear on all of the pages of the website, like navbar and the foo
 
 - Navbar
   - The navigation is fixed at the top of the page and esay to use. It includs three buttons "Home","Order Here" and either or "log out" and "Profile" when the user logged in "log in" and " register" when the user logged out and "Management" if the user is superuser.
-  - Also, the navbar is responsive to different screen sizes.
+  - The navbar is responsive to different screen sizes.
+  - It also contains a search button where the user can search for all the items in the offer list.
+
+    - <img src="static/images/znavzs.png">
 
 - Footer
     - The footer includes the contact of the shop, email, question and social media links.
+
+    - <img src="static/images/yzf.png">
+
     - Question link takes the user to leave us message page, where the user can submit their question to receive an answer from the admin.
+      
+    - <img src="static/images/yquestion.png">
 
 ### Home
 This is the main page, and just includes background and if the user is authenticated can see the basket in right top of the page.
 
+<img src="static/images/zzzhom.png">
+
 ### Order Here
 - This page is available to everyone.
-On this page where customers can find products and see the details of each product.
-- When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is less than 1000
+- On this page where customers can find products and see the details of each product.
+- When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is not more than 1000
+- After the user adds the items to the shopping cart, it displays the message at the top right of the page to take the user to the checkout page by click on checkout button, or the user can easily click on the basket instead if they want to edit or delete some items before checkout. 
+- There is sort button where the user can sort the list according to the options.
+
+<img src="static/images/zorderder.png">
+
+### Profile
+ For each registered use there is personal profile page where they can find the information about their order.
+
+<img src="static/images/zprozfizley.png">
+
+### Checkout page
+Here where the user complete the order and pay for it after filling out the delivery information.
+
+<img src="static/images/zyyypatyyy.png">
 
 ### Authentication
   - This dropdown button includs the sing up, log in-out and profile buttons.
 
-
 #### Sign Up
-On this page the user can click on "Sign Up" if the user wants to create an account. 
+On this page the user can click on "Sign Up" if the user wants to create an account.
+
+<img src="static/images/zyzysig.png">
 
 #### Login
 On this page, the user only has to enter their username and password to log in to the page. It has a link to the Sign Up page if the user has no account. The user will automatically be able to see the basket.
 
+<img src="static/images/zlogin.png">
+
 #### Logout
-When the user is logged in and clicks on "Logout" up on the navigation bar, the user will automatically be redirected to this page first. The user receives the question if they are sure they want to log out. To log out they click on the button "confirm" 
+When the user is logged in and clicks on "Logout" up on the navigation bar, the user will automatically be redirected to this page first. The user receives the question if they are sure they want to log out. To log out they click on the button "confirm". 
+
+<img src="static/images/logout.png">
+
+#### Email confirmation
+ After the the user sign up they should receive an email asks for verification
+
 
 ## UX
 
