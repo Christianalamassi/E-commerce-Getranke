@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'likes/css/likes.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!--Import clean background-->
+    <div class="lay"></div>
+
+    <div class="container">
+        <div class="">
+            <p><b>Please help us to improve ourselves by sharing your
+                opinion and giving us a rating from one to ten</b></p>
+            <form action=""  method="POST">
+                {% csrf_token%}
+                <p>Rating</p>
+                    {{ form.like | as_crispy_field }}
+                    <p>Type what do you think about us, and how we can improve ourselves (Optional)</p>
+                    {{ form.feedback | as_crispy_field }}
+                <button class="btn btn-primary btn-lg my-3" type="submit">Submit</button>
+                <a class="btn btn-primary btn-lg my-3" href="{% url 'home'%}">Home</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

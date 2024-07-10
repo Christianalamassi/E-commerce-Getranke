@@ -70,6 +70,11 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
 #### Email confirmation
  After the the user sign up they should receive an email asks for verification
 
+### Other 
+- The website gives the user and visitors the opportunity to ask any question they need in order to get an answer from the staff as soon as possible, and to submit a request for a newsletter.
+- It also allows the logged in user to submit its opinion and give a rating.
+
+<img src="static/images/zzzzzzzyyyyyy.png">
 
 ## UX
 

@@ -13,8 +13,17 @@
                     <strong><mark>Free!</mark></strong>
                 </p>
 
-                <!-- newsletter-->
+                
                 <div id="mc_embed_shell">
+                    <!--Sharing the opinion of users-->
+                    {% if request.user.is_authenticated %}
+                        <div>
+                            <a href="{% url 'likes' %}" class="btn btn-outline-primary my-3">
+                                <b>Help us to improve ourselves</b>
+                            </a>
+                        </div>
+                    {% endif %}
+                    <!-- newsletter-->
                     <div id="mc_embed_signup">
                         <form action="{% url 'home' %}" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
                             {% csrf_token %}
