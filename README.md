@@ -35,7 +35,7 @@ This is the main page, and just includes background and if the user is authentic
 - On this page where customers can find products and see the details of each product.
 - When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is not more than 1000
 - After the user adds the items to the shopping cart, it displays the message at the top right of the page to take the user to the checkout page by click on checkout button, or the user can easily click on the basket instead if they want to edit or delete some items before checkout. 
-- There is sort button where the user can sort the list according to the options.
+- There is a sort button where the user can sort the list according to the options.
 
 <img src="static/images/zorderder.png">
 
