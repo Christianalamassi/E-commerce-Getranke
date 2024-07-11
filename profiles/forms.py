@@ -23,7 +23,7 @@ class UserProfileForm(forms.ModelForm):
             'default_phone_number': 'Phone Number',
             'default_street_address': 'Street Address',
             'default_postcode': 'Postal Code',
-            'default_state':'City',
+            'default_state': 'City',
         }
 
         # sets autofocus on full name field
@@ -37,6 +37,7 @@ class UserProfileForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] = (
+                'border-black rounded-0 profile-form-input'
+                )
             self.fields[field].label = False
-
