@@ -200,7 +200,7 @@ bottom:100px;
     width: 300px;
 }
 
-/*media queries to medium screen size from 900px wide and down*/
+/*media queries to medium screen size from 1200px wide and down*/
 
 @media (max-width: 1200px) {
 
@@ -209,6 +209,7 @@ bottom:100px;
     }
 }
 
+/*media queries to medium screen size from 991px wide and down*/
 @media (max-width: 991px) {
 
     body {
@@ -216,6 +217,7 @@ bottom:100px;
     }
 }
 
+/*media queries to medium screen size from 370px wide and down*/
 @media (max-width: 370px) {
     body{
         min-height: 100%;

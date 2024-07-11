@@ -261,40 +261,27 @@ I have tested the project by the following points
     
   - HTML
     - No errors were returned when passing through the official W3C validator
+      - [Preview](other_html)
     
   - CSS
     - No errors were found when passing through the official (Jigsaw) validator
 
+    <img src='static/images/check.png'>
+
+    <img src='static/images/iiidriord.png'>
+
+    <img src='static/images/intt.png'>
+
   - JavaScript
     - Undefined bootstrap was checked and there are no error Jshint validator.
 
+    <img src='static/images/checkjssw.png'>
+
   ### The website has been tested and works on different screen sizes and is responsive.
-  <img src='static/images/sdrfcee.png'>
-
-  <img src='static/images/checkkoh.png'>
-
-  <img src='static/images/dffdfdt.png'>
-
-  <img src='static/images/abcc1.png'>
-
-  <img src='static/images/adcvw2.png'>
+  - [Preview](screen)
 
 ### Lighthouse
-
-<img src='static/images/lighthousavf.png'>
-
-<img src='static/images/lighthousabfg.png'>
-
-<img src='static/images/lighthousa.png'>
-
-<img src='static/images/lighthousabfggg.png'>
-
-<img src='static/images/lightyg.png'>
-
-<img src='static/images/light.png'>
-
-<img src='static/images/liggghtd.png'>
-
+  - [Preview](lighthouse)
 
 ### Manually checking
 #### General Tests
@@ -351,7 +338,6 @@ I have tested the project by the following points
 
   - It was plan to add minumim price to order. Due to lack of time, this plan is overlooked.
   - User don't receive alert before they delete the article from the basket.
-  - <img src="static/images/bug.png">
 
 ## ERD
 <img src="static/images/erdecommerce.jpg">
