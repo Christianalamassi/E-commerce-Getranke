@@ -7,7 +7,7 @@ class HowMuchLikeForm(forms.ModelForm):
     class Meta:
         model = HowMuchLike
         fields = [
-            'like','feedback'
+            'like', 'feedback'
         ]
 
     def __init__(self, *args, **kwargs):
@@ -20,7 +20,7 @@ class HowMuchLikeForm(forms.ModelForm):
         # here is the placeholders will view in inputs
         placeholders = {
             'like': '',
-            'feedback':'Enter you type here.......'
+            'feedback': 'Enter you type here.......'
         }
 
         for field in self.fields:
@@ -32,5 +32,3 @@ class HowMuchLikeForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
-
-

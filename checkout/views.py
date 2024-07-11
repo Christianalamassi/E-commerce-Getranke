@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
+from django.shortcuts import HttpResponse, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -56,7 +57,7 @@ def checkout(request):
     if request.method == 'POST':
         basket = request.session.get('basket', {})
 
-        form_data  = {
+        form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
@@ -67,10 +68,10 @@ def checkout(request):
             }
         check_out = CheckOutForm(form_data)
         if check_out.is_valid():
-            order=check_out.save(commit=False)
+            order = check_out.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_basket=json.dumps(basket)
+            order.original_basket = json.dumps(basket)
             order.save()
 
             for basket_id, item_data in basket.items():
@@ -86,7 +87,8 @@ def checkout(request):
 
                 except Drink.DoesNotExist:
                     messages.error(request, (
-                        "One of the drink in your basket wasn't found in our database. "
+                        "One of the drink in your\
+                        basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -94,11 +96,13 @@ def checkout(request):
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number])
+                )
         else:
             messages.error(request, 'There was an error with your form. \
                 Please check your information again.')
-            
+
     else:
         basket = request.session.get('basket', {})
         if not basket:
@@ -114,10 +118,13 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        """
+        Attempt to prefill the form with any info the user
+        maintains in their profile
+        """
         if request.user.is_authenticated:
             try:
-                profile = UserProfile.objects.get(user=request.user )
+                profile = UserProfile.objects.get(user=request.user)
                 check_out = CheckOutForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -138,7 +145,7 @@ def checkout(request):
         check_out = CheckOutForm()
     template = 'checkout/checkout.html'
     context = {
-        'check_out':check_out,
+        'check_out': check_out,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret
     }

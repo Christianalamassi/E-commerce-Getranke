@@ -8,7 +8,11 @@ class HowMuchLike(models.Model):
     class Meta:
         verbose_name_plural = 'Feedback'
 
-    like = models.IntegerField(default=1, choices=((i,i) for i in range(1, 11)), null=False, blank=False)
+    like = models.IntegerField(
+        default=1, choices=(
+            (i, i) for i in range(1, 11)
+            ), null=False, blank=False
+        )
     feedback = models.TextField(max_length=1000, null=True, blank=True)
 
     def __itin__(self):

@@ -1,8 +1,6 @@
 from django.db import models
 
 
-
-
 class Alcohol(models.Model):
     """An alcohol kind model for each drink"""
 
@@ -18,7 +16,9 @@ class Drink(models.Model):
     name = models.CharField(max_length=50)
     alcohol = models.ForeignKey(Alcohol, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+        )
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

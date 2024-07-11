@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CheckOut, CheckOutLineItem 
+from .models import CheckOut, CheckOutLineItem
 
 
 class CheckOutLineItemAdminInline(admin.TabularInline):
@@ -11,27 +11,27 @@ class CheckOutAdmin(admin.ModelAdmin):
 
     inlines = (CheckOutLineItemAdminInline,)
 
-    readonly_fields= (
+    readonly_fields = (
         'order_number',
-        'date' ,
+        'date',
         'total',
     )
 
     fields = (
-    'order_number',
-    'user_profile',
-    'full_name',
-    'email',
-    'phone_number', 
-    'street_address',
-    'postcode',
-    'state',
-    'note',
-    'date',
-    'total',
-    'original_basket',
-    'stripe_pid',
-)
+        'order_number',
+        'user_profile',
+        'full_name',
+        'email',
+        'phone_number',
+        'street_address',
+        'postcode',
+        'state',
+        'note',
+        'date',
+        'total',
+        'original_basket',
+        'stripe_pid',
+        )
 
     display = (
         'order_number',
@@ -41,6 +41,7 @@ class CheckOutAdmin(admin.ModelAdmin):
         'data',
     )
 
-    ordring =('-data',)
+    ordring = ('-data',)
 
-admin.site.register(CheckOut,CheckOutAdmin)
+
+admin.site.register(CheckOut, CheckOutAdmin)

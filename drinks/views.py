@@ -5,10 +5,9 @@ from django.db.models import Q
 from .models import Drink, Alcohol
 from .forms import DrinkForm
 
-# Create your views here.
 
 def all_drink(request):
-    """ 
+    """
     A view to show all kind of drinks, including sorting and search queries
     allows the users to receive.
     displays an individual instance model:`.Alcohol, .Drink`
@@ -22,7 +21,7 @@ def all_drink(request):
     **Template**
     templat:`drinks/drinks.html`
     """
-    
+
     drinks = Drink.objects.all()
     query = None
     sort = None
@@ -34,7 +33,7 @@ def all_drink(request):
             if not query:
                 messages.error(request, 'Error entered search term')
                 return redirect(reverse('drinks'))
-            queries = Q(name__icontains = query)
+            queries = Q(name__icontains=query)
             drinks = drinks.filter(queries)
 
         if 'sort' in request.GET:
@@ -54,15 +53,15 @@ def all_drink(request):
 
     context = {
         'drinks': drinks,
-        'search_term':query,
-        'sorting_by':sorting_by,
+        'search_term': query,
+        'sorting_by': sorting_by,
     }
     return render(request, "drinks/drinks.html", context)
 
 
 def each_drink(request, drink_id):
-    """ 
-    A view to show each drink's details individual 
+    """
+    A view to show each drink's details individual
     allows the users to receive
     displays an individual instance model:`.Drink, Alcohol`
     **Context**
@@ -82,6 +81,7 @@ def each_drink(request, drink_id):
     }
     return render(request, "drinks/each_drink.html", context)
 
+
 @login_required
 def add_drink(request):
     """Add a drink to the shop"""
@@ -89,12 +89,12 @@ def add_drink(request):
     if not request.user.is_superuser:
         messages.error(request, 'Danger. You are not allowed to do this')
         return redirect(reverse('home'))
-        
-    if request.method=='POST':
+
+    if request.method == 'POST':
         form = DrinkForm(request.POST, request.FILES)
         if form.is_valid():
             drink = form.save()
-            messages.success(request,"You added it successfully")
+            messages.success(request, "You added it successfully")
             return redirect(reverse('each_drink', args=[drink.id]))
         else:
             messages.error(request, "Somthing went wrong, try again")
@@ -121,7 +121,7 @@ def edit_drink(request, drink_id):
         form = DrinkForm(request.POST, request.FILES, instance=drink)
         if form.is_valid():
             form.save()
-            messages.success(request,"You edited it successfully")
+            messages.success(request, "You edited it successfully")
             return redirect(reverse('each_drink', args=[drink.id]))
         else:
             messages.error(request, "Somthing went wrong, try again")
@@ -132,7 +132,7 @@ def edit_drink(request, drink_id):
     template = 'drinks/edit_drink.html'
     context = {
         'form': form,
-        'drink':drink,
+        'drink': drink,
     }
     return render(request, template, context)
 

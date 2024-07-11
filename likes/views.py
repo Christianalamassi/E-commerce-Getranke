@@ -9,17 +9,16 @@ from .forms import HowMuchLikeForm
 def likes(request):
     """Render the page where the user can submit their feedback"""
 
-    if request.method =='POST':
+    if request.method == 'POST':
         form = HowMuchLikeForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Thank you for sharing your opinion.")
-            return redirect('home') 
+            messages.success(request, "Thank you for sharing your opinion.")
+            return redirect('home')
         else:
-            messages.ERROR(request,"Something went wrong, Try again")
-    form =HowMuchLikeForm()
+            messages.ERROR(request, "Something went wrong, Try again")
+    form = HowMuchLikeForm()
     context = {
-        'form':form
+        'form': form
     }
     return render(request, "likes/likes.html", context)
-    

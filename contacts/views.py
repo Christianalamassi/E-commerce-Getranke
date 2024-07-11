@@ -5,7 +5,7 @@ from .forms import QuestionForm
 
 
 def question(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = QuestionForm(request.POST)
         if form.is_valid():
             form.save()
@@ -13,8 +13,8 @@ def question(request):
             We will get back to you as soon as possible")
         else:
             messages.error(request, ("This email is invalid."))
-    form=QuestionForm()
-    context={
-        'form':form
+    form = QuestionForm()
+    context = {
+        'form': form
     }
     return render(request, 'contacts/question.html', context)

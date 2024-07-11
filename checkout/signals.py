@@ -3,6 +3,7 @@ from django.dispatch import receiver
 
 from .models import CheckOutLineItem
 
+
 @receiver(post_save, sender=CheckOutLineItem)
 def update_on_save(sender, instance, created, **kwargs):
     """

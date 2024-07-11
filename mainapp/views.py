@@ -3,7 +3,6 @@ from django.contrib import messages
 from .models import News
 from .forms import NewsForm
 
-# Create your views here.
 
 def index(request):
     """ A view to the main page of the project """
@@ -12,7 +11,9 @@ def index(request):
         form = NewsForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,("You have been applied for the newsletter successfully."))
+            messages.success(request, (
+                "You have been applied for the newsletter successfully."
+                ))
         else:
             messages.error(request, ("This email is invalid."))
     form = NewsForm()

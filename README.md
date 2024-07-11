@@ -258,6 +258,7 @@ I have tested the project by the following points
   ### Validator Testing
   - Python
     - Passed the code to PEP8.
+      - [Preview](OTHER_PYTHON.md)
     
   - HTML
     - No errors were returned when passing through the official W3C validator
@@ -278,10 +279,10 @@ I have tested the project by the following points
     <img src='static/images/checkjssw.png'>
 
   ### The website has been tested and works on different screen sizes and is responsive.
-  - [Preview](screen.md)
+  - [Preview](OTHER_SCREEN.md)
 
 ### Lighthouse
-  - [Preview](lighthouse.md)
+  - [Preview](OTHER_LIGHTHOUSE.md)
 
 ### Manually checking
 #### General Tests

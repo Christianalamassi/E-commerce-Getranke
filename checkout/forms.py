@@ -32,9 +32,9 @@ class CheckOutForm(forms.ModelForm):
             'email': 'Email Address',
             'phone_number': 'Phone Number',
             'street_address': 'Street Address',
-            'state':'City',
+            'state': 'City',
             'postcode': 'Postal Code',
-            'note':'Type here your notification....(Optional)'
+            'note': 'Type here your notification....(Optional)'
         }
 
         # sets autofocus on full name field
@@ -50,4 +50,3 @@ class CheckOutForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-
