@@ -261,7 +261,7 @@ I have tested the project by the following points
     
   - HTML
     - No errors were returned when passing through the official W3C validator
-      - [Preview](other_html)
+      - [Preview](other_html.md)
     
   - CSS
     - No errors were found when passing through the official (Jigsaw) validator
@@ -278,10 +278,10 @@ I have tested the project by the following points
     <img src='static/images/checkjssw.png'>
 
   ### The website has been tested and works on different screen sizes and is responsive.
-  - [Preview](screen)
+  - [Preview](screen.md)
 
 ### Lighthouse
-  - [Preview](lighthouse)
+  - [Preview](lighthouse.md)
 
 ### Manually checking
 #### General Tests
