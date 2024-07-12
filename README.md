@@ -6,7 +6,7 @@ This project was designed, developed, and based on the idea of online shop to cr
 
 <img src="static/images/repersd.png">
 
-### Features
+## Features
 Some elements appear on all of the pages of the website, like navbar and the footer.
 
 - Navbar
@@ -25,12 +25,12 @@ Some elements appear on all of the pages of the website, like navbar and the foo
       
     - <img src="static/images/yquestion.png">
 
-### Home
+## Home
 This is the main page, and just includes background and if the user is authenticated can see the basket in right top of the page.
 
 <img src="static/images/zzzhom.png">
 
-### Order Here
+## Order Here
 - This page is available to everyone.
 - On this page where customers can find products and see the details of each product.
 - When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is not more than 1000
@@ -39,38 +39,38 @@ This is the main page, and just includes background and if the user is authentic
 
 <img src="static/images/zorderder.png">
 
-### Profile
+## Profile
  For each registered use there is personal profile page where they can find the information about their order.
 
 <img src="static/images/zprozfizley.png">
 
-### Checkout page
+# Checkout page
 Here where the user complete the order and pay for it after filling out the delivery information.
 
 <img src="static/images/zyyypatyyy.png">
 
-### Authentication
+## Authentication
   - This dropdown button includs the sing up, log in-out and profile buttons.
 
-#### Sign Up
+### Sign Up
 On this page the user can click on "Sign Up" if the user wants to create an account.
 
 <img src="static/images/zyzysig.png">
 
-#### Login
+### Login
 On this page, the user only has to enter their username and password to log in to the page. It has a link to the Sign Up page if the user has no account. The user will automatically be able to see the basket.
 
 <img src="static/images/zlogin.png">
 
-#### Logout
+### Logout
 When the user is logged in and clicks on "Logout" up on the navigation bar, the user will automatically be redirected to this page first. The user receives the question if they are sure they want to log out. To log out they click on the button "confirm". 
 
 <img src="static/images/logout.png">
 
-#### Email confirmation
+### Email confirmation
  After the the user sign up they should receive an email asks for verification
 
-### Other 
+## Other 
 - The website gives the user and visitors the opportunity to ask any question they need in order to get an answer from the staff as soon as possible, and to submit a request for a newsletter.
 - It also allows the logged in user to submit its opinion and give a rating.
 
