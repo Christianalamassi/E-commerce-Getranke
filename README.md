@@ -262,7 +262,7 @@ I have tested the project by the following points
     
   - HTML
     - No errors were returned when passing through the official W3C validator
-      - [Preview](other_html.md)
+      - [Preview](OTHER_HTML.md)
     
   - CSS
     - No errors were found when passing through the official (Jigsaw) validator
