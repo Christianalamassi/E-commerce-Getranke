@@ -23,7 +23,7 @@
                 <!-- Default dropleft button -->
             </div>
             <div class="col text-right mt-2">
-                <select class="logo-font text-black mr-5 dropdown-toggle"  id="all_drinks">
+                <select class="logo-font text-black mr-5 dropdown-toggle border custom-select-sm border-{% if sorting_by != 'None_None' %}info{% else %}black{% endif %}"  id="all_drinks">
                     <!-- Dropdown menu links -->
                     <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort by</option>
                     <option value="price_ascending" {% if sorting_by == 'price_ascending' %}selected{% endif %}>Price Low-High</option>
