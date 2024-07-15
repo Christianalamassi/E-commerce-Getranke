@@ -25,7 +25,7 @@ def all_drink(request):
     drinks = Drink.objects.all()
     query = None
     sort = None
-    way = None
+    direction = None
 
     if request.GET:
         if 'search' in request.GET:
@@ -49,7 +49,7 @@ def all_drink(request):
                     sortkey = f'-{sortkey}'
             drinks = drinks.order_by(sortkey)
 
-    sorting_by = f'{sort}_{way}'
+    sorting_by = f'{sort}_{direction}'
 
     context = {
         'drinks': drinks,
