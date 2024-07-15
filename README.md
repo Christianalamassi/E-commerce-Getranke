@@ -2,22 +2,22 @@
 
 ## Overview
 
-This project was designed, developed, and based on the idea of online shop to create a simple and easy method for the customers to buy drinks online. The users are given the possibility to add the order to thier basket, update it and delete it at any time before the payment. All these functionalities can be accessed by any user with an account. The admins have special permissions for controlling the data (CRUD). The website was made for real life simulation, although the shop and drinks don't exist in real life. The web site was developed using HTML, CSS, JS, Python "Django" and data are stored in an Elephant SQL database.
+This project was designed, developed, and based on the idea of an online shop to create a simple and easy method for customers to buy drinks online. The users are given the possibility to add the order to their basket, update it, and delete it at any time before the payment. All these functionalities can be accessed by any user with an account. The admins have special permissions for controlling the data (CRUD). The website was made for real-life simulation, although the shop and drinks don't exist in real life. The website was developed using HTML, CSS, JS, Python "Django" and data are stored in an Elephant SQL database.
 
 <img src="static/images/repersd.png">
 
 ## Features
-Some elements appear on all of the pages of the website, like navbar and the footer.
+Some elements appear on all of the pages of the website, like the navbar and the footer.
 
 - Navbar
-  - The navigation is fixed at the top of the page and esay to use. It includs three buttons "Home","Order Here" and either or "log out" and "Profile" when the user logged in "log in" and " register" when the user logged out and "Management" if the user is superuser.
+  - The navigation is fixed at the top of the page and easy to use. It includes three buttons "Home", "Order Here" and either "log out" and "Profile" when the user logs in "login" and " register" when the user logs out, and "Management" if the user is the superuser.
   - The navbar is responsive to different screen sizes.
   - It also contains a search button where the user can search for all the items in the offer list.
 
     - <img src="static/images/znavzs.png">
 
 - Footer
-    - The footer includes the contact of the shop, email, question and social media links.
+    - The footer includes the contact of the shop, email, question, and social media links.
 
     - <img src="static/images/yzf.png">
 
@@ -26,7 +26,7 @@ Some elements appear on all of the pages of the website, like navbar and the foo
     - <img src="static/images/yquestion.png">
 
 ## Home
-This is the main page, and just includes background and if the user is authenticated can see the basket in right top of the page.
+This is the main page, and just includes background and if the user is authenticated can see the basket at the right top of the page.
 
 <img src="static/images/zzzhom.png">
 
@@ -34,23 +34,23 @@ This is the main page, and just includes background and if the user is authentic
 - This page is available to everyone.
 - On this page where customers can find products and see the details of each product.
 - When the user clicks on any item, it displays the item individually, where the user can add the order to the cart in the quantity a user needs, provided that it is not more than 1000
-- After the user adds the items to the shopping cart, it displays the message at the top right of the page to take the user to the checkout page by click on checkout button, or the user can easily click on the basket instead if they want to edit or delete some items before checkout. 
+- After the user adds the items to the shopping cart, it displays the message at the top right of the page to take the user to the checkout page by clicking on the checkout button, or the user can easily click on the basket instead if they want to edit or delete some items before checkout. 
 - There is a sort button where the user can sort the list according to the options.
 
 <img src="static/images/zorderder.png">
 
 ## Profile
- For each registered use there is personal profile page where they can find the information about their order.
+ For each registered user there is a personal profile page where they can find the information about their order.
 
 <img src="static/images/zprozfizley.png">
 
 # Checkout page
-Here where the user complete the order and pay for it after filling out the delivery information.
+Here where the user completes the order and pays for it after filling out the delivery information.
 
 <img src="static/images/zyyypatyyy.png">
 
 ## Authentication
-  - This dropdown button includs the sing up, log in-out and profile buttons.
+  - This dropdown button includs the singup, login/out and profile buttons.
 
 ### Sign Up
 On this page the user can click on "Sign Up" if the user wants to create an account.
@@ -68,11 +68,11 @@ When the user is logged in and clicks on "Logout" up on the navigation bar, the 
 <img src="static/images/logout.png">
 
 ### Email confirmation
- After the the user sign up they should receive an email asks for verification
+ After the user signs up they should receive an email asking for verification
 
 ## Other 
-- The website gives the user and visitors the opportunity to ask any question they need in order to get an answer from the staff as soon as possible, and to submit a request for a newsletter.
-- It also allows the logged in user to submit its opinion and give a rating.
+- The website gives the user and visitors the opportunity to ask any question they need in order to get an answer from the staff as soon as possible and to submit a request for a newsletter.
+- It also allows the logged-in user to submit its opinion and give a rating.
 
 <img src="static/images/zzzzzzzyyyyyy.png">
 
@@ -117,11 +117,11 @@ The user can access the home page and Order Here page without having a profile, 
 ### Scope
  - Make a clear and easy design for the users
   - Simple and intuitive User Experience.
-  - Add information of contact and social media.
+  - Add information on contact and social media.
   - Create a responsive design for desktop, tablet, and mobile devices.
   - Allow access to the Profile page only for client type of users
-  - Create E-commerce system feature that allow the admin to display, edit and delete the item from the shop's lits.
-  - Create E-commerce system feature that allows the users to display, edit, and delete the item from the basket.
+  - Create an E-commerce system feature that allows the admin to display, edit, and delete the item from the shop's list.
+  - Create an E-commerce system feature that allows the users to display, edit, and delete the item from the basket.
   - Create a Profile page for the user, so the user can order.
 
 ### Skeleton
@@ -286,48 +286,48 @@ I have tested the project by the following points
 
 ### Manually checking
 #### General Tests
-- It has been tested and works in several web browsers such as Firefox and Opra.
+- It has been tested and works in several web browsers such as Firefox and Opera.
 - The user gets alert messages when they log in or log out.
-- The users has his own basket that they can fill it and make a checkout.
+- The users have their own basket that they can fill it and make a checkout.
 - All alerts are closed manually.
-- User can update and remove any article from the basket before checking out.
+- Users can update and remove any article from the basket before checking out.
 - The navigation stays at the top of the page.
 - Back end connected with front end.
 - E-commerce system
 - It shows a message for the user when they add an article to the basket or update it/delete it.
-- After checking out it isdone, Theuser receive a confrmition latter include all the detials.
+- After checking out it is done, and the user receives a confirmation letter including all the details.
 - Delete and Edit are functioning for users and admins.
-- It allows the user to delete, edit, and read thier basket.
+- It allows the user to delete, edit, and read their basket.
 - Authorization
   - Sign-Up
-  - The Sign-Up page works good.
-  - The link to the Log-in page works correctly.
+  - The Sign-Up page works well.
+  - The link to the login page works correctly.
   - Log-in
-  - The Log-in page works good.
+  - The login page works well.
   - The link to the Sign-Up page works correctly.
   - The user has to enter the user details correctly to be able to log in.
   - Log-out
-  - The Log-out page works good.
-  - The button works good.
+  - The Log-out page works well.
+  - The button works well.
   - email verification
 
 ## Bugs
 
 ### Fixed bugs
-  - This error happend when I was trying to check out.
+  - This error happened when I was trying to check out.
   The error was solved by adding STRIPE_WH_SECRET to env.py, and to vars in Heroku
 
   <img src="static/images/errors.png"> 
 
-  - I coudn't call Webhook during my wrok. The bug was fixed by calling WH from  checkout webhook handler
+  - I couldn't call Webhook during my work. The bug was fixed by calling WH from the checkout webhook handler
 
   <img src="static/images/wwhhh.png"> 
 
-  - Unsaved authenticated user information and check out. It was solved by adding indentation to checkout after if statement
+  - Unsaved authenticated user information and check out. It was solved by adding an indentation to checkout after the if statement
 
   <img src="static/images/eeeee.png"> 
 
-  - Unable to imgrate. the bug was solved when I did cheange note the first imgration manually from False to True.
+  - Unable to migrate. the bug was solved when I did cheange note at the migartion manually from False to True.
 
   <img src="static/images/null.png">
 
@@ -337,9 +337,8 @@ I have tested the project by the following points
 
 ### Unfixed bugs
 
-  - It was plan to add minumim price to order. Due to lack of time, this plan is overlooked.
-  - User don't receive alert before they delete the article from the basket.
-
+  - It was planned to add a minimum price to the order. Due to a lack of time, this plan is overlooked.
+  - Users don't receive an alert before they delete the article from the basket.
 ## ERD
 <img src="static/images/erdecommerce.jpg">
 
