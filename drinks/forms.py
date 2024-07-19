@@ -16,4 +16,4 @@ class DrinkForm(forms.ModelForm):
     
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black'
-            self.fields['name'].label = 'Name of Drink'
+            self.fields['name'].label = 'Name of drink'
