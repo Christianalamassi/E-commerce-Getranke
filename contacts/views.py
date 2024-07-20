@@ -9,7 +9,7 @@ def question(request):
         form = QuestionForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.info(request, "We received your question, \
+            messages.success(request, "We received your question, \
             We will get back to you as soon as possible")
         else:
             messages.error(request, ("This email is invalid."))
