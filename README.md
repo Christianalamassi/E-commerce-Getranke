@@ -258,11 +258,11 @@ I have tested the project by the following points
   ### Validator Testing
   - Python
     - Passed the code to PEP8.
-      - [Preview](OTHER_PYTHON.md)
+      - [Preview](TEST_PYTHON.md)
     
   - HTML
     - No errors were returned when passing through the official W3C validator
-      - [Preview](OTHER_HTML.md)
+      - [Preview](TEST_HTML.md)
     
   - CSS
     - No errors were found when passing through the official (Jigsaw) validator
@@ -279,10 +279,10 @@ I have tested the project by the following points
     <img src='static/images/checkjssw.png'>
 
   ### The website has been tested and works on different screen sizes and is responsive.
-  - [Preview](OTHER_SCREEN.md)
+  - [Preview](TEST_SCREEN.md)
 
 ### Lighthouse
-  - [Preview](OTHER_LIGHTHOUSE.md)
+  - [Preview](TEST_LIGHTHOUSE.md)
 
 ### Manually checking
 #### General Tests
@@ -342,6 +342,8 @@ I have tested the project by the following points
 ## ERD
 <img src="static/images/erdecommerce.jpg">
 
+## Facebook page
+<img src='static/images/facebook.png'>
 
 ## Credits
 - Icons are from [Font-Awesome](https://fontawesome.com/).

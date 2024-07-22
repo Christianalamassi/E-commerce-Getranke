@@ -35,3 +35,19 @@
 <img src='static/images/webh.png'>
 
 <img src='static/images/webhondlerdews.png'>
+
+<img src='static/images/adminlike.png'>
+
+<img src='static/images/fdgfd.png'>
+
+<img src='static/images/fooormdrink.png'>
+
+<img src='static/images/qaswe.png'>
+
+<img src='static/images/rojectsviewss.png'>
+
+<img src='static/images/settingspythons.png'>
+
+<img src='static/images/urlsettings.png'>
+
+<img src='static/images/vfgr.png'>

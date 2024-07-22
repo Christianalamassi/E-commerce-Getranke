@@ -32,8 +32,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = "DEVELOPMENT" in os.environ
 
 
-ALLOWED_HOSTS = ['8000-christianalam-ecommerce-7stq077os51.ws.codeinstitute-ide.net',
-'ecommercepp5-a121ad0ae944.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [
+    '8000-christianalam-ecommerce-7stq077os51.ws.codeinstitute-ide.net',
+    'ecommercepp5-a121ad0ae944.herokuapp.com', 'localhost'
+    ]
 
 
 # Application definition
@@ -59,7 +61,7 @@ INSTALLED_APPS = [
     'contacts',
     'likes',
 
-    #other
+    # other
     'crispy_forms',
 ]
 
@@ -90,7 +92,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -124,7 +127,6 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
     }
-
 
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
@@ -170,16 +172,24 @@ CSRF_TRUSTED_ORIGINS = [
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.MinimumLengthValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.CommonPasswordValidator'
+            ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.NumericPasswordValidator'
+            ),
     },
 ]
 
@@ -202,8 +212,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_STORAGE = (
+    'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    )
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
@@ -224,7 +236,6 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
 
 
 print(os.environ['STRIPE_WH_SECRET'])
