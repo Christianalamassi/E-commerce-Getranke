@@ -33,7 +33,7 @@ def all_drink(request):
             if not query:
                 messages.error(request, 'Error entered search term')
                 return redirect(reverse('drinks'))
-            queries = Q(name__icontains=query)
+            queries = Q(name__icontains=query) | Q(alcohol__name__icontains=query)
             drinks = drinks.filter(queries)
 
         if 'sort' in request.GET:

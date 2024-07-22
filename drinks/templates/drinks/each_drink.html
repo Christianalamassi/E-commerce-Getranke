@@ -46,6 +46,7 @@
                     <form class="form" action="{% url 'add_basket' drink.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                            {% if request.user.is_authenticated %}
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
@@ -54,7 +55,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {% if request.user.is_authenticated %}
                             <div class="mt-2">
                                 <input type="submit" style="margin-bottom: 15px;"
                                 class="btn btn-primary text-uppercase" value="Add to basket"><br>
