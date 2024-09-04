@@ -144,7 +144,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "NdcH",
-            "alcohol": 1,
+            "alcohol": 13,
             "price": 13.20,
             "rating": 4.5,
             "image": "aleksandra-dementeva-NdcH-WxzWgo-unsplash.jpg"
@@ -155,7 +155,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Anoolood",
-            "alcohol": 2,
+            "alcohol": 8,
             "price": 2.50,
             "rating": 4.9,
             "image": "anomaly-krf2UjxxTfs-unsplash.jpg"
@@ -166,7 +166,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Armandkon",
-            "alcohol": 3,
+            "alcohol": 9,
             "price": 8.00,
             "rating": 3.9,
             "image": "armands-brants-tDfILN5dfx4-unsplash.jpg"
@@ -188,7 +188,6 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Nuts",
-            "alcohol": 6,
             "price": 9.99,
             "rating": 4.7,
             "image": "dean-ricciardi-tjbH25wwJwA-unsplash.jpg"
@@ -210,7 +209,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Giancars",
-            "alcohol": 7,
+            "alcohol": 8,
             "price": 4.99,
             "rating": 4,
             "image": "giancarlo-revolledo-d4nrRZp0tus-unsplash.jpg"
@@ -221,7 +220,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Albnozies",
-            "alcohol": 9,
+            "alcohol": 8,
             "price": 5.49,
             "rating": 4.5,
             "image": "albornoz-3o-rcD2dBxU-unsplash.jpg"
@@ -243,7 +242,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Jinn krrp",
-            "alcohol": 5,
+            "alcohol": 8,
             "price": 4.00,
             "rating": 4.8,
             "image": "jon-koop-Vncm6vFfbaA-unsplash.jpg"
@@ -254,7 +253,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Conv",
-            "alcohol": 13,
+            "alcohol": 9,
             "price": 14.99,
             "rating": 4.8,
             "image": "pexels-pixabay-33265.jpg"
@@ -276,7 +275,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Mschto-Mu",
-            "alcohol": 18,
+            "alcohol": 6,
             "price": 5.00,
             "rating": 4.1,
             "image": "mae-mu-kbch-i63YTg-unsplash.jpg"
@@ -331,7 +330,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "AXL",
-            "alcohol": 4,
+            "alcohol": 8,
             "price": 2.99,
             "rating": 4.5,
             "image": "rivage-tRkulGn0pGY-unsplash.jpg"
@@ -342,7 +341,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Cxstirs",
-            "alcohol": 19,
+            "alcohol": 8,
             "price": 7.49,
             "rating": 4.5,
             "image": "yonatan-huaman-castro-RQ1D4LgtIFk-unsplash.jpg"
@@ -353,7 +352,7 @@
         "model": "drinks.drink",
         "fields": {
             "name": "Hanikanx",
-            "alcohol": 10,
+            "alcohol": 8,
             "price": 2.99,
             "rating": 4.5,
             "image": "soliman-cifuentes-mhad_4H6S14-unsplash.jpg"
